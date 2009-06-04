@@ -4,8 +4,8 @@
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME            => 'Mid-Century Mobile',
-    VERSION         => '1.01',
-    DISTNAME        => 'MidCenturyMobile',
+    NAME            => 'Mid-Century 2.0',
+    VERSION         => '0.1',
+    DISTNAME        => 'MidCenturyMajordojo',
 );
 
