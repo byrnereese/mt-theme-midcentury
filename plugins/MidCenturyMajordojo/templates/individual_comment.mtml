@@ -1,0 +1,27 @@
+<mt:SetVarBlock name="current_comment"><mt:CommentID></mt:SetVarBlock>
+
+<div id="comment-<$MTCommentID$>" class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
+    <div class="inner">
+        <div class="comment-content">
+            <div class="comment-content-inner">
+            <$MTCommentBody$>
+            </div>
+        </div>
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    <$MTCommentAuthorIdentity$>
+<mt:IfCommentParent>
+                    <span class="vcard author"><$MTCommentAuthorLink$></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$MTCommentAuthor$></mt:CommentParent></a>
+<mt:else>
+                    <span class="vcard author"><$MTCommentAuthorLink$></span>
+</mt:IfCommentParent>
+                    | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$MTCommentDate format_name="iso8601"$>"><$MTCommentDate$></abbr></a>
+<MTIfCommentsAccepted>
+                    | <$MTCommentReplyToLink$>
+</MTIfCommentsAccepted>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

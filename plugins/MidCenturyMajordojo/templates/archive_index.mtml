@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$>: Archives</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-index <$MTVar name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="Banner Header"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+<mt:var name="best" index="0" value="2541">
+<mt:var name="best" index="1" value="2674">
+<mt:var name="best" index="2" value="2567">
+<mt:var name="best" index="3" value="2245">
+<mt:var name="best" index="4" value="1835">
+<mt:var name="best" index="5" value="2629">
+<mt:var name="best" index="6" value="2251">
+
+<h1  class="archive-title" id="page-title">Most Popular</h1>
+
+<div class="entry-listing">
+    <ul>
+<mt:for var="i" from="0" to="6" increment="1">
+<mt:setvarblock name="id"><mt:var name="best" function="pop"></mt:setvarblock>
+<MTEntries id="$id">
+    <li>
+    <a href="<$MTEntryPermalink$>"><span class="entry-listing-date"><mt:EntryDate format="%b %e %Y" /></span><span class="entry-listing-title"><mt:EntryTitle /></span><span class="entry-listing-comments"><mt:EntryCommentCount /></span></a>
+    </li>
+</MTEntries>
+</mt:for>
+    </ul>
+</div>
+
+<h1 class="archive-title" id="page-title">Archived Entries</h1>
+
+<div class="entry-listing">
+    <ul>
+<MTEntries lastn="20" unique="1">
+    <li>
+    <a href="<$MTEntryPermalink$>"><span class="entry-listing-date"><mt:EntryDate format="%b %e %Y" /></span><span class="entry-listing-title"><mt:EntryTitle /></span><span class="entry-listing-comments"><mt:EntryCommentCount /></span></a>
+    </li>
+</MTEntries>
+    </ul>
+</div>
+
+                        </div>
+                    </div>
+                    <$MTInclude module="Sidebar"$>
+                </div>
+            </div>
+            <$mt:include module="Banner Footer"$>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <div id="dialog"><div id="dialog-inner">
+        <div id="dialog-content"></div>
+        <a href="javascript:dialogClose();" id="dialog-close">Close</a>
+    </div></div>
+</body>
+</html>

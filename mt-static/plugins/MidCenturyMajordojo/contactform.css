@@ -1,0 +1,50 @@
+#alpha #contactform { margin-left: 55px; }
+#contactform form {
+    background: url(entry-footer-bg-bot.gif) no-repeat left bottom;
+    padding-bottom: 5px;
+}
+#contactform form #contactform-inner {
+    background: #eeeeea url(entry-footer-bg-top.gif) no-repeat left top;
+    margin: 0;
+    padding: 15px 10px 10px 10px;
+}
+
+#comment-greeting {
+    margin-bottom: 5px;
+}
+#contact-form div {
+    clear: left;
+    margin-bottom: 5px;
+}
+#contact-form label {
+    display: block;
+    float: left;
+    width: 90px;
+    text-align: right;
+    color: #666662;
+    margin-right: 10px;
+}
+#contact-form input.ti,
+#contact-form textarea {
+    float: left;
+    width: 330px;
+}
+#contact-form .checkbox,
+#comment-form-remember-me,
+#comment-form-reply,
+#contactform-footer {
+    padding-left: 100px;
+}
+#contact-form .checkbox input,
+#contact-form .checkbox label {
+    float: left;
+    padding-left: 5px;
+    text-align: left;
+}
+#comment-form-remember-me label,
+#comment-form-reply label {
+    float: none;
+    width: auto;
+    text-align: left;
+    display: inline;
+}

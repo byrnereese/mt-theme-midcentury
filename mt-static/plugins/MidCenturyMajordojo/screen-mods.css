@@ -1,0 +1,126 @@
+.mt-enclosure-image p.caption {
+  font-family: Helvetica;
+  color: #999;
+  font-size: 11px;
+  text-align: left;
+  line-height: 130%;
+  padding-top: 0;
+  margin-top: -35px;
+}
+.asset-footer iframe { float:left; margin: 0 10px 0 0; }
+pre { overflow: auto; }
+.pullquote { float:right; font-size: 18px; font-family: serif; width: 250px; padding: 5px 0 5px 20px; }
+
+h1#page-title { font-size: 2em; }
+
+.widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
+.widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
+.widget-recent-comments ul li { background: url(sidebar-wide-bg-top.gif) no-repeat 0 0; }
+.widget-recent-comments ul li .comment-attribution { background: url(sidebar-wide-bg-bot.gif) no-repeat 0 0; }
+
+.widget-archive-category { width: 20%; float: left; }
+.widget-tag-cloud { width: 50%; float: left; }
+.widget-tag-cloud .widget-content ul { margin-left: 0; margin-right: 20px; font-size: 1.1em; }
+.widget-about p { font-size: 1.2em; font-family: Georgia; margin-top: 10px; }
+
+#alpha .action-stream-list { margin-left: 50px; margin-top: 20px; font-family: Georgia; font-size: 1.2em; }
+
+.entry-asset,
+.page-asset {
+   margin-bottom: 25px;
+}
+.asset-more-link {
+  font-weight: bold;
+  margin-left: 55px;
+}
+
+.asset-more {
+  margin-left: 55px;
+  padding-top: 5px;
+/*  font-family: Arial; */
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.asset-content ul { 
+  margin-left: 15px; 
+  list-style: circle;
+}
+
+.asset-content ol {
+  list-style-type: decimal;
+  margin-left: 25px;
+}
+
+.comment-content blockquote { border-left: 2px solid #CCC; padding-left: 10px; margin: 0 0 5px 10px; }
+
+#comment-form-subscribe {
+    padding-left: 100px;
+}
+#comment-form-subscribe label {
+    float: none;
+    width: auto;
+    text-align: left;
+    display: inline;
+}
+
+.widget-boxed {
+    background: #cedde6 url(sidebar-bg-top.gif) no-repeat left top;
+    margin-bottom: 20px;
+    position: relative;
+}
+.widget-boxed .widget-header {
+    margin-bottom: 5px;
+    padding: 6px 0 0;
+    font-size: 14px;
+}
+.widget-boxed .inner {
+    background: url(sidebar-bg-bot.gif) no-repeat left bottom;
+    padding: 0 10px 10px;
+}
+.widget-boxed .widget-content {
+    background: url(sidebar-bg-inner-bot.gif) no-repeat left bottom;
+    padding-bottom: 5px;
+}
+.widget-boxed .widget-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-family: Georgia;
+    overflow: hidden;
+}
+.widget-boxed .widget-content-inner {
+    background: url(sidebar-bg-inner-top.gif) no-repeat left top;
+    padding: 10px 10px 5px;
+}
+
+.widget-boxed { 
+    background-color: #EEE;
+    padding-top: 10px;
+}
+.widget-pagenav h3 {
+    display: none;
+}
+.widget-pagenav ul.hasindex li {
+    padding-left: 20px;
+}
+.widget-pagenav ul.hasindex li.index {
+    padding-left: 10px;
+}
+.widget-pagenav ul li {
+    border-bottom: 1px solid #DDD;
+    padding: 3px 10px 3px 10px;
+    font-size: 1.0em;
+    color: red;
+}
+.widget-pagenav ul li.active {
+    font-weight: bold;
+}
+.widget-pagenav ul li:last-child {
+    border-bottom: none;
+}
+.widget-pagenav ul li a {
+    color: #A30000;
+}
+
+.widget-donate form { padding: 10px; text-align: center; }

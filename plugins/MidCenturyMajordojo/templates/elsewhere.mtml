@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$MTLink template="rsd"$>" />
+    <title>Byrne Elsewhere on the Internet</title>
+
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="Banner Header"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+<h1 id="page-title">Elsewhere...</h1>
+<mt:ActionStreams display_name="Byrne" lastn="30">
+        <mt:if name="__first__">
+  <div class="action-stream">
+    <ul class="action-stream-list">
+        </mt:if>
+          <li class="service-icon service-<mt:var name="service_type">"><mt:StreamAction regex_replace="/byrnereese: /","" smarty_pants="1"></li>
+        <mt:if name="__last__">
+    </ul>
+  </div>
+        </mt:if>
+</mt:ActionStreams>
+
+<p><img src="http://www.majordojo.com/images/feed-202020.gif" width="20" height="20"> <a href="http://www.majordojo.com/elsewhere/atom.xml">Subscribe to this Action Stream</a></p>
+
+                        </div>
+                    </div>
+                    <$MTInclude module="Sidebar"$>
+                </div>
+            </div>
+            <$mt:include module="Banner Footer"$>
+        </div>
+    </div>
+</body>
+</html>

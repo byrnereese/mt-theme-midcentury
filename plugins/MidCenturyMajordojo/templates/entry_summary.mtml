@@ -1,0 +1,32 @@
+<$MTEntryTrackbackData$>
+<div id="entry-<$MTEntryID$>" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="<$MTEntryPermalink$>" rel="bookmark"><$MTEntryTitle$></a></h2>
+        <div class="asset-meta">
+            <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="<span class='day'>%e</span> %b %Y"$></abbr></div>
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+<MTIfNonEmpty tag="EntryBody">
+        <div class="asset-body">
+            <$MTEntryBody$>
+        </div>
+</MTIfNonEmpty>
+<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+        <div class="asset-more-link">
+            Continue reading <a href="<$MTEntryPermalink$>#more" rel="bookmark"><$MTEntryTitle$></a>.
+        </div>
+</MTIfNonEmpty>
+    </div>
+    <div class="asset-footer"><div class="asset-footer-inner">
+        <MTIfCommentsActive><div class="entry-commentcount"><a href="<$MTEntryPermalink$>#comments"><$MTEntryCommentCount$> <span>Comments</span></a></div></MTIfCommentsActive>
+        <div class="asset-footer-meta">
+        <p>Posted by <$MTEntryAuthorLink show_hcard="1"$> on <$MTEntryDate format="%A, %x at %X"$><MTIfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$MTEntryPermalink$>#trackback" class="trackback-count"><$MTEntryTrackbackCount$> <span>TrackBacks</span></a></span></MTIfPingsActive></p>
+        <p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
+        <MTEntryIfTagged><MTIfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </MTIfNonEmpty>
+                <MTEntryTags glue=', '><a href="<$MTTagSearchLink$>" rel="tag"><$MTTagName$></a></MTEntryTags>
+        </MTEntryIfTagged>
+        </p>
+        </div>
+    </div></div>
+</div>

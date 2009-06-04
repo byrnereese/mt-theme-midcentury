@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+<script src="<mt:StaticWebPath>plugins/mid-century/jquery.phpdate.js" type="text/javascript"></script>    <link rel="alternate" type="application/atom+xml" title="Recent Comments on <$MTEntryTitle encode_html="1"$>" href="<$MTEntryPermalink$>.xml">
+    <MTEntryPrevious><link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryPrevious>
+    <MTEntryNext><link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryNext>
+    <$MTEntryTrackbackData$>
+    <title><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
+<script type="text/javascript">
+digg_url = '<mt:EntryPermalink encode_js="1">';
+//digg_skin = 'compact';
+digg_window = 'new';
+digg_title = '<mt:EntryTitle encode_js="1">';
+</script>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive <$MTVar name="page_layout"$>" onload="mtEntryOnLoad()">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <$mt:include module="Banner Header"$>
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+<!-- google_ad_section_start -->
+
+                            <div id="entry-<$MTEntryID$>" class="entry-asset asset hentry">
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name entry-title"><$MTEntryTitle$></h1>
+                                        <div class="asset-meta">
+                                            <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="<span class='day'>%e</span> %b %Y"$></abbr></div>
+                                        </div>
+                                </div>
+                                <div class="asset-content entry-content">
+<MTIfNonEmpty tag="EntryBody">
+                                    <div class="asset-body">
+                                        <$MTEntryBody$>
+                                    </div>
+</MTIfNonEmpty>
+<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+                                    <div id="more" class="asset-more">
+                                        <$MTEntryMore$>
+                                    </div>
+</MTIfNonEmpty>
+                                </div>
+                                <div class="asset-footer"><div class="asset-footer-inner">
+                                    <script src="http://digg.com/tools/diggthis.js" type="text/javascript"></script>
+                                    <p>Posted by <$MTEntryAuthorLink show_hcard="1"$> on <$MTEntryDate format="%A, %x at %X"$><MTIfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$MTEntryPermalink$>#trackback" class="trackback-count"><$MTEntryTrackbackCount$> <span>TrackBacks</span></a></span></MTIfPingsActive>
+                                    </p>
+                                    <p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
+                                    <MTEntryIfTagged>and tagged 
+                                            <MTEntryTags glue=', '><a href="<$MTTagSearchLink$>" rel="tag"><$MTTagName$></a></MTEntryTags>
+                                        
+                                    </MTEntryIfTagged>
+                                    </p>
+
+                                </div></div>
+                            </div>
+
+<$MTInclude module="Related Entries"$>
+
+                    <$MTInclude module="Trackbacks"$>
+                    <$MTInclude module="Comments"$>
+
+
+                        </div>
+                    </div>
+
+<!-- google_ad_section_end -->
+
+                    <$MTInclude module="Sidebar"$>
+
+
+                </div>
+            </div>
+
+
+            <$mt:include module="Banner Footer"$>
+
+
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <div id="dialog"><div id="dialog-inner">
+        <div id="dialog-content"></div>
+        <a href="javascript:dialogClose();" id="dialog-close">Close</a>
+    </div></div>
+</body>
+</html>

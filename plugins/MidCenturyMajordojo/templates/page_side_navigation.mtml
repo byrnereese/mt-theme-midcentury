@@ -1,0 +1,44 @@
+<mt:setvarblock name="thispageid"><mt:PageID></mt:setvarblock>
+<mt:setvarblock name="thisfolder"><mt:PageFolder><mt:FolderLabel></mt:PageFolder></mt:setvarblock>
+<mt:setvarblock name="items">
+<mt:Order sort_order="ascend">
+<mt:Pages folder="$thisfolder">
+<mt:if tag="PageBasename" eq="index">
+<mt:var name="has_pages" value="1">
+<mt:var name="index" value="1">
+<mt:orderitem>
+<mt:var name="order_by" value=" ">
+<li class="index<mt:if tag="PageID" eq="$thispageid"> active</mt:if>"><a href="<mt:PagePermalink>"><mt:PageTitle></a></li>
+</mt:orderitem>
+<mt:else>
+<mt:var name="has_pages" value="1">
+<mt:orderitem>
+<mt:setvarblock name="order_by"><mt:PageTitle></mt:setvarblock>
+<li class="<mt:if tag="PageID" eq="$thispageid">active</mt:if>"><a href="<mt:PagePermalink>"><mt:PageTitle></a></li>
+</mt:orderitem>
+</mt:if>
+</mt:Pages>
+<mt:PageFolder>
+<mt:SubFolders>
+<mt:FolderHasIndex>
+<mt:var name="has_pages" value="1">
+<mt:OrderItem>
+<li class=""><a href="<mt:BlogURL><mt:FolderPath>"><mt:FolderLabel></a></li>
+<mt:setvarblock name="order_by"><mt:FolderLabel></mt:setvarblock>
+</mt:OrderItem>
+</mt:FolderHasIndex>
+</mt:SubFolders>
+</mt:PageFolder>
+</mt:Order>
+</mt:setvarblock>
+
+<mt:if name="has_pages">
+<div class="widget-pagenav widget-boxed widget">
+    <div class="inner">
+        <h3 class="widget-header">Navigation</h3>
+        <ul class="pages<mt:if name="index"> hasindex</mt:if>">
+<mt:var name="items">
+       </ul>
+    </div>
+</div>
+</mt:if>

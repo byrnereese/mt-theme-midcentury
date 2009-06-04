@@ -1,0 +1,33 @@
+<mt:Ignore>
+    Determine the actual number of image assets without including 
+    thumbnails and do not display the gallery widget unless there 
+    are image assets.
+</mt:Ignore>
+<mt:Assets type="image"><mt:SetVarBlock name="asset_count"><mt:var name="__counter__"></mt:SetVarBlock></mt:Assets>
+<mt:If name="asset_count" gt="0">
+
+<script type="text/javascript" charset="utf-8">
+    // set starting point and ending point -- will show max of 10 images
+    var currentItem = 1;
+    var lastItem = <mt:Var name="asset_count" /> > 10 ? 10 : <mt:Var name="asset_count" />;
+</script>
+
+<div class="widget-gallery widget">
+    <div class="inner">
+    <h3 class="widget-header">Reading and Watching</h3>
+    <div class="gallery-item-nav">
+        <a href="javascript:galleryPrev();" id="showcase-prev" class="inactive">Prev</a>
+        <a href="javascript:galleryNext();" id="showcase-next" class="<mt:If name="asset_count" gt="1">active<mt:Else>inactive</mt:If>">Next</a>
+    </div>
+    <div class="widget-content"><div class="widget-content-inner">
+<mt:Assets lastn="10" type="amazon,youtube">
+    <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
+        <a class="asset-image" href="<$mt:AssetURL$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
+        <h3><a href="<$mt:AssetURL$>"><$mt:AssetLabel$></a></h3>
+        <div class="asset-description"><$mt:AssetDescription $></div>
+    </div>
+</mt:Assets>
+    </div></div>
+    </div>
+</div> 
+</mt:If>

@@ -1,0 +1,19 @@
+<mt:If tag="BlogEntryCount">
+    <mt:Entries lastn="5">
+        <mt:EntriesHeader>
+<div class="widget-recent-entries widget-archives widget">
+    <h3 class="widget-header">Recent Entries</h3>
+    <div class="widget-content">
+        <ul class="widget-list">
+        </mt:EntriesHeader>
+            <li class="widget-list-item">
+                <h4><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></h4>
+                <p><mt:EntryBody words="25" convert_breaks="0" />...</p>
+            </li>
+        <mt:EntriesFooter>
+        </ul>
+    </div>
+</div>
+        </mt:EntriesFooter>
+    </mt:Entries>
+</mt:If>
