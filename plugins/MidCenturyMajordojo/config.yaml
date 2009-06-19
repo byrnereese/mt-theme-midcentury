@@ -8,18 +8,80 @@ settings:
   google_ver:
     scope: blog
 
-plugin_config:
-  MidCenturyMajordojo:
-    google_set:
+template_sets:
+  mid-century-majordojo:
+    base_path: templates
+    label: 'Mid-Century 2.0'
+    options:
+      fieldsets:
+        seo:
+          label: 'Analytics & Search Engine Optimization'
+        frontdoor:
+          label: 'Homepage'
+        ads:
+          label: 'Advertising'
+        options:
+          label: 'Options'
       google_var:
         type: text
         label: 'Google Verification Code'
         hint: 'Enter in the verification code given to you by Google Web Master Tools.'
         tag: 'GoogleWebVerify'
-template_sets:
-  mid-century-majordojo:
-    base_path: templates
-    label: 'Mid-Century 2.0'
+        fieldset: seo
+      analytics_code:
+        type: textarea
+        size: 5
+        label: 'Analytics Javascript'
+        hint: 'Enter in the javascript that will be placed at the bottom of every page.'
+        tag: 'AnalyticsJavascript'
+        fieldset: seo
+      ad_medium_rectangle:
+        type: textarea
+        size: 5
+        label: 'Medium Rectangle'
+        hint: 'Enter the ad tag for the 300x250 medium rectangle'
+        tag: 'AdTagMediumRectangle'
+        fieldset: ads
+      ad_leaderboard:
+        type: textarea
+        size: 5
+        label: 'Leaderboard'
+        hint: 'Enter the ad tag for the 728x90 leaderboard for the top of the page'
+        tag: 'AdTagLeaderboard'
+        fieldset: ads
+      full_entry_count:
+        type: select
+        values: 0,1,2,3,4,5,6,7,8,9,10
+        label: 'Full Entry Count'
+        hint: 'The number of entries to show (with excerpt) on the front door'
+        tag: 'FullEntryCount'
+        fieldset: frontdoor
+      excerpt_count:
+        type: select
+        values: 0,1,2,3,4,5,6,7,8,9,10
+        label: 'Title Count'
+        hint: 'The number of entries to roll up as titles only (in main column)'
+        tag: 'EntryTitleCount'
+        fieldset: frontdoor
+      activity_streams_enabled:
+        type: checkbox
+        label: 'Enable Activity Streams'
+        hint: 'Enabling activity streams will turn on the widget in your sidebar and turn on the link in the nav bar'
+        tag: 'IfActivityStreamEnabled?'
+        fieldset: options
+      photo_gallery:
+        type: blogs
+        label: 'Photo Gallery?'
+        hint: 'Select the photo gallery blog to link to in your navigation'
+        tag: 'PhotoGalleryBlog'
+        fieldset: options
+      photo_gallery:
+        type: checkbox
+        label: 'Enable Horizontal Nav?'
+        hint: 'Would you like to have horizontal nav for the site?'
+        tag: 'IfHorizontalNav?'
+        fieldset: options
+
     templates:
       archive:
         category_atom_feed:

@@ -1,3 +1,6 @@
+*:first-child+html .entry-listing li,
+*:first-child+html .entry-listing li a { min-height: 1px; }
+
 .mt-enclosure-image p.caption {
   font-family: Helvetica;
   color: #999;
