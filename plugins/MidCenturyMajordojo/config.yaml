@@ -3,10 +3,9 @@ name: 'MidCentury Majordojo'
 description: 'A version of the Mid-Century Template Set.'
 version: 0.1
 
-blog_config_template: '<mt:PluginConfigForm id="MidCenturyMajordojo">'
-settings:
-  google_ver:
-    scope: blog
+tags:
+  block:
+    IfPluginInstalled?: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::_hdlr_plugin_installed
 
 template_sets:
   mid-century-majordojo:

@@ -53,16 +53,13 @@
 
     <mt:Pages tag="@topnav">
     <MTSetVarBlock name="this_page_id"><$MTPageID$></MTSetVarBlock>
-    <li class="<mt:if name="nav_on" eq="$this_page_id"> on</mt:if>"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
+    <li class="<mt:if name="__last__"><mt:IfPluginInstalled plugin="ContactForms"><mt:else>last</mt:IfPluginInstalled></mt:if><mt:if name="nav_on" eq="$this_page_id"> on</mt:if>"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
     </mt:Pages>
     
-    <mt:Pages tags="@about" limit="1">
-    <MTSetVarBlock name="this_page_id"><$MTPageID$></MTSetVarBlock>
-    <li class="<mt:if name="nav_on" eq="$this_page_id"> on</mt:if>"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
-    </mt:Pages>
-    
-    <li class="last"><a href="/contact/">Contact</a></li>
-    
+<mt:IfPluginInstalled plugin="ContactForms">
+    <li class="last"><a href="<$mt:Link template="contact_me"$>">Contact</a></li>
+</mt:IfPluginInstalled>
+
         </ul>
     </div>
 </div>

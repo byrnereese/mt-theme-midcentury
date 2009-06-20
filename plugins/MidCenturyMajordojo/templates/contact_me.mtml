@@ -2,11 +2,11 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
 <head>
+    <title>Contact</title>
     <$mt:include module="HTML Head"$>
-    <title>Contact Byrne</title>
     <link rel="stylesheet" href="<mt:StaticWebPath>plugins/mid-century/contactform.css" type="text/css" />
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$>">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> contactform">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -14,8 +14,12 @@
                 <div id="content-inner">
                     <div id="alpha">
                         <div id="alpha-inner">
-<h1 id="page-title">Contact Byrne</h1>
-<mt:ContactFormHTML id="1">
+                          <h1 id="page-title">Contact</h1>
+<mt:IfPluginInstalled plugin="ContactForms">
+                          <mt:ContactFormHTML id="1">
+<mt:else>
+                          <p>You should consider putting in some contact information.</p>
+</mt:IfPluginInstalled>
                         </div>
                     </div>
                 </div>
