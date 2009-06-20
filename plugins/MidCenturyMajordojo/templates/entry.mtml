@@ -52,7 +52,9 @@ digg_title = '<mt:EntryTitle encode_js="1">';
 </MTIfNonEmpty>
                                 </div>
                                 <div class="asset-footer"><div class="asset-footer-inner">
+<mt:IfDiggEnabled>
                                     <script src="http://digg.com/tools/diggthis.js" type="text/javascript"></script>
+</mt:IfDiggEnabled>
                                     <p>Posted by <$MTEntryAuthorLink show_hcard="1"$> on <$MTEntryDate format="%A, %x at %X"$><MTIfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$MTEntryPermalink$>#trackback" class="trackback-count"><$MTEntryTrackbackCount$> <span>TrackBacks</span></a></span></MTIfPingsActive>
                                     </p>
                                     <p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>

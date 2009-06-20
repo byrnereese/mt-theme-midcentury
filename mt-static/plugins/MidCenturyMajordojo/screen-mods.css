@@ -1,5 +1,8 @@
 #header-ad { margin: 0 auto 0 auto; text-align: center; padding: 15px 0 0 0; }
 
+.elsewhere #subscribe { margin-left: 55px; margin-top: 20px; }
+.elsewhere #subscribe img { width: 16px; height: 16px; position: relative; top: 3px; padding-right: 5px; }
+
 *:first-child+html .entry-listing li,
 *:first-child+html .entry-listing li a { min-height: 1px; }
 

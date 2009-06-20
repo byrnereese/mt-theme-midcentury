@@ -19,7 +19,9 @@
   <mt:else>
     <$mt:include module="AdSense - Med Rectangle"$>
     <mt:IfActivityStreamEnabled>
+    <mt:unless name="elsewhere">
     <$mt:include module="Recent Actions"$>
+    </mt:unless>
     </mt:IfActivityStreamEnabled>
   </mt:if>
         

@@ -1,13 +1,12 @@
+<$mt:var name="elsewhere" value="1"$>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
 <head>
+    <title>Elsewhere</title>
     <$mt:include module="HTML Head"$>
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$MTLink template="rsd"$>" />
-    <title>Byrne Elsewhere on the Internet</title>
-
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$>">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> elsewhere">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -28,7 +27,7 @@
         </mt:if>
 </mt:ActionStreams>
 
-<p><img src="http://www.majordojo.com/images/feed-202020.gif" width="20" height="20"> <a href="http://www.majordojo.com/elsewhere/atom.xml">Subscribe to this Action Stream</a></p>
+<p id="subscribe"><img src="http://www.majordojo.com/images/feed-202020.gif" width="20" height="20"> <a href="http://www.majordojo.com/elsewhere/atom.xml">Subscribe to this Action Stream</a></p>
 
                         </div>
                     </div>

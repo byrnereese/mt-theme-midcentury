@@ -81,6 +81,12 @@ template_sets:
         hint: 'Would you like to have horizontal nav for the site?'
         tag: 'IfHorizontalNav?'
         fieldset: options
+      enable_digg:
+        type: checkbox
+        label: 'Enable Digg Buttons?'
+        hint: 'Would you like to have a "Digg This" button placed at the bottom of each entry?'
+        tag: 'IfDiggEnabled?'
+        fieldset: options
 
     templates:
       archive:
