@@ -1,42 +1,33 @@
 <div id="beta">
-    <div id="beta-inner">
+  <div id="beta-inner">
 
 <mt:if name="is_page">
-        <$mt:include module="Page Side Navigation"$>
-        <$mt:include module="Donate"$>
-  <mt:if tag="pageadvertising" eq="Google AdSense">
-        <$mt:include module="AdSense - Med Rectangle"$>
-  <mt:else tag="pageadvertising" eq="iThemes">
-        <a href="http://ithemes.com/movable-type/"><img src="http://www.majordojo.com/images/ithemes-mt.jpg" width="350" height="200"></a>
-  </mt:if>
-
+    <$mt:include module="Page Side Navigation"$>
+    <$mt:include module="AdSense - Med Rectangle"$>
 <mt:else>
 
-        <mt:IfImageSupport>
-        <$mt:include module="Gallery"$>
-        </mt:IfImageSupport>
+  <mt:IfImageSupport>
+    <$mt:include module="Gallery"$>
+  </mt:IfImageSupport>
 
   <mt:if name="page-id" eq="main-index">
-        <$mt:include module="Recent Photo"$>
-        <$mt:include module="Recent Actions"$>
-        <$mt:include module="AdSense - Med Rectangle"$>
+<mt:if tag="PhotoGalleryBlog" ne="">
+    <$mt:include module="Recent Photo"$>
+</mt:if>
+    <$mt:include module="Recent Actions"$>
+    <$mt:include module="AdSense - Med Rectangle"$>
   <mt:else>
-        <mt:IfArchiveType type="individual">
-          <mt:setvarblock name="category"><mt:EntryCategory></mt:setvarblock>
-          <mt:if name="category" ne="Family">
-            <$mt:include module="AdSense - Med Rectangle"$>
-          </mt:if>
-        <mt:else>
-          <$mt:include module="AdSense - Med Rectangle"$>
-        </mt:IfArchiveType>
-        <$mt:include module="Recent Actions"$>
+    <$mt:include module="AdSense - Med Rectangle"$>
+    <mt:IfActivityStreamEnabled>
+    <$mt:include module="Recent Actions"$>
+    </mt:IfActivityStreamEnabled>
   </mt:if>
         
-        <mt:IfArchiveType type="individual">
-           <$mt:include module="Recent Entries"$>
-        <mt:Else>
-           <$mt:include module="Recent Comments"$>
-        </mt:IfArchiveType>
+  <mt:IfArchiveType type="individual">
+    <$mt:include module="Recent Entries"$>
+  <mt:Else>
+    <$mt:include module="Recent Comments"$>
+  </mt:IfArchiveType>
 
 </mt:if>
 

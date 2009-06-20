@@ -1,16 +1,11 @@
-<mt:Ignore>
-/* The following functions are here to support legacy MT templates.
-   If you have refreshed your JavaScript template but still use older
-   MT comment templates, you may need to uncomment this block in order
-   for those templates to work properly. Simply remove the wrapping
-   'mt:Ignore' tag to do so. */
-function hideDocumentElement(id) { return mtHide(id) }
-function showDocumentElement(id) { return mtShow(id) }
-function individualArchivesOnLoad() { return mtEntryOnLoad() }
-function writeCommenterGreeting() { return mtShowGreeting() }
-function rememberMe(f) { return mtRememberMe(f) }
-function forgetMe(f) { return mtForgetMe(f) }
-</mt:Ignore>
+$(document).ready(function() { $('a[@rel*=lightbox]').lightBox({
+  imageLoading:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-ico-loading.gif',
+  imageBtnPrev:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-prev.gif',
+  imageBtnNext:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-next.gif',
+  imageBtnClose:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-close.gif',
+  imageBlank:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-blank.gif',
+  });
+});
 
 // The cookie name to use for storing the blog-side comment session cookie.
 var mtCookieName = "<$mt:UserSessionCookieName$>";

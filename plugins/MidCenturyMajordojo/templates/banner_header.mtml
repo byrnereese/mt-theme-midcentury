@@ -1,5 +1,10 @@
 <div id="header">
     <div id="header-inner">
+<mt:if tag="AdTagLeaderboard" ne="">
+        <div id="header-ad">
+          <$mt:AdTagLeaderboard$>
+        </div>
+</mt:if>
         <div id="header-content">
 <mt:ignore><!-- Use h1 and h2 html tags on the main index of the blog as the title, use divs on all other pages where there are page titles. --></mt:ignore>
 <MTIf name="main_index">
@@ -29,13 +34,23 @@
     </div>
 </div>
 
+<mt:IfHorizontalNav>
 <div id="nav">
     <div id="nav-inner">
         <ul>
     <li class="first<mt:if name="main_index"> on</mt:if>"><a href="<mt:Link template="Main Index">">Home</a></li>
-    <li class="<mt:if name="elsewhere"> on</mt:if>"><a href="<mt:BlogURL />elsewhere/">Elsewhere</a></li>
-    <li class="<mt:if name="photos"> on</mt:if>"><a href="<mt:BlogURL />photos/">Photos</a></li>
-    
+
+<mt:IfActivityStreamEnabled>
+    <li class="<mt:if name="elsewhere"> on</mt:if>"><a href="<$mt:Link template="elsewhere"$>">Elsewhere</a></li>
+</mt:IfActivityStreamEnabled>
+
+<mt:if tag="PhotoGalleryBlog" ne="">
+<mt:setvarblock name="bid"><$mt:PhotoGalleryBlog$></mt:setvarblock>
+<mt:Multiblog include_blogs="$bid">
+    <li class="<mt:if name="photos"> on</mt:if>"><a href="<$mt:BlogURL$>" rel="bookmark" title="<$mt:BlogName encode_html="1"$>"><$mt:BlogName$></a></li>
+</mt:Multiblog>
+</mt:if>
+
     <mt:Pages tag="@topnav">
     <MTSetVarBlock name="this_page_id"><$MTPageID$></MTSetVarBlock>
     <li class="<mt:if name="nav_on" eq="$this_page_id"> on</mt:if>"><a href="<mt:PagePermalink />"><mt:PageTitle /></a></li>
@@ -51,3 +66,4 @@
         </ul>
     </div>
 </div>
+</mt:IfHorizontalNav>

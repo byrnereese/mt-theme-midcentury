@@ -30,21 +30,21 @@ template_sets:
         fieldset: seo
       analytics_code:
         type: textarea
-        size: 5
+        rows: 4
         label: 'Analytics Javascript'
         hint: 'Enter in the javascript that will be placed at the bottom of every page.'
         tag: 'AnalyticsJavascript'
         fieldset: seo
       ad_medium_rectangle:
         type: textarea
-        size: 5
+        rows: 5
         label: 'Medium Rectangle'
         hint: 'Enter the ad tag for the 300x250 medium rectangle'
         tag: 'AdTagMediumRectangle'
         fieldset: ads
       ad_leaderboard:
         type: textarea
-        size: 5
+        rows: 5
         label: 'Leaderboard'
         hint: 'Enter the ad tag for the 728x90 leaderboard for the top of the page'
         tag: 'AdTagLeaderboard'
@@ -75,7 +75,7 @@ template_sets:
         hint: 'Select the photo gallery blog to link to in your navigation'
         tag: 'PhotoGalleryBlog'
         fieldset: options
-      photo_gallery:
+      enable_nav:
         type: checkbox
         label: 'Enable Horizontal Nav?'
         hint: 'Would you like to have horizontal nav for the site?'

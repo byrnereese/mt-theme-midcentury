@@ -1,3 +1,5 @@
+#header-ad { margin: 0 auto 0 auto; text-align: center; padding: 15px 0 0 0; }
+
 *:first-child+html .entry-listing li,
 *:first-child+html .entry-listing li a { min-height: 1px; }
 

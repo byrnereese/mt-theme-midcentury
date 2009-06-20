@@ -2,7 +2,7 @@
 <meta name="generator" content="<$mt:ProductName version="1"$>" />
 <meta name="verify-v1" content="<$mt:GoogleWebVerify$>" />
 <link rel="stylesheet" href="<$mt:Link template="styles"$>" type="text/css" />
-<link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/ActionStreams/css/action-streams.css" type="text/css" />
+<mt:IfActivityStreamEnabled><link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/ActionStreams/css/action-streams.css" type="text/css" /></mt:IfActivityStreamEnabled>
 <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/screen.css" type="text/css" />
 <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/screen-mods.css" type="text/css" />
 <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/jquery.lightbox-0.5.css" type="text/css" />
@@ -14,14 +14,6 @@
 <script type="text/javascript" src="<$mt:Link template="javascript"$>"></script>
 <script type="text/javascript" src="<$mt:Link template="theme_javascript"$>"></script>
 <script type="text/javascript">
-window.google_analytics_uacct = "UA-2619105-1";
-$(document).ready(function() { $('a[@rel*=lightbox]').lightBox({
-  imageLoading:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-ico-loading.gif',
-  imageBtnPrev:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-prev.gif',
-  imageBtnNext:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-next.gif',
-  imageBtnClose:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-btn-close.gif',
-  imageBlank:'<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/images/lightbox-blank.gif',
-  });
-});
+  window.google_analytics_uacct = "UA-2619105-1";
 </script>
 <$mt:CCLicenseRDF$>

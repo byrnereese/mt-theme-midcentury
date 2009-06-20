@@ -1,9 +1,12 @@
+<mt:setvarblock name="bid"><$mt:PhotoGalleryBlog$></mt:setvarblock>
 <div class="widget-recent-photo widget">
     <h3 class="widget-header">Recently Photographed</h3>
     <div class="widget-content">
-<mt:Entries blog_ids="61" lastn="1"><mt:EntryAssets lastn="1">
+<mt:Entries blog_ids="$bid" lastn="1">
+<mt:EntryAssets lastn="1">
 <a href="<mt:EntryPermalink>"><img src="<$mt:AssetThumbnailURL width="340"$>"></a>
-</mt:EntryAssets></mt:Entries>
-    <p><a href="/photos/">See more photos...</a></p>
+</mt:EntryAssets>
+    <p><a href="<$mt:EntryBlogURL$>" rel="bookmark" title="View more photos in <$mt:EntryBlogName encode_html="1"$>">See more photos...</a></p>
+</mt:Entries>
     </div>
 </div>
