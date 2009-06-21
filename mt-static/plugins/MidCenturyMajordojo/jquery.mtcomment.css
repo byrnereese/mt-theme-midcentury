@@ -1,6 +1,5 @@
 /* This is the CSS for the commenting jquery plugin */
 
-.comment #comments-form { display: none; position: relative; margin: 0; padding: 0; }
 .comment #comments-form-inner #comments-open-footer { width: 90%; text-align: right; padding: 5px 5px 0 0; }
 .comment #comments-form-inner #comment-form-subscribe { display: none; }
 .comment #comments-form-inner #comments-open-text label { display: none; }
