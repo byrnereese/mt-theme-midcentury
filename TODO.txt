@@ -1,5 +1,8 @@
 # TODO
 
+* Fix javascript_mt.js to get right sign-in/out/up links
+* Add rel="bookmark" to links
+* Clean up nav - label first and last properly, use mt:var array
 * An option for the about me module at the bottom of the page.
 * An option for the a 2 or 3 column layout site-wide.
 * An option to include or exclude the gallery slideshow.

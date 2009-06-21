@@ -1,0 +1,41 @@
+/* This is the CSS for the commenting jquery plugin */
+
+.comment #comments-form { display: none; position: relative; margin: 0; padding: 0; }
+.comment #comments-form-inner #comments-open-footer { width: 90%; text-align: right; padding: 5px 5px 0 0; }
+.comment #comments-form-inner #comment-form-subscribe { display: none; }
+.comment #comments-form-inner #comments-open-text label { display: none; }
+.comment #comments-form-inner #comment-text {
+    width: 100%; 
+    height: 40px; 
+}
+a.reply.expanded {
+    background-image: url(reply-comment-bg-top.gif);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    padding-bottom: 10px;
+}
+.comment #comments-form-inner #comments-open-text {
+    padding: 10px;
+    background-color: #eeeeea;
+    margin-top: 7px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.comment #spinner,
+.comment #spinner-status {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url(spinner.gif) no-repeat center center;
+}
+.comment #spinner {
+    filter:alpha(opacity=5);
+    -moz-opacity:.5;
+    opacity:.5;
+    background: #fff;
+}

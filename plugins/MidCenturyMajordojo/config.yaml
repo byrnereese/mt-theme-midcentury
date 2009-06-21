@@ -85,6 +85,7 @@ template_sets:
         label: 'Enable Digg Buttons?'
         hint: 'Would you like to have a "Digg This" button placed at the bottom of each entry?'
         tag: 'IfDiggEnabled?'
+        default: 1
         fieldset: options
 
     templates:
@@ -135,10 +136,6 @@ template_sets:
           label: 'Feed (Recent Entries)'
           outfile: atom.xml
           rebuild_me: 1
-        javascript:
-          label: 'JavaScript (Functions)'
-          outfile: javascript.js
-          rebuild_me: 0
         main_index:
           label: 'Main Index'
           outfile: index.php
@@ -156,9 +153,13 @@ template_sets:
           outfile: styles.css
           rebuild_me: 0
           custom_css: 1
-        theme_javascript:
-          label: 'Javascript (Theme)'
-          outfile: theme_javascript.js
+        javascript:
+          label: 'JavaScript (Functions)'
+          outfile: javascript.js
+          rebuild_me: 0
+        javascript_mt:
+          label: 'JavaScript (MT Config)'
+          outfile: javascript_mt.js
           rebuild_me: 0
       individual:
         comment_atom_feed:

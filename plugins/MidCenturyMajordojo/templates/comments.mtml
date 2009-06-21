@@ -140,12 +140,13 @@
             <form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
                 <div id="comments-form-inner">
                 <input type="hidden" id="comment-static" name="static" value="1" />
-                <input type="hidden" id="comment-entry_id" name="entry_id" value="<$MTEntryID$>" />
-                <input type="hidden" id="comment-lang" name="__lang" value="<$MTBlogLanguage$>" />
-                <input type="hidden" id="comment-parent_id" name="parent_id" value="<$MTCommentParentID$>" id="comment-parent-id" />
-                <input type="hidden" id="comment-armor" name="armor" value="1" />
-                <input type="hidden" id="comment-preview" name="preview" value="" />
-                <input type="hidden" id="comment-sid" name="sid" value="" />
+                <input type="hidden" id="entry_id" name="entry_id" value="<$MTEntryID$>" />
+                <input type="hidden" id="lang" name="__lang" value="<$MTBlogLanguage$>" />
+                <input type="hidden" id="parent_id" name="parent_id" value="<$MTCommentParentID$>" id="comment-parent-id" />
+                <input type="hidden" id="armor" name="armor" value="1" />
+                <input type="hidden" id="preview" name="preview" value="" />
+                <input type="hidden" id="sid" name="sid" value="" />
+                <input type="hidden" id="ajax" name="ajax" value="" />
                 <div id="comments-open-data">
                     <div id="comment-form-name">
                         <label for="comment-author">Name</label>

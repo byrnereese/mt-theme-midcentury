@@ -1,19 +1,8 @@
-<mt:Ignore>figure out which comment is the newly submitted comment</mt:Ignore>
-<mt:SetVarBlock name="comment_new"><mt:CommentID></mt:SetVarBlock>
-
-<mt:Ignore>Return the complete list of comments.</mt:Ignore>
-<MTComments>
-    <MTCommentsHeader>
-<h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
-<div class="comments-content">
-    </MTCommentsHeader>
-    <mt:Include module="Individual Comment">
-    <MTCommentsFooter>
-</div>
-    </MTCommentsFooter>
-</MTComments>
-
-<mt:Ignore>Output messaging if necessary.</mt:Ignore>
+<mt:If name="request.ajax">
+<mt:If name="error">
+<mt:Else>
+<$mt:BlogID setvar="this_blogid"$>
+<mt:Include module="Individual Comment">
 <mt:If name="comment_pending">
     <mt:Ignore><!-- Pending message when comment is being held for review --></mt:Ignore>
     <$mt:Var name="message" value="<p>Your comment has been received and held for approval by the blog owner.</p>"$>
@@ -21,5 +10,13 @@
     <mt:Ignore><!-- Error message when comment submission fails --></mt:Ignore>
     <mt:SetVarBlock name="message"><p>Your comment submission failed for the following reasons: <$mt:ErrorMessage$></p></mt:SetVarBlock>
 </mt:If>
-
 <mt:If name="message"><div id="comment-error" class="message"><mt:Var name="message" /></div></mt:If> 
+</mt:If>
+
+<mt:Else>
+<html>
+<head>
+<meta http-equiv="refresh" content="0;URL=<mt:EntryPermalink escape="html">?r=<mt:Date format="%S%H%M">">
+</head>
+</html>
+</mt:If>
