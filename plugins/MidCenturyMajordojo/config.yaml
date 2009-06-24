@@ -87,6 +87,13 @@ template_sets:
         tag: 'IfDiggEnabled?'
         default: 1
         fieldset: options
+      enable_threaded:
+        type: checkbox
+        label: 'Enable Threaded Comments?'
+        hint: 'Would you like to use threaded/nested comments?'
+        tag: 'IfThreadedComments?'
+        default: 1
+        fieldset: options
 
     templates:
       archive:

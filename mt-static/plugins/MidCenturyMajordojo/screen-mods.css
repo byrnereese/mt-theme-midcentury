@@ -1,5 +1,30 @@
 #header-ad { margin: 0 auto 0 auto; text-align: center; padding: 15px 0 0 0; }
 
+.comment .comment-header {
+    background-image: none;
+}
+.comment .comment-content {
+    background-image: none;
+    background-color: #eeeeea;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.comment .comment-header {
+    background-image: url(comment-bubble-down.gif);
+    background-repeat: repeat-x;
+    background-position: -10px 0;
+    background-color: #eeeeea;
+}
+
+.comment.comment-by-author .comment-header,
+.comment.comment-by-author .comment-content {
+    background-color: #cedde6;
+}
+.comment.comment-by-author .comment-content-inner {
+    border: 0;
+}
+
 .elsewhere #subscribe { margin-left: 55px; margin-top: 20px; }
 .elsewhere #subscribe img { width: 16px; height: 16px; position: relative; top: 3px; padding-right: 5px; }
 

@@ -1,6 +1,18 @@
 /*
-    This file is for scripts that are specific to the Mid-Century Theme
-*/
+ * This file is for scripts that are specific to the Mid-Century Theme
+ */
+$(document).ready(function(){
+    if ($('#comments-form')) {
+      var form = $('#comments-form').commentForm( { 
+	      insertMethod: 'append',
+	      target: '.comments-content'
+	  });
+      $('.reply').reply({
+        sourceForm: form
+      });
+    };
+});
+              
 
 function galleryNext() {
     var nextItemNumber = currentItem + 1;

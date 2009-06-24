@@ -1,25 +1,26 @@
 <mt:SetVarBlock name="current_comment"><mt:CommentID></mt:SetVarBlock>
-
-<div id="comment-<$MTCommentID$>" class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
+<div id="comment-<$mt:CommentID$>" class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
     <div class="inner">
         <div class="comment-content">
             <div class="comment-content-inner">
-            <$MTCommentBody$>
+            <$mt:CommentBody$>
             </div>
         </div>
         <div class="comment-header">
             <div class="asset-meta">
                 <span class="byline">
-                    <$MTCommentAuthorIdentity$>
+                    <$mt:CommentAuthorIdentity$>
 <mt:IfCommentParent>
-                    <span class="vcard author"><$MTCommentAuthorLink$></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$MTCommentAuthor$></mt:CommentParent></a>
+                    <span class="vcard author"><$mt:CommentAuthorLink$></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent></a>
 <mt:else>
-                    <span class="vcard author"><$MTCommentAuthorLink$></span>
+                    <span class="vcard author"><$mt:CommentAuthorLink$></span>
 </mt:IfCommentParent>
-                    | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$MTCommentDate format_name="iso8601"$>"><$MTCommentDate$></abbr></a>
-<MTIfCommentsAccepted>
+                    | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$mt:CommentDate format_name="iso8601"$>"><$mt:CommentDate$></abbr></a>
+<mt:IfCommentsAccepted>
+<mt:IfThreadedComments>
                     | <a title="Reply" href="javascript:void(0);" class="reply">Reply</a>
-</MTIfCommentsAccepted>
+</mt:IfThreadedComments>
+</mt:IfCommentsAccepted>
                 </span>
             </div>
         </div>

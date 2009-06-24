@@ -1,29 +1,34 @@
-<mt:ignore>
-<!-- Display comments for the entry/page or commenting form if entry/page is accepting comments -->
-</mt:ignore>
-<MTIfCommentsActive>
+<mt:IfCommentsActive>
 <div id="comments" class="comments">
 
-    <mt:ignore>
-    <!-- Display comments -->
-    </mt:ignore>
     <div id="comments-list">
-    <MTComments>
-        <MTCommentsHeader>
-    <h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
-    <div class="comments-content">
-        </MTCommentsHeader>
+      <h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
+      <div class="comments-content">
+<mt:IfThreadedComments>
+  <mt:Comments>
+    <mt:IfCommentParent>
+    <mt:Else>
+      <$mt:Include module="Individual Comment"$>
+      <mt:CommentReplies>
+        <mt:CommentsHeader><div style="margin-left: 20px;" class="comment-replies"></mt:CommentsHeader>
+        <$mt:Include module="Individual Comment"$>
+        <$mt:CommentRepliesRecurse$>
+        <mt:CommentsFooter></div><!-- /comment-replies --></mt:CommentsFooter>
+      </mt:CommentReplies>
+    </mt:IfCommentParent>
+  </mt:Comments>
+<mt:Else>
+    <mt:Comments>
         <mt:Include module="Individual Comment">
-        <MTCommentsFooter>
-    </div>
-        </MTCommentsFooter>
-    </MTComments>
-    </div>
+    </mt:Comments>
+</mt:IfThreadedComments>
+      </div>
+    </div><!-- //end #comments-list -->
 
     <mt:ignore>
     <!-- Display commenting form if entry/page is accepting comments -->
     </mt:ignore>
-    <MTIfCommentsAccepted>
+    <mt:IfCommentsAccepted>
     <div class="comments-open" id="comments-open">
         <h2 class="comments-open-header">Leave a comment</h2>
         <div class="comments-open-content">
@@ -33,92 +38,6 @@
         </mt:ignore>
             <div id="comment-greeting"></div>
 
-            <script type="text/javascript" charset="utf-8">
-            
-                $(document).ready(function(){
-                    if (mtGetUser()) {
-                        var authorVal = mtGetUser().name;
-                        var emailVal = mtGetUser().email;
-                        var urlVal = mtGetUser().url;
-                    } else {
-                        var authorVal = $("#comment-author").val();
-                        var emailVal = $("#comment-email").val();
-                        var urlVal = $("#comment-url").val();
-                    }
-                    $("#comment-submit").click(function(){
-                        $("#comment-submit").attr("disabled","disabled");
-                        $("#comment-text").attr("disabled","disabled");
-                        if ($("#comment-armor")) {
-                           $("#comment-armor").val('<$mt:BlogSitePath encode_sha1="1"$>');
-                        }
-                        // var commentForm = $("#comments-form");
-                        // mtCommentOnSubmit(commentForm);
-                        var staticVal = $("#comment-static").val();
-                        var entryIdVal = $("#comment-entry_id").val();
-                        var langVal = $("#comment-lang").val();
-                        var parentIdVal = $("#comment-reply").val();
-                        var armorVal = $("#comment-armor").val();
-                        var previewVal = $("#comment-prev").val();
-                        var sidVal = $("#comment-sid").val();
-                        if($("#captcha_code")) {
-                            var capthchaVal = $("#captcha_code").val();
-                            var tokenVal = $("input[name='token']").val();
-                        }
-                        var replyVal = $("#comment-reply").val();
-                        var textVal = $("#comment-text").val();
-
-                        var postData = { static: staticVal, entry_id: entryIdVal, parent_id: parentIdVal, armor: armorVal, comment_reply: replyVal, author: authorVal, email: emailVal, url: urlVal, text: textVal, captcha_code: capthchaVal, token: tokenVal};
-                        $.post("<$MTCGIPath$><$MTCommentScript$>", postData,
-                               function(data){
-                                $("#comments-list").html(data);
-                                $("#comment-submit").removeAttr("disabled");
-                                $("#comment-text").removeAttr("disabled");
-                                var commentError = $('#comments-list #comment-error');
-                                if (commentError.length > 0) {
-                                    $("#comment-preview-comment").fadeIn(1000);
-                                } else {
-                                    $('#comment-preview-comment .comment-content-inner').html(defaultCommentText);
-                                    $("#comment-text").val("");
-                                };
-                            }
-                        );
-                        return false;
-                    });
-                    var defaultCommentText = "<em>what will you say?</em>";
-                    $('#comment-preview').hide(); // hide comment preview button
-                    $('#comment-preview-comment').hide(); // hide comment preview
-                    $('#comment-text').focus(function(){
-                        $('#comment-preview-comment .byline .author a').html(authorVal); // set comment author value
-                        $("#comment-preview-comment").fadeIn(1000); // hide comment preview
-                    });
-                    var $comment = '';
-                    $('#comment-text').keyup(function() {
-                        $comment = $(this).val();
-                        $comment = ($comment.length? $comment : defaultCommentText)
-                        $comment = $comment.replace(/\n/g, "<br />").replace(/\n\n+/g, '<br /><br />').replace(/(<\/?)script/g,"$1noscript");
-                        $('#comment-preview-comment .comment-content-inner').html( $comment );
-                    });
-
-                    $('#comment-preview-comment a').click(function(){ return false }); // disable links
-                    $('#comment-preview-comment .byline abbr').html( $.PHPDate("M d, Y", new Date())); // set date
-                    $('#comment-preview-comment .byline abbr').attr('title',$.PHPDate("c", new Date())); // set iso 8601 date
-                    
-                    $('.reply-comment-link').hide(); // hide reply text
-                    $('[title="Reply"]').one('click', function(){
-                        mtSignInOnClick('comment-greeting');
-                    }).click(function(){
-                        $('.reply-comment-link a span').html($(this).parent().find('.author a').html());
-                        $('.reply-comment-link').show(); // show reply text when reply link is clicked
-                        $('#comment-preview-comment .byline .author a').html(authorVal); // set comment author value
-                    }); 
-                    $('#comment-reply').click(function(){ $('.reply-comment-link').toggle() }); // toggle reply text when reply checkbox is checked
-                    
-                    $("#comment-submit").click(function(){
-                        $('#comment-preview-comment').fadeOut(1000);; // hide comment preview
-                    });
-                });
-                
-            </script>
             <div class="comment" id="comment-preview-comment">
                 <div class="inner">
                     <div class="comment-content">
@@ -137,51 +56,53 @@
                 </div>
             </div>
 
-            <form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+            <form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" id="comments-form" class="comments-form">
                 <div id="comments-form-inner">
-                <input type="hidden" id="comment-static" name="static" value="1" />
-                <input type="hidden" id="entry_id" name="entry_id" value="<$MTEntryID$>" />
-                <input type="hidden" id="lang" name="__lang" value="<$MTBlogLanguage$>" />
-                <input type="hidden" id="parent_id" name="parent_id" value="<$MTCommentParentID$>" />
-                <input type="hidden" id="armor" name="armor" value="1" />
-                <input type="hidden" id="preview" name="preview" value="" />
-                <input type="hidden" id="sid" name="sid" value="" />
-                <input type="hidden" id="ajax" name="ajax" value="" />
+                <input type="hidden" class="comment-static" name="static" value="1" />
+                <input type="hidden" class="entry_id" name="entry_id" value="<$MTEntryID$>" />
+                <input type="hidden" class="lang" name="__lang" value="<$MTBlogLanguage$>" />
+                <input type="hidden" class="parent_id" name="parent_id" value="<$MTCommentParentID$>" />
+                <input type="hidden" class="armor" name="armor" value="1" />
+                <input type="hidden" class="preview" name="preview" value="" />
+                <input type="hidden" class="sid" name="sid" value="" />
+                <input type="hidden" class="ajax" name="ajax" value="" />
                 <div id="comments-open-data">
                     <div id="comment-form-name">
                         <label for="comment-author">Name</label>
-                        <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                        <input class="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
                     </div>
                     <div id="comment-form-email">
                         <label for="comment-email">Email Address</label>
-                        <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                        <input class="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
                     </div>
                     <div id="comment-form-url">
                         <label for="comment-url">URL</label>
-                        <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                        <input class="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
                     </div>
                     <div id="comment-form-remember-me">
-                        <input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
+                        <input type="checkbox" class="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
                         <label for="comment-bake-cookie">Remember personal info?</label>
                     </div>
                 </div>
                 <div id="comment-form-subscribe">
-                    <input type="checkbox" id="comment-subscribe" name="subscribe" value="1" accesskey="s" />
+                    <input type="checkbox" class="comment-subscribe" name="subscribe" value="1" accesskey="s" />
                     <label for="comment-bake-cookie">Subscribe to follow up comments?</label>
                 </div>
+<mt:ignore>
                 <div id="comment-form-reply" style="display:none">
-                    <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
+                    <input type="checkbox" class="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
                     <label for="comment-reply" id="comment-reply-label"></label>
                 </div>
+</mt:ignore>
                 <div id="comments-open-text">
                     <label for="comment-text">Comments
-                    <MTIfAllowCommentHTML>(You may use HTML tags for style)</MTIfAllowCommentHTML></label>
-                    <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
+                    <mt:IfAllowCommentHTML>(You may use HTML tags for style)</mt:IfAllowCommentHTML></label>
+                    <textarea class="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
                 </div>
                 <div id="comments-open-captcha"></div>
                 <div id="comments-open-footer">
-                    <input type="submit" accesskey="v" name="preview_button" id="comment-preview" value="Preview" onclick="this.form.preview.value='1';" />
-                    <input type="submit" accesskey="s" name="post" id="comment-submit" value="Submit" />
+                    <input type="submit" accesskey="v" name="preview_button" class="comment-preview" value="Preview" onclick="this.form.preview.value='1';" />
+                    <input type="submit" accesskey="s" name="post" class="comment-submit" value="Submit" />
                 </div>
             </div>
             </form>
@@ -189,8 +110,8 @@
 
         </div>
     </div>
-    </MTIfCommentsAccepted>
+    </mt:IfCommentsAccepted>
 
 
 </div>
-</MTIfCommentsActive>
+</mt:IfCommentsActive>
