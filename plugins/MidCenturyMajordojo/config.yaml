@@ -173,81 +173,24 @@ template_sets:
           label: 'Feed (Comments)'
           mappings:
             individual:
-              archive_type: Individual
+              archive_type: 'Individual'
               file_template: %y/%m/%-f.xml
               preferred: 0
         entry:
           label: 'Entry'
           mappings:
             individual:
-              archive_type: Individual
+              archive_type: 'Individual'
               file_template: %y/%m/%-f
               preferred: 1
         page:
           label: 'Page'
           mappings:
             page:
-              archive_type: Page
+              archive_type: 'Page'
               file_template: %-c/%-f
               preferred: 1
-      module:
-        about_me:
-          label: 'About Me'
-        adsense_-_med_rectangle:
-          label: 'Adsense - Med Rectangle'
-        adsense_-_wide_skyscraper:
-          label: 'Adsense - Wide Skyscraper'
-        asset_insertion:
-          label: 'Asset Insertion'
-        banner_footer:
-          label: 'Banner Footer'
-        banner_header:
-          label: 'Banner Header'
-        categories:
-          label: Categories
-        comments:
-          label: Comments
-        donate:
-          label: Donate
-        entry_summary:
-          label: 'Entry Summary'
-        gallery:
-          label: Gallery
-        html_head:
-          label: 'HTML Head'
-        individual_comment:
-          label: 'Individual Comment'
-        license:
-          label: License
-        monthly:
-          label: Monthly
-        page_side_navigation:
-          label: 'Page Side Navigation'
-        powered_by:
-          label: 'Powered By'
-        recent_actions:
-          label: 'Recent Actions'
-        recent_comments:
-          label: 'Recent Comments'
-        recent_entries:
-          label: 'Recent Entries'
-        recent_photo:
-          label: 'Recent Photo'
-        related_entries:
-          label: 'Related Entries'
-        sidebar:
-          label: Sidebar
-        sitemap_module:
-          label: 'Sitemap Module'
-        tags:
-          label: Tags
-        trackbacks:
-          label: Trackbacks
-        userpic:
-          label: Userpic
       system:
-        comment_preview:
-          label: 'Comment Preview'
         comment_response:
           label: 'Comment Response'
         dynamic_error:
@@ -256,3 +199,129 @@ template_sets:
           label: 'Popup Image'
         search_results:
           label: 'Search Results'
+        login_form:
+          label: 'Login Form'
+        new_password_reset_form:
+          label: 'New Password Reset Form'
+          filename: 'password_reset.mtml'
+        new_password:
+          label: 'New Password Form'
+          filename: 'new_password.mtml'
+        register_form:
+          label: 'Register'
+        register_confirmation:
+          label: 'Register Confirmation'
+        new_password_reset_form:
+          label: 'New Password Reset Form'
+        new_password:
+          label: 'New Password Form'
+        profile_view:
+          label: 'Profile View'
+        profile_edit_form:
+          label: 'Profile Edit Form'
+      module:
+        related_entries:
+          label: 'Related Entries'
+        messaging:
+          label: 'Messaging'
+        form_field:
+          label: 'Form Field'
+        asset_insertion:
+          label: 'Asset Insertion'
+        banner_footer:
+          label: 'Banner Footer'
+        banner_header:
+          label: 'Banner Header'
+        comments:
+          label: 'Comments'
+        entry_summary:
+          label: 'Entry Summary'
+        html_head:
+          label: 'HTML Head'
+        individual_comment:
+          label: 'Individual Comment'
+        sidebar:
+          label: 'Sidebar'
+        sitemap_module:
+          label: 'Sitemap Module'
+        trackbacks:
+          label: 'Trackbacks'
+        userpic:
+          label: 'Userpic'
+      widget:
+        tags:
+          label: 'Tags'
+        page_side_navigation:
+          label: 'Page Side Navigation'
+        powered_by:
+          label: 'Powered By'
+        monthly:
+          label: 'Monthly'
+        categories:
+          label: 'Categories'
+        about_me:
+          label: 'About Me'
+        ad_med_rectangle:
+          label: 'Ad (Med Rectangle)'
+        ad_wide_skyscraper:
+          label: 'Ad (Wide Skyscraper)'
+        gallery:
+          label: 'Gallery'
+        recent_actions:
+          label: 'Recent Actions'
+        recent_comments:
+          label: 'Recent Comments'
+        recent_entries:
+          label: 'Recent Entries'
+        recent_photo:
+          label: 'Recent Photo'
+        license:
+          label: 'License'
+      widgetset:      
+        system:
+          label: 'System Page'
+        footer:
+          label: 'Footer'
+          widgets:
+            - 'Categories'
+            - 'Tags'
+            - 'About Me'
+            - 'Powered By'
+            - 'License'
+        homepage:
+          label: 'Homepage'
+          widgets:
+             - 'Gallery'
+             - 'Recent Photo'
+             - 'Recent Actions'
+             - 'Ad (Med Rectangle)'
+             - 'Recent Comments'
+        generic:
+          label: 'Generic Sidebar'
+          widgets:
+             - 'Gallery'
+             - 'Ad (Med Rectangle)'
+             - 'Recent Entries'
+             - 'Recent Actions'
+        page:
+          label: 'Pages'
+          widgets:
+             - 'Page Side Navigation'
+             - 'Ad (Med Rectangle)'
+        elsewhere:
+          label: 'Elsewhere'
+          widgets:
+             - 'Gallery'
+             - 'Ad (Med Rectangle)'
+             - 'Recent Comments'
+        entry:
+          label: 'Entries'
+          widgets:
+             - 'Gallery'
+             - 'Ad (Med Rectangle)'
+             - 'Recent Actions'
+             - 'Recent Entries'
+        search:
+          label: 'Search Results'
+          widgets:
+             - 'Ad (Med Rectangle)'

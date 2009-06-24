@@ -11,6 +11,74 @@ $(document).ready(function(){
         sourceForm: form
       });
     };
+    // Sign-in auth tab switcher - auth_types is defined in the login page.
+    $('#auth-options li').click(function(){
+        authID = $(this).attr('id').replace("signin_option_", "");
+        authOption = $("#signin_option_" + authID);
+        if (authOption) {
+            for (var i = 0; i < auth_types.length; i++) {
+                var auth_type = auth_types[i];
+                if (auth_type == authID) {
+                    $('#signin_with_' + auth_type).show();
+                    $('#signin_option_' + auth_type).addClass('selected');
+                } else {
+                    $('#signin_with_' + auth_type).hide();
+                    $('#signin_option_' + auth_type).removeClass('selected');
+                }
+            }
+        };
+    })
+  var changeUserpic = $('#userpic-field .field-content #change-userpic');
+  var cancelUserpic = $('#userpic-field .field-content #cancel-userpic');
+  var removeUserpic = $('#userpic-field .field-content #remove-userpic');
+  var changePassword = $('#profile a#change-password');
+  // hide input change link present
+  $(changeUserpic).siblings("input").hide();
+  // onclick: hide link, img. show input
+  $(changePassword).click(function() {
+      var speed = 500;
+      $(this).hide();
+      $('#password-fields').show(speed);
+  });
+  if (changeUserpic.size()) {
+    $(changeUserpic).click(function() {
+      var speed = 500;
+      $(this).hide(speed);
+      $(this).parent().siblings("img").hide(speed);
+      $(this).parent().siblings("input").show(speed);
+      cancelUserpic.show(speed);
+      removeUserpic.hide(speed);
+      $(this).parent().addClass('active');
+      return false;
+    });
+    $(cancelUserpic).click(function() {
+      var speed = 500;
+      $(this).hide(speed);
+      $(this).siblings("img").show(speed);
+      $(this).siblings("input").hide(speed);
+      removeUserpic.show(speed);
+      changeUserpic.show(speed);
+      $(this).parent().removeClass('active');
+      return false;
+    });
+  };
+  if (removeUserpic.size()) {
+    $(removeUserpic).click(function() {
+      var id = $('[name="id"]').val();
+      var token = $('[name="magic_token"]').val();
+      var postData = { __mode: 'remove_userpic', user_id: id, magic_token: token  };
+      $.post(mt.blog.community.script, postData,
+	     function(data){
+	       var speed = 500;
+	       $(removeUserpic).hide(speed);
+               $(removeUserpic).parent().siblings("img").hide(speed);
+               $(removeUserpic).parent().siblings("input").show(speed);
+	       $(changeUserpic).hide(speed);
+	     }
+      );
+      return false;
+	});
+  };
 });
               
 

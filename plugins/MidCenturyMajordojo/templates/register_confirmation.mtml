@@ -1,0 +1,45 @@
+<mt:section trim="1">
+  <mt:SetVarBlock name="page_title">
+    <mt:If name="resend">
+        Authentication Email Sent
+    <mt:Else>
+        Profile Created
+    </mt:If>
+  </mt:SetVarBlock>
+</mt:section>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <title><$mt:Var name="page_title"$> - <$mt:BlogName encode_html="1"$></title>
+    <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/system.css" type="text/css" />
+    <$mt:include module="HTML Head"$>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="Banner Header"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+          <h1 class="page-title"><$mt:Var name="page_title"$></h1>
+          <p>To complete the registration process you must first confirm your account. An email has been sent to <$mt:Var name="email" escape="html"$>.</p>
+          <p>To confirm and activate your account please check your inbox and click on the link found in the email we just sent you.</p>
+          <mt:If name="return_to"><p><a href="<$mt:Var name="return_to"$>">Return to the original page.</a></p></mt:If>
+
+                        </div><!-- end #alpha-inner -->
+                    </div><!-- end #alpha -->
+                    <div id="beta">
+                      <div id="beta-inner">
+                        <$mt:widgetset name="System Page"$>
+                      </div><!-- end #beta-inner -->
+                    </div><!-- end #beta -->
+                </div>
+            </div>
+            <$mt:include module="Banner Footer"$>
+        </div>
+    </div>
+</body>
+</html>

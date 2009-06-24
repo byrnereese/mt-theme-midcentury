@@ -1,0 +1,19 @@
+<__trans_section component="motion"><mt:If name="description">
+    <mt:Unless name="show_hint" eq="0">
+        <$mt:Var name="show_hint" value="1"$>
+    </mt:Unless>
+</mt:If>
+<mt:Unless name="$show_field">
+<div id="<$mt:Var name="field_id"$>-field" class="field<mt:If name="required"> required</mt:If> pkg <$mt:Var name="field_class"$>">
+    <div class="field-inner pkg">
+        <div class="field-header">
+            <label id="<$mt:Var name="field_id"$>-label" for="<$mt:Var name="field_id"$>"><$mt:Var name="label"$><mt:If name="required"><span> *</span></mt:If></label>
+        </div>
+        <div class="field-content <$mt:Var name="content_class"$>">
+            <$mt:Var name="field_html"$>
+            <mt:ignore><mt:If name="show_hint"><mt:If name="description"><div class="hint"><$mt:Var name="description"$><mt:Unless name="required"> <span><__trans phrase="(Optional)"></span></mt:Unless></div></mt:If></mt:If></mt:ignore>
+            <mt:If name="warning"><p><img src="<mt:var name="static_uri">images/status_icons/warning.gif" alt="<__trans phrase="Warning">" width="9" height="9" /><span class="alert-warning-inline"><$mt:Var name="warning"$></span></p></mt:If>
+        </div>
+    </div>
+</div>
+</mt:Unless></__trans_section>

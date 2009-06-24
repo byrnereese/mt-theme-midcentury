@@ -1,0 +1,71 @@
+/* Profile ---------------------------------------------------------------------------------- */
+
+.user-profile .profile-header .userpic {
+    float: left;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+.user-profile .profile-header,
+.user-profile .recent-entry,
+.user-profile .actions,
+.user-profile .comment-threads {
+    position: relative;
+    margin-bottom: 25px;
+}
+.profile-header-content {
+    margin-left: 125px;
+    overflow: hidden;
+}
+.profile-header-content #page-title {
+    white-space: nowrap;
+}
+.user-profile .recent-entry .asset {
+    margin-bottom: 10px;
+}
+.comment-threads li {
+    background-repeat: no-repeat;
+    background-position: 0 7px;
+    padding:8px 0 6px 24px;
+    margin: 0 10px 10px;
+    border-bottom: 1px dotted #ddd;
+}
+.comment-threads .excerpt {
+    padding: 6px 0 0;
+}
+
+.edit-relation a { 
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 1px 2px;
+    color: #777;
+    text-decoration: none;
+}
+
+.edit-relation a:hover { 
+    color: #069;
+}
+
+#add-profile-dialog fieldset { 
+    margin-bottom: 0.8em;
+}
+
+#add-profile-dialog fieldset #service-username { 
+    width: 12em;
+}
+
+.user-profile .actions .feed,
+.user-profile .comment-threads .feed {
+    width: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.user-profile .asset .asset-content,
+.user-profile #alpha .asset h1,
+.user-profile #alpha .asset h2 {
+    margin-left: 35px;
+}
+.user-profile .asset .userpic {
+    display: none;
+}

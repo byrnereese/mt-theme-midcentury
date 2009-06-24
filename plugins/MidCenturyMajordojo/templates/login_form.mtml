@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <title>Sign In - <$mt:BlogName encode_html="1"$></title>
+    <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/system.css" type="text/css" />
+    <$mt:include module="HTML Head"$>
+    <script type="text/javascript"> 
+    /* <![CDATA[ */ 
+    var user = <$mt:UserSessionState$>;
+    // Enabled authentication types
+    var auth_types = [<mt:If name="enabled_MovableType">'mt',</mt:If><mt:Loop name="auth_loop">'<$mt:Var name="key"$>'<mt:Unless name="__last__">,</mt:Unless></mt:Loop>];
+    /* ]]> */
+    </script>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> login-form system-template">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="Banner Header"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name">Welcome Back!</h1>
+                                </div>
+
+<mt:If name="message">
+    <$mt:Include module="Messaging" msg_id="message" msg_class="alert" msg_content="$message"$>
+<mt:ElseIf name="error">
+    <$mt:Include module="Messaging" msg_id="generic-error" msg_class="error" msg_content="$error"$>
+</mt:If>
+
+<mt:If name="auth_loop">
+                            <div id="auth-options">
+                                <p>Sign in using...</p>
+                                <ul>
+    <mt:If name="enabled_MovableType">
+                                    <li id="signin_option_mt"<mt:If name="enabled_MovableType"> class="selected"</mt:If>><a href="javascript:void(0)"><img src="<$mt:Var name="static_uri"$>images/comment/signin_mt.png" width="36" height="26" border="0" alt="" /> Movable Type</a></li>
+    </mt:If>
+    <mt:Loop name="auth_loop">
+                                    <li id="signin_option_<$mt:Var name="key"$>"<mt:If name="key" eq="$default_signin"> class="selected"</mt:If>><a href="javascript:void(0)"><mt:If name="logo"><img src="<$mt:Var name="static_uri"$><$mt:Var name="logo"$>" width="36" height="26" border="0" alt="" /></mt:If> <$mt:Var name="name" escape="html"$></a></li>
+    </mt:Loop>
+                                </ul>
+                            </div>
+</mt:If>
+                            <div id="auth-forms">
+                                <div id="signin_with_mt"<mt:Unless name="enabled_MovableType"> style="display: none"</mt:Unless>>
+
+                                    <mt:If name="registration_allowed"><p class="signup">Not a member?&nbsp;&nbsp;<a href="<$mt:BlogURL$>register/">Sign Up</a>!</p></mt:If>
+
+                                    <form method="post" action="<$mt:Var name="script_url"$>">
+                                        <input type="hidden" name="__mode" value="do_login" />
+                                        <input type="hidden" name="blog_id" value="<$mt:Var name="blog_id"$>" />
+                                        <input type="hidden" name="return_to" value="<$mt:Var name="return_to"$>" />
+<mt:Unless name="auth_mode_mt">
+                                        <input type="hidden" name="external_auth" value="1" />
+</mt:Unless>
+                                        <mt:SetVarBlock name="field_html"><input name="username" id="username" class="ti" /></mt:SetVarBlock>
+                                        <$mt:Include module="<__trans phrase="Form Field">" field_id="username" field_class="" required="1" label="<__trans phrase="Username">"$>
+
+                                        <mt:SetVarBlock name="field_html"><input type="password" name="password" id="password" class="pw" /> <mt:If name="can_recover_password"><a href="<$mt:Var name="script_url"$>?__mode=start_recover&amp;blog_id=<$mt:BlogID escape="url"$>&amp;return_to=<$mt:Var name="return_to" escape="url"$>">Forgot?</a></mt:If></mt:SetVarBlock>
+                                        <$mt:Include module="<__trans phrase="Form Field">" field_id="password" field_class="" required="1" label="<__trans phrase="Password">"$>
+
+                                        <p><label><input type="checkbox" name="remember" value="1" accesskey="r" /> <__trans phrase="Remember me?"></label></p>
+
+                                        <p><button type="submit" class="primary-button" accesskey="s">Sign in</button></p>
+                                    </form>
+                                </div>
+
+<mt:Loop name="auth_loop">
+                                <div id="signin_with_<$mt:Var name="key"$>"<mt:If name="key" ne="$default_signin"> style="display: none"</mt:If>>
+                                    <$mt:Var name="login_form"$>
+                                </div>
+</mt:Loop>
+                            </div>
+
+                        </div><!-- end #alpha-inner -->
+                    </div><!-- end #alpha -->
+                    <div id="beta">
+                      <div id="beta-inner">
+                        <$mt:widgetset name="System Page"$>
+                      </div><!-- end #beta-inner -->
+                    </div><!-- end #beta -->
+                </div>
+            </div>
+            <$mt:include module="Banner Footer" system="1"$>
+        </div>
+    </div>
+</body>
+</html>

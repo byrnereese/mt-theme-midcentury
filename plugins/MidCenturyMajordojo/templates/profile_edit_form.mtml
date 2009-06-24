@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <title>Edit Profile - <$mt:BlogName encode_html="1"$></title>
+    <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/system.css" type="text/css" />
+    <mt:If name="profile_self">
+        <script type="text/javascript" src="<mt:StaticWebPath>jquery/ui/ui.core.js"></script>
+        <script type="text/javascript" src="<mt:StaticWebPath>jquery/ui/ui.dialog.js"></script>
+    </mt:If>
+    <script type="text/javascript"> 
+    /* <![CDATA[ */ 
+    var user = <$mt:UserSessionState$>;
+    /* ]]> */
+    $(document).ready( function() {
+      $('#pass').val('');      
+      $('#pass_verify').val('');      
+    });
+    </script>
+    <$mt:include module="HTML Head"$>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> edit-profile system-template">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="Banner Header"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name">Edit Profile</h1>
+                                </div>
+
+<mt:If name="saved">
+                            <mt:SetVarBlock name="msg_content">This profile has been updated. Go <a href="<$mt:Var name="return_to" escape="html"$>">back to the previous page</a> or <a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&amp;blog_id=<$mt:Var name="blog_id"$>">view your profile</a>.</mt:SetVarBlock>
+                            <$mt:Include module="Messaging" msg_id="saved" msg_class="success" msg_content="$msg_content"$>
+<mt:ElseIf name="error">
+                            <$mt:Include module="Messaging" msg_id="generic-error" msg_class="error" msg_content="$error"$>
+</mt:If>
+
+                            <form name="profile" id="profile" method="post" action="<$mt:Var name="script_url"$>" enctype="multipart/form-data">
+                                <input type="hidden" name="__mode" value="save" />
+<mt:If name="blog_id">
+                                <input type="hidden" name="blog_id" value="<$mt:Var name="blog_id" escape="html"$>" />
+</mt:If>
+                                <input type="hidden" name="magic_token" value="<$mt:Var name="magic_token"$>" />
+                                <input type="hidden" name="return_args" value="<$mt:Var name="return_args" escape="html"$>" />
+                                <input type="hidden" name="return_to" value="<$mt:Var name="return_to" escape="html"$>" />
+<mt:If name="id">
+                                <input type="hidden" name="id" value="<$mt:Var name="id" escape="html"$>" />
+</mt:If>
+
+
+                            <mt:SetVarBlock name="field_html"><span id="name"><$mt:Var name="name" escape="html"$></span></mt:SetVarBlock>
+                            <$mt:Include module="Form Field" field_id="name" field_class="" required="" label="Username"$>
+
+                            <mt:SetVarBlock name="field_html"><input type="text" name="nickname" id="nickname" class="ti" value="<$mt:Var name="nickname" escape="html"$>" /></mt:SetVarBlock>
+                            <$mt:Include module="Form Field" field_id="nickname" field_class="" required="$auth_type_mt" label="Display Name"$>
+
+                            <mt:SetVarBlock name="field_html"><input type="text" name="email" id="email" class="ti" value="<$mt:Var name="email" escape="html"$>" /></mt:SetVarBlock>
+
+                            <mt:If name="auth_mode_mt">
+
+                                <$mt:Include module="Form Field" field_id="email" field_class="" required="$auth_type_mt" label="Email Address"$>
+
+                                <mt:If name="can_modify_password">
+                                <div id="password-fields">
+                                <mt:SetVarBlock name="field_html"><input type="password" name="pass" id="pass" class="pw" /></mt:SetVarBlock>
+                                <$mt:Include module="Form Field" field_id="pass" field_class="" required="0" label="New Password"$>
+                                <mt:SetVarBlock name="field_html"><input type="password" name="pass_verify" id="pass_verify" class="pw" /></mt:SetVarBlock>
+                                <$mt:Include module="Form Field" field_id="pass_verify" field_class="" required="0" label="Confirm Password"$>
+                                </div>
+                                <a id="change-password" href="#">Change Password</a>
+                                </mt:If>
+
+                            <mt:Else>
+                                <$mt:Include module="Form Field" field_id="email" field_class="" required="0" label="Email Address"$>
+                                <input type="hidden" name="external_auth" value="1" />
+                            </mt:If>
+
+                            <mt:SetVarBlock name="field_html"><input type="text" name="url" id="url" class="ti" value="<$mt:Var name="url" escape="html"$>"  /></mt:SetVarBlock>
+                            <$mt:Include module="Form Field" field_id="url" field_class="" required="0" label="Website URL"$>
+
+                            <mt:if name="can_use_userpic">
+                            <mt:SetVarBlock name="field_html">
+                                <div class="pkg">
+                                <mt:If name="userpic">
+                                    <$mt:Var name="userpic"$>
+                                    <div class="userpic-buttons">
+                                      <a id="change-userpic" href="#">Change</a>
+                                      <a id="remove-userpic" href="#">Remove</a>
+                                    </div>
+				<mt:else>
+                                    <div class="userpic-buttons">
+                                      <a id="change-userpic" href="#">Upload a Userpic</a>
+                                    </div>
+                                </mt:If>
+                                <input type="file" name="file" id="file" class="fi" /> <a id="cancel-userpic" href="#">Cancel</a>
+                                </div>
+                            </mt:SetVarBlock>
+                            <$mt:Include module="Form Field" field_id="userpic" field_class="" required="0" label="Userpic"$>
+                            </mt:if>
+
+                            <mt:Loop name="field_loop">
+                                <mt:If name="__first__">
+                                <input type="hidden" name="_type" value="author" id="obj_type" />
+                                <input type="hidden" name="customfield_beacon" value="1" id="customfield_beacon" />
+                                </mt:If>
+                                <mt:unless name="field_id" like="/^customfield_(private|pref)_/">
+                                  <mt:If name="show_field">
+                                  <!-- start-customfield_<$mt:Var name="basename"$> -->
+                                    <$mt:Include module="Form Field" field_id="$field_id" field_class="" required="$required" label="$name"$>
+                                  <!-- end-customfield_<$mt:Var name="basename"$> -->
+                                  </mt:If>
+                                </mt:unless>
+                            </mt:Loop>
+
+                            <mt:Loop name="field_loop">
+                                <mt:if name="field_id" like="/^customfield_pref_/">
+                                  <mt:If name="show_field">
+                                  <!-- start-customfield_<$mt:Var name="basename"$> -->
+                                    <$mt:Include module="Form Field" field_id="$field_id" field_class="" required="$required" label="$name"$>
+                                  <!-- end-customfield_<$mt:Var name="basename"$> -->
+                                  </mt:If>
+                                </mt:if>
+                            </mt:Loop>
+
+                            <div class="actions-bar actions-bar-login">
+                                <div class="actions-bar-inner pkg actions">
+                                    <button
+                                        type="submit"
+                                        accesskey="s"
+                                        title="Save (s)"
+                                        class="primary-button"
+                                        >Save</button>
+                                </div>
+                            </div>
+
+                            </form>
+
+                            <p>Go <a href="<$mt:Var name="return_to" escape="html"$>">back to the previous page</a> or <a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&amp;blog_id=<$mt:Var name="blog_id"$>">view your profile</a>.</p>
+
+                        </div><!-- end #alpha-inner -->
+                    </div><!-- end #alpha -->
+                    <div id="beta">
+                      <div id="beta-inner">
+                        <$mt:widgetset name="System Page" system="1"$>
+                      </div><!-- end #beta-inner -->
+                    </div><!-- end #beta -->
+                </div>
+            </div>
+            <$mt:include module="Banner Footer" system="1"$>
+        </div>
+    </div>
+</body>
+</html>
