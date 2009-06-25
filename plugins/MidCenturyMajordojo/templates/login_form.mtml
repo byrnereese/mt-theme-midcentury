@@ -48,7 +48,7 @@
                             <div id="auth-forms">
                                 <div id="signin_with_mt"<mt:Unless name="enabled_MovableType"> style="display: none"</mt:Unless>>
 
-                                    <mt:If name="registration_allowed"><p class="signup">Not a member?&nbsp;&nbsp;<a href="<$mt:BlogURL$>register/">Sign Up</a>!</p></mt:If>
+                                    <mt:If name="registration_allowed"><p class="signup">Not a member?&nbsp;&nbsp;<a href="<$mt:Var name="script_url"$>?__mode=register&amp;blog_id=<$mt:Var name="blog_id"$>&amp;return_to=<$mt:Var name="return_to" escape="url"$>">Sign Up</a>!</p></mt:If>
 
                                     <form method="post" action="<$mt:Var name="script_url"$>">
                                         <input type="hidden" name="__mode" value="do_login" />
