@@ -65,7 +65,7 @@
     /* ]]> */
     </script>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-search-results <$mt:Var name="page_layout"$>">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-search-results <$mt:MidCenturyLayout$>">
     <div id="container">
         <div id="container-inner">
 
@@ -166,10 +166,19 @@ var timer = window.setTimeout("getResults(" + <$mt:CurrentPage$> + ")", 1*1000);
 
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="Search Results"$>
-                      </div><!-- end #beta-inner -->
-                    </div><!-- end #beta -->
-
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
+                    </div><!-- end #beta-inner -->
+                  </div><!-- end #beta -->
                 </div>
             </div>
 

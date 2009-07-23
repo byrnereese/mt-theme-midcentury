@@ -48,15 +48,26 @@ h1#page-title { font-size: 2em; }
 
 .widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
 .widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
-.widget-recent-comments ul li { background: url(sidebar-wide-bg-top.gif) no-repeat 0 0; }
-.widget-recent-comments ul li .comment-attribution { background: url(sidebar-wide-bg-bot.gif) no-repeat 0 0; }
+
+.2-column .widget-recent-comments ul li { background: url(sidebar-wide-bg-top.gif) no-repeat 0 0; }
+.2-column .widget-recent-comments ul li .comment-attribution { background: url(sidebar-wide-bg-bot.gif) no-repeat 0 0; }
+.3-column .widget-recent-comments ul li { background: url(sidebar-narrow-bg-top.gif) no-repeat 0 0; }
+.3-column .widget-recent-comments ul li .comment-attribution { background: url(sidebar-narrow-bg-bot.gif) no-repeat 0 0; }
 
 .widget-archive-category { width: 20%; float: left; }
+#beta .widget-archive-category { width: 100%; float: none; }
 .widget-tag-cloud { width: 50%; float: left; }
 .widget-tag-cloud .widget-content ul { margin-left: 0; margin-right: 20px; font-size: 1.1em; }
 .widget-about p { font-size: 1.2em; font-family: Georgia; margin-top: 10px; }
 
 #alpha .action-stream-list { margin-left: 50px; margin-top: 20px; font-family: Georgia; font-size: 1.2em; }
+
+img.featured-thumbnail {
+  float: left;
+  margin: 5px 10px 10px 0;
+  border: 1px solid #EEEEEA;
+  padding: 3px;
+}
 
 .entry-asset,
 .page-asset {
@@ -157,3 +168,44 @@ h1#page-title { font-size: 2em; }
 }
 
 .widget-donate form { padding: 10px; text-align: center; }
+
+#widget-elsewhere ul {
+		  width: 100%;
+}
+
+#widget-elsewhere ul li {
+		  width: 50%;
+		  float: left;
+		  padding: 7px 0;
+		  font-size: 12px;
+		  font-family: "Arial";
+		  background-repeat: no-repeat;
+		  background-position: 0 4px;
+}
+#widget-elsewhere ul li a {
+		  text-decoration: none;
+		  color: #666666;
+		  display: block;
+		  float: left;
+}
+#widget-elsewhere ul li a.link {
+		  padding-left: 23px;
+}
+
+#widget-elsewhere ul li:hover a.button {
+		  display: block;
+}
+#widget-elsewhere ul li a.button {
+		  margin-left: 10px;
+		  display: none;
+		  color: white;
+		  padding: 2px 4px;
+		  top: -2px;
+		  position: relative; 
+		  margin-left: 5px !important;
+		  border-radius: 6px;
+		  -moz-border-radius: 6px;
+		  -webkit-border-radius: 6px;
+		  padding: 1px 4px 1.5px 4px !important;
+}
+

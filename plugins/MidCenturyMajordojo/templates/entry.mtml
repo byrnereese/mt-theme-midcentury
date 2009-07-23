@@ -2,12 +2,12 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
 <head>
+    <title><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
     <$mt:include module="HTML Head"$>
 <script src="<mt:StaticWebPath>plugins/mid-century/jquery.phpdate.js" type="text/javascript"></script>    <link rel="alternate" type="application/atom+xml" title="Recent Comments on <$MTEntryTitle encode_html="1"$>" href="<$MTEntryPermalink$>.xml">
     <MTEntryPrevious><link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryPrevious>
     <MTEntryNext><link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryNext>
     <$MTEntryTrackbackData$>
-    <title><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
 <mt:IfDiggEnabled>
 <script type="text/javascript">
 digg_url = '<mt:EntryPermalink encode_js="1">';
@@ -17,7 +17,7 @@ digg_title = '<mt:EntryTitle encode_js="1">';
 </script>
 </mt:IfDiggEnabled>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive <$MTVar name="page_layout"$>" onload="mtEntryOnLoad()">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive <$mt:MidCenturyLayout$>" onload="mtEntryOnLoad()">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -68,7 +68,17 @@ digg_title = '<mt:EntryTitle encode_js="1">';
                     <!-- google_ad_section_end -->
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="Entries"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>

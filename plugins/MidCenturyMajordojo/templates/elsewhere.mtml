@@ -6,7 +6,7 @@
     <title>Elsewhere</title>
     <$mt:include module="HTML Head"$>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> elsewhere">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$mt:MidCenturyLayout$> elsewhere">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -27,13 +27,23 @@
         </mt:if>
 </mt:ActionStreams>
 
-<p id="subscribe"><img src="http://www.majordojo.com/images/feed-202020.gif" width="20" height="20"> <a href="http://www.majordojo.com/elsewhere/atom.xml">Subscribe to this Action Stream</a></p>
+<p id="subscribe"><img src="<mt:StaticWebPath>images/icons/feed" /> <a href="<$mt:Link template="elsewhere_feed"$>">Subscribe to this Action Stream</a></p>
 
                         </div>
                     </div>
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="Elsewhere"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>

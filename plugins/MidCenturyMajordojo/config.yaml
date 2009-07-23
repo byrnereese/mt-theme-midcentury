@@ -11,16 +11,48 @@ template_sets:
   mid-century-majordojo:
     base_path: templates
     label: 'Mid-Century 2.0'
+    thumbnail_prototypes:
+      entry_summary:
+        label: 'Entry Summary'
+        max_width: 100
+        max_height: 100
     options:
       fieldsets:
         seo:
-          label: 'Analytics & Search Engine Optimization'
+          label: 'Analytics & SEO'
         frontdoor:
           label: 'Homepage'
         ads:
           label: 'Advertising'
+        design:
+          label: 'Design & Layout'
         options:
           label: 'Options'
+        profiles:
+          label: 'Profiles'
+      layout:
+        type: select
+        values: 2-column,3-column
+        label: 'Page Layout'
+        hint: 'Select the layout you want for this web site.'
+        tag: 'MidCenturyLayout'
+        fieldset: design
+        default: '2 column'
+      entry_summary_layout:
+        type: select
+        values: Full Summary,Excerpt w/Image 
+        label: 'Entry Layout'
+        hint: 'Select the layout you want for entry summaries on this web site.'
+        tag: 'MidCenturyEntryLayout'
+        fieldset: design
+        default: 'Full Summary'
+      about_me:
+        type: textarea
+        label: 'About Me'
+        hint: 'Enter in any HTML you want to appear in the "About Me" section of the site\'s footer.'
+        tag: 'AboutMeText'
+        fieldset: options
+        default: 'Welcome to this web site powered by Mid-Century 2.0, a theme developed exclusively for Movable Type and Melody.'
       google_var:
         type: text
         label: 'Google Verification Code'
@@ -48,6 +80,14 @@ template_sets:
         hint: 'Enter the ad tag for the 728x90 leaderboard for the top of the page'
         tag: 'AdTagLeaderboard'
         fieldset: ads
+      action_count:
+        type: select
+        values: 5,10,15,20,25,30
+        label: 'Action Count'
+        hint: 'The number of actions to show on user profiles'
+        tag: 'ProfileActionCount'
+        fieldset: profiles
+        default: 10
       full_entry_count:
         type: select
         values: 0,1,2,3,4,5,6,7,8,9,10
@@ -55,6 +95,7 @@ template_sets:
         hint: 'The number of entries to show (with excerpt) on the front door'
         tag: 'FullEntryCount'
         fieldset: frontdoor
+        default: 2
       excerpt_count:
         type: select
         values: 0,1,2,3,4,5,6,7,8,9,10
@@ -62,6 +103,7 @@ template_sets:
         hint: 'The number of entries to roll up as titles only (in main column)'
         tag: 'EntryTitleCount'
         fieldset: frontdoor
+        default: 10
       activity_streams_enabled:
         type: checkbox
         label: 'Enable Activity Streams'
@@ -249,37 +291,58 @@ template_sets:
         userpic:
           label: 'Userpic'
       widget:
-        tags:
+        w_tags:
           label: 'Tags'
-        page_side_navigation:
+        w_elsewhere:
+          label: 'Elsewhere'
+        w_page_side_navigation:
           label: 'Page Side Navigation'
-        powered_by:
+        w_powered_by:
           label: 'Powered By'
-        monthly:
+        w_monthly:
           label: 'Monthly'
-        categories:
+        w_categories:
           label: 'Categories'
-        about_me:
+        w_about_me:
           label: 'About Me'
-        ad_med_rectangle:
+        w_ad_med_rectangle:
           label: 'Ad (Med Rectangle)'
-        ad_wide_skyscraper:
+        w_ad_wide_skyscraper:
           label: 'Ad (Wide Skyscraper)'
-        gallery:
+        w_gallery:
           label: 'Gallery'
-        recent_actions:
+        w_recent_actions:
           label: 'Recent Actions'
-        recent_comments:
+        w_recent_comments:
           label: 'Recent Comments'
-        recent_entries:
+        w_recent_entries:
           label: 'Recent Entries'
-        recent_photo:
+        w_recent_photo:
           label: 'Recent Photo'
-        license:
+        w_license:
           label: 'License'
       widgetset:      
         system:
           label: 'System Page'
+        profile:
+          label: 'Profile'
+          widgets:
+             - 'Elsewhere'
+             - 'Ad (Med Rectangle)'
+        3col-top:
+          label: 'Generic 3 Column (Above)'
+          widgets:
+             - 'Gallery'
+             - 'Ad (Med Rectangle)'
+        3col-left:
+          label: 'Generic 3 Column (Left)' 
+          widgets:
+            - 'Categories'
+            - 'Monthly'
+        3col-right:
+          label: 'Generic 3 Column (Right)'
+          widgets:
+            - 'Recent Comments'
         footer:
           label: 'Footer'
           widgets:

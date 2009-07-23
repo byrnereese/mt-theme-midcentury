@@ -8,10 +8,10 @@
         <div id="header-content">
 <mt:ignore><!-- Use h1 and h2 html tags on the main index of the blog as the title, use divs on all other pages where there are page titles. --></mt:ignore>
 <MTIf name="main_index">
-            <h1 id="header-name"><a href="/" accesskey="1">majordojo</a></h1>
+            <h1 id="header-name"><a href="<$mt:BlogURL$>" accesskey="1"><$mt:BlogName$></a></h1>
             <h2 id="header-description"><$MTBlogDescription$></h2>
 <MTElse>
-            <div id="header-name"><a href="/" accesskey="1">majordojo</a></div>
+            <div id="header-name"><a href="<$mt:BlogURL$>" accesskey="1"><$mt:BlogName$></a></div>
             <div id="header-description"><$MTBlogDescription$></div>
 </MTIf>
         </div>

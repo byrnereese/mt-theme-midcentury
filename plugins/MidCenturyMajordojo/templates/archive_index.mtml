@@ -5,7 +5,7 @@
     <title><$MTBlogName encode_html="1"$>: Archives</title>
     <$mt:include module="HTML Head"$>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-index <$MTVar name="page_layout"$>">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-index <$mt:MidCenturyLayout$>">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -50,7 +50,17 @@
                     </div>
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="Generic Sidebar"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>

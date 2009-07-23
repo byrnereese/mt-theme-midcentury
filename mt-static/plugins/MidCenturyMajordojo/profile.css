@@ -1,11 +1,9 @@
 /* Profile ---------------------------------------------------------------------------------- */
 
-.user-profile .profile-header .userpic {
-    float: left;
+.user-profile .user-pic {
     border: 1px solid #ccc;
     padding: 2px;
 }
-.user-profile .profile-header,
 .user-profile .recent-entry,
 .user-profile .actions,
 .user-profile .comment-threads {
@@ -13,14 +11,35 @@
     margin-bottom: 25px;
 }
 .profile-header-content {
-    margin-left: 125px;
     overflow: hidden;
+}
+.profile-header p {
+    float: right;
+    top: -30px;
+    position: relative;
 }
 .profile-header-content #page-title {
     white-space: nowrap;
 }
+.user-profile #profile-tabs,
+.user-profile .actions,
+.user-profile .comment-threads,
+.user-profile .profile-data {
+    margin-left: 55px;
+} 
+.user-profile .profile-data .user-pic {
+    float: left;
+}
+.user-profile .profile-data ul {
+    width: 275px;
+    float: left;
+    margin-left: 15px;
+}
 .user-profile .recent-entry .asset {
     margin-bottom: 10px;
+}
+.comment-threads {
+    display: none;
 }
 .comment-threads li {
     background-repeat: no-repeat;
@@ -55,10 +74,10 @@
 
 .user-profile .actions .feed,
 .user-profile .comment-threads .feed {
-    width: 10px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    background-image: url(../../images/status_icons/feed.gif);
+    background-repeat: no-repeat;
+    background-position: 0 6px;
+    padding-left: 15px; 
 }
 
 .user-profile .asset .asset-content,
@@ -69,3 +88,142 @@
 .user-profile .asset .userpic {
     display: none;
 }
+
+/* Tabs */
+
+.tabs li {
+      border-top-right-radius: 2px;
+      -moz-border-radius-topright: 2px;
+      -webkit-border-top-right-radius: 2px;
+      border-top-left-radius: 2px;
+      -moz-border-radius-topleft: 2px;
+      -webkit-border-top-left-radius: 2px;
+      padding: 0;
+      float: left;
+      margin-right: 5px;
+      background-color: #EEEEEA;
+      font-size: 13px;
+      font-family: "Arial";
+      border-bottom: 1px solid #CCCCCC;
+      position: relative;
+      top: 1px;
+}
+.tabs li a {
+      color: #999999;
+      text-decoration: none;
+      padding: 3px 7px;
+      display: block;
+}
+.tabs li.active {
+      background-color: #A30000;
+      border-bottom: 1px solid #CC3300;
+}
+.tabs li.active a {
+      color: white;
+}
+.tabs {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #CCCCCC;
+}
+
+/* Actions Listing ---------------------------------------------------------------------------------- */
+
+.service-icon { background-repeat: no-repeat; }
+.icon-entry { background-image: url(icons/page_white_text.png); }
+.icon-link { background-image: url(icons/link.png); }
+.icon-audio { background-image: url(icons/sound.png); }
+.icon-video { background-image: url(icons/film.png); }
+.icon-embed { background-image: url(icons/film.png); }
+.icon-photo { background-image: url(icons/picture.png); }
+.icon-comment { background-image: url(icons/comment.png); }
+.icon-follow { background-image: url(icons/group.png); }
+.icon-favorite { background-image: url(icons/heart.png); }
+
+.action-listing {
+    clear: both;
+    margin: 0 0 15px 0;
+    font-family: "Arial";
+    font-size: 12px;
+    color: #333333;
+}
+.action-listing li {
+    border-bottom: 1px dotted #ddd;
+    clear: left;
+    position: relative;
+    padding: 8px 0 6px 20px;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 0px 8px;
+}
+#alpha .action-listing li .userpic {
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+#alpha .action-listing li .userpic .userpic-link {
+    border: none;
+    margin-top: 3px;
+    padding: 0;
+}
+.comment-threads h2,
+.actions h2 {
+display: none;
+}
+.action-listing li a {
+    text-decoration: underline;
+}
+.action-listing li span {
+    display: block;
+    color: #222;
+}
+.action-listing li span.action-listing-date {
+    width: 90px;
+    display: none;
+}
+.action-listing li span.action-listing-title {
+    display: inline; /* IE6 */
+    width: 455px;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+.action-listing li span.action-listing-excerpt {
+    margin-left: 10px;
+}
+.action-listing li span.action-listing-comments {
+    display: block;
+    width: 30px;
+    background-repeat: no-repeat;
+    font-size: 13px;
+    text-align: right;
+}
+.action-listing li.entry { padding-bottom: 5px; margin-bottom: 0px; }
+.action-listing li .excerpt { font-family: "Goergia"; font-size: 14px; }
+
+.actions ul {
+    margin-bottom: 15px;
+}
+
+.asset,
+.action {
+    /* padding-bottom: 25px; */
+    border-bottom: 4px solid #f6f6f6;
+    background-repeat: no-repeat;
+    position: relative;
+    list-style-type: none;
+}
+.action {
+    background-repeat: no-repeat;
+    padding: 8px 10px 7px 35px;
+    margin: 0;
+    font-size: 11px;
+    color: #222;
+    border-top: 1px solid #bbb;
+    background-repeat: no-repeat;
+    background-position: 10px 5px;
+}
+.action a {
+    color: #069;
+}
+

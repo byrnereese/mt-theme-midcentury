@@ -1,31 +1,46 @@
-<$MTEntryTrackbackData$>
-<div id="entry-<$MTEntryID$>" class="entry-asset asset hentry">
+<$mt:var name="thumbnail" value=""$>
+<$mt:EntryTrackbackData$>
+<div id="entry-<$mt:EntryID$>" class="entry-asset asset hentry">
     <div class="asset-header">
-        <h2 class="asset-name entry-title"><a href="<$MTEntryPermalink$>" rel="bookmark"><$MTEntryTitle$></a></h2>
+        <h2 class="asset-name entry-title"><a href="<$mt:EntryPermalink$>" rel="bookmark"><$mt:EntryTitle$></a></h2>
         <div class="asset-meta">
-            <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="<span class='day'>%e</span> %b %Y"$></abbr></div>
+            <div class="entry-meta-date"><abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>"><$mt:EntryDate format="<span class='day'>%e</span> %b %Y"$></abbr></div>
         </div>
     </div>
-    <div class="asset-content entry-content">
-<MTIfNonEmpty tag="EntryBody">
-        <div class="asset-body">
-            <$MTEntryBody$>
+    <div class="asset-content entry-content pkg">
+<mt:IfNonEmpty tag="EntryBody">
+        <div class="asset-body pkg">
+<mt:if tag="MidCenturyEntryLayout" eq="Full Summary">
+            <$mt:EntryBody$>
+<mt:else tag="MidCenturyEntryLayout" eq="Excerpt w/Image">
+            <mt:EntryAssets lastn="1" trim="1">
+            <mt:CroppedAsset label="Entry Summary">
+              <mt:setvarblock name="thumbnail"><img class="featured-thumbnail custom-crop" src="<$mt:AssetURL$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+            <mt:else>
+              <mt:setvarblock name="thumbnail"><img class="featured-thumbnail" src="<$mt:AssetThumbnailURL width="100" square="1"$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+            </mt:CroppedAsset>
+            </mt:EntryAssets>
+            <mt:if name="thumbnail" ne=""><a rel="bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>"><$mt:var name="thumbnail"$></a></mt:if>
+            <$mt:EntryExcerpt$>
+<mt:else>
+If you are seeing this, something is wrong.
+</mt:if>
         </div>
-</MTIfNonEmpty>
-<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+</mt:IfNonEmpty>
+<mt:IfNonEmpty tag="EntryMore" convert_breaks="0">
         <div class="asset-more-link">
-            Continue reading <a href="<$MTEntryPermalink$>#more" rel="bookmark"><$MTEntryTitle$></a>.
+            Continue reading <a href="<$mt:EntryPermalink$>#more" rel="bookmark"><$mt:EntryTitle$></a>.
         </div>
-</MTIfNonEmpty>
+</mt:IfNonEmpty>
     </div>
     <div class="asset-footer"><div class="asset-footer-inner">
-        <MTIfCommentsActive><div class="entry-commentcount"><a href="<$MTEntryPermalink$>#comments"><$MTEntryCommentCount$> <span>Comments</span></a></div></MTIfCommentsActive>
+        <mt:IfCommentsActive><div class="entry-commentcount"><a href="<$mt:EntryPermalink$>#comments"><$mt:EntryCommentCount$> <span>Comments</span></a></div></mt:IfCommentsActive>
         <div class="asset-footer-meta">
-        <p>Posted by <$MTEntryAuthorLink show_hcard="1"$> on <$MTEntryDate format="%A, %x at %X"$><MTIfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$MTEntryPermalink$>#trackback" class="trackback-count"><$MTEntryTrackbackCount$> <span>TrackBacks</span></a></span></MTIfPingsActive></p>
-        <p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
-        <MTEntryIfTagged><MTIfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </MTIfNonEmpty>
-                <MTEntryTags glue=', '><a href="<$MTTagSearchLink$>" rel="tag"><$MTTagName$></a></MTEntryTags>
-        </MTEntryIfTagged>
+        <p>Posted by <$mt:EntryAuthorLink show_hcard="1"$> on <$mt:EntryDate format="%A, %x at %X"$><mt:IfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$mt:EntryPermalink$>#trackback" class="trackback-count"><$mt:EntryTrackbackCount$> <span>TrackBacks</span></a></span></mt:IfPingsActive></p>
+        <p><mt:IfNonEmpty tag="EntryCategory">Filed in <mt:EntryCategories glue=', '><a href="<$mt:CategoryArchiveLink$>" rel="tag"><$mt:CategoryLabel$></a></mt:EntryCategories></mt:IfNonEmpty>
+        <mt:EntryIfTagged><mt:IfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </mt:IfNonEmpty>
+                <mt:EntryTags glue=', '><a href="<$mt:TagSearchLink$>" rel="tag"><$mt:TagName$></a></mt:EntryTags>
+        </mt:EntryIfTagged>
         </p>
         </div>
     </div></div>

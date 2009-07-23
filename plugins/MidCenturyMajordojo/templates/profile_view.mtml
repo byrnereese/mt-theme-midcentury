@@ -19,6 +19,24 @@
     <script type="text/javascript"> 
     /* <![CDATA[ */ 
         var user = <$mt:UserSessionState$>;
+
+        $(document).ready(function () {
+        $('ul#profile-tabs li a').click(function() {
+            var clicked = $(this).attr('href');
+	        if ($(this).parent().hasClass('active')) return false;
+		    $(this).parent().parent().find('li a').each( function() {
+		    				       if ($(this).attr('href') == clicked) {
+                  $(this).parent().addClass('active'); 
+		  				         $( $(this).attr('href') ).show();
+                } else {
+                  $(this).parent().removeClass('active');
+			  $( $(this).attr('href') ).hide();
+                }
+            });
+            return false;
+        });
+        });
+
 <mt:If name="profile_self">
         $(document).ready(function () {
             // var edit_profile_href = '<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>&return_to=' + encodeURIComponent(document.URL);
@@ -51,9 +69,7 @@
                     <div id="alpha">
                         <div id="alpha-inner">
                         
-
-                            <div class="profile-header vcard">
-                                <$mt:Include module="Userpic" userpic_type="profile" userpic_size="100"$>
+                            <div class="profile-header vcard pkg">
                                 <div class="profile-header-content">
                                     <h1 id="page-title" class="fn n"><$mt:AuthorDisplayName encode_html="1"$></h1>
 
@@ -76,25 +92,8 @@
                                 </div>
                             </div>
 
-<mt:Ignore>
-                            <div class="profile-data">
-                                <h2>Profile Data</h2>
-                                <ul>
-    <mt:Ignore>
-        <!-- these fields should not be displayed publicly -->
-                                    <li>AuthorID: <$mt:AuthorID encode_html="1"$></li>
-                                    <li>AuthorName: <$mt:AuthorName encode_html="1"$></li>
-    </mt:Ignore>
-                                    <li>AuthorDisplayName: <$mt:AuthorDisplayName encode_html="1"$></li>
-                                    <li>AuthorBasename: <$mt:AuthorBasename$></li>
-                                    <li>AuthorEmail: <$mt:AuthorEmail encode_html="1"$></li>
-                                    <li>AuthorURL: <$mt:AuthorURL encode_html="1"$></li>
-                                    <li>AuthorURL + regex magic: <a href="<$mt:AuthorURL encode_html="1"$>" target="_blank"><$mt:AuthorURL regex_replace="/^\w+:\/\//","" encode_html="1"$></a></li>
-                                    <li>AuthorAuthType: <$mt:AuthorAuthType$></li>
-                                    <li>AuthorAuthIconURL: <$mt:AuthorAuthIconURL encode_html="1"$></li>
-                                    <li>AuthorUserpic: <$mt:AuthorUserpic$></li>
-                                    <li>AuthorUserpicURL: <$mt:AuthorUserpicURL$></li>
-                                </ul>
+                            <div class="profile-data pkg">
+                                <$mt:Include module="Userpic" userpic_type="profile" userpic_size="220"$>
                                 <ul>
 <mt:Loop name="field_loop">
     <mt:If name="value">
@@ -103,58 +102,35 @@
 </mt:Loop>
                                 </ul>
                             </div>
-</mt:Ignore>
 
-                            <div class="recent-entry">
-                                <mt:Entries lastn="1">
-                                    <div class="asset">
-                                        <div class="asset-meta icon-<$mt:EntryPostType$>">
-                                            <span class="byline">
-                                <mt:If tag="EntryAuthorDisplayName">
-                                                By <span class="vcard author"><a href="<$mt:Var name="profile_view_url" encode_html="1"$><$mt:AuthorID$>"><$mt:AuthorDisplayName$></a></span> <span class="date">on <abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>"><$mt:EntryDate format="%b %e, %X"$></abbr></span>
-                                <mt:Else>
-                                                <abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>"><$mt:EntryDate format="%x %X"$></abbr>
-                                </mt:If>
-                                            </span>
-                                            <span class="separator">|</span> <span id="favtog<$mt:EntryID$>" class="favtog favorite-action" title="<$mt:EntryScore namespace="community_pack_recommend">"><$mt:EntryScore namespace="community_pack_recommend" singular="1" plural="#" none="0"$></span>
-                                <mt:IfCommentsActive>
-                                            <span class="separator">|</span> <a href="<$mt:EntryPermalink$>#comments" class="comment-count"><$mt:EntryCommentCount singular="1 <span>Comment</span>" plural="# <span>Comments</span>" none="0 <span>Comments</span>"$></a>
-                                </mt:IfCommentsActive>
-                                <mt:IfPingsActive>
-                                <mt:If tag="EntryTrackbackCount">
-                                            <span class="separator">|</span> <a href="<$mt:EntryPermalink$>#trackbacks" class="trackback-count"><$mt:EntryTrackbackCount singular="1 <span>TrackBack</span>" plural="# <span>TrackBacks</span>" none="0 <span>TrackBacks</span>"$></a>
-                                </mt:If>
-                                </mt:IfPingsActive>
-                                        </div>
-                                        <$mt:Include module="Userpic" userpic_size="40"$>
-                                        <h2><a href="<$mt:EntryLink$>"><$mt:EntryTitle encode_html="1"$></a></h2>
-                                        <div class="asset-content entry-content">
-                                            <div class="asset-body"><$mt:EntryExcerpt$></div>
-                                        </div>
-                                        <mt:Ignore><div class="asset-meta">Posted to <a href="<$mt:EntryBlogURL$>" class="icon-blog"><$mt:EntryBlogName$></a></div></mt:Ignore>
-                                    </div>
-                                    <mt:IfArchiveTypeEnabled archive_type="Author">
-                                    <mt:EntryPrevious>
-                                        <p><a href="<$mt:ArchiveLink type="Author"$>">More Entries by <$mt:AuthorDisplayName encode_html="1"$></a></p>
-                                    </mt:EntryPrevious>
-                                    </mt:IfArchiveTypeEnabled>
-                                </mt:Entries>
-                            </div>
+                            <ul id="profile-tabs" class="tabs pkg">
+                              <li class="active"><a href=".actions">Recent Actions</a></li>
+                              <li><a href=".comment-threads">Comment Threads</a></li>
+                            </ul>
 
+                            <mt:setvarblock name="pgid"><$mt:PhotoGalleryBlog$></mt:setvarblock>
+                            <mt:setvarblock name="limit"><$mt:ProfileActionCount$></mt:setvarblock>
                             <div class="actions">
                                 <h2>Recent Actions</h2>
                                 <ul class="action-listing">
-<mt:ActionStreams namespace="community_pack_recommend" sort_order="descend" lastn="50">
+<mt:ActionStreams namespace="community_pack_recommend" sort_order="descend" lastn="$limit">
                                     <mt:If name="action_type" eq="community_entries">
                                     <mt:StreamActionEntry>
-                                        <li class="icon-<$mt:EntryPostType$>">
+				        <mt:if tag="EntryBlogID" eq="$pgid">
+                                          <mt:setvarblock name="posttype">photo</mt:setvarblock>
+                                        <mt:else>
+                                          <mt:setvarblock name="posttype"><$mt:EntryPostType$></mt:setvarblock>
+                                        </mt:if>
+                                        <li class="icon-<$mt:var name="posttype"$>">
                                             <span class="action-listing-date"><$mt:EntryDate format="%m.%d.%Y" $></span><span class="action-listing-title"><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></span>
                                         </li>
                                     </mt:StreamActionEntry>
                                     <mt:Else name="action_type" eq="community_comments">
                                     <mt:StreamActionComment>
                                         <li class="icon-comment">
-                                            <span class="action-listing-date"><$mt:CommentDate format="%m.%d.%Y" $></span><span class="action-listing-title"><a href="<$mt:CommentLink$>"><$mt:CommentBody words="10"$></a></span>
+                                            <span class="action-listing-date"><$mt:CommentDate format="%m.%d.%Y" $></span>
+                                            <span class="action-listing-title">Commented on <mt:CommentEntry><a href="<$mt:CommentLink$>"><$mt:EntryTitle encode_html="1"$></a></mt:CommentEntry></span>
+                                            <span class="action-listing-excerpt"><$mt:CommentBody words="40"$>...</span>
                                         </li>
                                     </mt:StreamActionComment>
                                     <mt:Else name="action_type" eq="community_followers">
@@ -177,7 +153,7 @@
 </mt:ActionStreams>
                                 </ul>
 
-                            <p class="feed recent-action-feed"><a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=feed&amp;_type=actions&amp;blog_id=<$mt:BlogID$>&amp;id=<$mt:AuthorID$>" title="Recent Actions from <$mt:AuthorDisplayName encode_html="1"$>"><img src="<$mt:StaticWebPath$>images/status_icons/feed.gif" alt="Subscribe to feed" /></a></p>
+                            <p class="feed recent-action-feed"><a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=feed&amp;_type=actions&amp;blog_id=<$mt:BlogID$>&amp;id=<$mt:AuthorID$>" title="Recent Actions from <$mt:AuthorDisplayName encode_html="1"$>">Subscribe to Activity Feed</a></p>
                         </div>
 
                             <div class="comment-threads">
@@ -197,16 +173,18 @@
 <mt:Else> 
                                 <p class="note">No responses to comments.</p> 
 </mt:AuthorCommentResponses>  
-                                <p class="feed comment-threads-feed"><a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=feed&_type=replies&blog_id=<$mt:BlogID$>&id=<$mt:AuthorID$>" title="Responses to Comments from <$mt:AuthorDisplayName encode_html="1"$>"><img src="<$mt:StaticWebPath$>images/status_icons/feed.gif" alt="Subscribe to feed" /></a></p>
+                                <p class="feed comment-threads-feed"><a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=feed&_type=replies&blog_id=<$mt:BlogID$>&id=<$mt:AuthorID$>" title="Responses to Comments from <$mt:AuthorDisplayName encode_html="1"$>">Subscribe to Comment Thread Feed"</a></p>
                             </div>
 
 
                         </div>
                     </div>
 
-
-                    <$mt:Include module="Sidebar"$>
-
+                    <div id="beta">
+                      <div id="beta-inner">
+                        <$mt:widgetset name="Profile"$>
+                      </div><!-- end #beta-inner -->
+                    </div><!-- end #beta -->
 
                 </div>
             </div>

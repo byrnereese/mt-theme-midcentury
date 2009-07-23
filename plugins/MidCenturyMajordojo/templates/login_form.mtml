@@ -13,7 +13,7 @@
     /* ]]> */
     </script>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$> login-form system-template">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$mt:MidCenturyLayout$> login-form system-template">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -80,7 +80,17 @@
                     </div><!-- end #alpha -->
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="System Page"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>

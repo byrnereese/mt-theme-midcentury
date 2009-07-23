@@ -6,7 +6,7 @@
     <$mt:EntryTrackbackData$>
     <title><$mt:PageTitle encode_html="1"$> - <$mt:BlogName encode_html="1"$></title>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-page-archive <$mt:Var name="page_layout"$>" onload="mtEntryOnLoad()">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-page-archive <$mt:MidCenturyLayout$>" onload="mtEntryOnLoad()">
     <div id="container">
         <div id="container-inner">
 
@@ -50,9 +50,19 @@
                     </div>
 
                    <div id="beta">
-                     <div id="beta-inner">
-                       <$mt:widgetset name="Pages"$>
-                     </div><!-- end #beta-inner -->
+                      <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
+                      <$mt:widgetset name="Pages"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
+                      </div><!-- end #beta-inner -->
                    </div><!-- end #beta -->
 
                 </div>
