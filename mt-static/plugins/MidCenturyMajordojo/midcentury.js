@@ -13,13 +13,14 @@ $(document).ready(function(){
     };
     if ($('#comments-form') || $('#contact-form')) {
       $('#comment-greeting').greet({
-        loggedInMessage: 'Welcome back, %u! (%p)',
+        loggedInMessage: 'Welcome back, %u! (%p | %o)',
         loggedOutMessage: (mt.blog.registration.required ? '%i to leave a comment.' : '%i to create a custom profile for yourself.\
 '),
         loginText: 'Sign in',
         mode: 'mtpro',
         editProfileText: 'edit profile',
-        returnToURL: '<mt:EntryPermalink>#comments'
+        logoutText: 'sign out',
+        returnToURL: returnto
       });
       $('#comments-open-data').onauthchange( function(e,u) {
 	      if (u.is_authenticated) { $(this).hide(); } else { $(this).show(); } 

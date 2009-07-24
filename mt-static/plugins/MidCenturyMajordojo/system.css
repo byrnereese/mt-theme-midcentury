@@ -7,13 +7,12 @@
 /* Sign in ---------------------------------------------------------------------------------- */
 .login-form #alpha form { float: left; }
 .login-form #alpha {
-    width: 940px;
-    float: none;
+    width: 550px;
     margin: 0;
 }
 #auth-options {
     float: left;
-    width: 200px;
+    width: 140px;
     border-right: 3px solid #D9E8F0;
 }
 #auth-options li {
@@ -31,7 +30,7 @@
     position: relative;
     left: -3px;
     border-left: 3px solid #D9E8F0;
-    width: 500px;
+    width: 300px;
     padding: 10px;
 }
 #auth-options .selected {

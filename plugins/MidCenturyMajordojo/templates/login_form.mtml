@@ -10,6 +10,25 @@
     var user = <$mt:UserSessionState$>;
     // Enabled authentication types
     var auth_types = [<mt:If name="enabled_MovableType">'mt',</mt:If><mt:Loop name="auth_loop">'<$mt:Var name="key"$>'<mt:Unless name="__last__">,</mt:Unless></mt:Loop>];
+
+    $(document).ready(function(){
+      $('#auth-options li').click(function(){
+        authID = $(this).attr('id').replace("signin_option_", "");
+        authOption = $("#signin_option_" + authID);
+        if (authOption) {
+            for (var i = 0; i < auth_types.length; i++) {
+                var auth_type = auth_types[i];
+                if (auth_type == authID) {
+                    $('#signin_with_' + auth_type).show();
+                    $('#signin_option_' + auth_type).addClass('selected');
+                } else {
+                    $('#signin_with_' + auth_type).hide();
+                    $('#signin_option_' + auth_type).removeClass('selected');
+                }
+            }
+        };
+      });
+    });
     /* ]]> */
     </script>
 </head>
@@ -22,9 +41,9 @@
                     <div id="alpha">
                         <div id="alpha-inner">
 
-                                <div class="asset-header">
-                                    <h1 id="page-title" class="asset-name">Welcome Back!</h1>
-                                </div>
+                            <div class="asset-header">
+                                 <h1 id="page-title" class="asset-name">Welcome Back!</h1>
+                            </div>
 
 <mt:If name="message">
     <$mt:Include module="Messaging" msg_id="message" msg_class="alert" msg_content="$message"$>
@@ -43,7 +62,7 @@
                                     <li id="signin_option_<$mt:Var name="key"$>"<mt:If name="key" eq="$default_signin"> class="selected"</mt:If>><a href="javascript:void(0)"><mt:If name="logo"><img src="<$mt:Var name="static_uri"$><$mt:Var name="logo"$>" width="36" height="26" border="0" alt="" /></mt:If> <$mt:Var name="name" escape="html"$></a></li>
     </mt:Loop>
                                 </ul>
-                            </div>
+                            </div> <!-- //end auth-options -->
 </mt:If>
                             <div id="auth-forms">
                                 <div id="signin_with_mt"<mt:Unless name="enabled_MovableType"> style="display: none"</mt:Unless>>
@@ -67,35 +86,25 @@
 
                                         <p><button type="submit" class="primary-button" accesskey="s">Sign in</button></p>
                                     </form>
-                                </div>
+                                </div><!-- //end signin_with_mt -->
 
 <mt:Loop name="auth_loop">
                                 <div id="signin_with_<$mt:Var name="key"$>"<mt:If name="key" ne="$default_signin"> style="display: none"</mt:If>>
                                     <$mt:Var name="login_form"$>
-                                </div>
+                                </div><!-- //end signin_with_<$mt:Var name="key"$> -->
 </mt:Loop>
-                            </div>
+                            </div> <!-- //end auth-forms -->
 
                         </div><!-- end #alpha-inner -->
                     </div><!-- end #alpha -->
                     <div id="beta">
                       <div id="beta-inner">
-<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="System Page"$>
-<mt:else>
-                      <$mt:widgetset name="Generic 3 Column (Above)"$>
-                      <div id="beta-columns-left">
-                        <$mt:widgetset name="Generic 3 Column (Left)"$>
-                      </div><!-- end #beta-columns-left -->
-                      <div id="beta-columns-right">
-                        <$mt:widgetset name="Generic 3 Column (Right)"$>
-                      </div><!-- end #beta-columns-right -->
-</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>
             </div>
-            <$mt:include module="Banner Footer" system="1"$>
+            <$mt:include module="Banner Footer"$>
         </div>
     </div>
 </body>
