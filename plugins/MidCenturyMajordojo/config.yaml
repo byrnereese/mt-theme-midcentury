@@ -110,12 +110,24 @@ template_sets:
         hint: 'Enabling activity streams will turn on the widget in your sidebar and turn on the link in the nav bar'
         tag: 'IfActivityStreamEnabled?'
         fieldset: options
+        condition: >
+          sub { return (MT->component('ActionStreams') ? 1 : 0); }
       photo_gallery:
         type: blogs
         label: 'Photo Gallery?'
         hint: 'Select the photo gallery blog to link to in your navigation'
         tag: 'PhotoGalleryBlog'
         fieldset: options
+        condition: >
+          sub { return (MT->component('PhotoGallery') ? 1 : 0); }
+      contact_form:
+        type: contact_form
+        label: 'Contact Form?'
+        hint: 'Select the contact form to display on your contact me page'
+        tag: 'MidCenturyContactForm'
+        fieldset: options
+        condition: >
+          sub { return (MT->component('ContactForms') ? 1 : 0); }
       enable_nav:
         type: checkbox
         label: 'Enable Horizontal Nav?'
@@ -233,6 +245,8 @@ template_sets:
               file_template: %-c/%-f
               preferred: 1
       system:
+        contact_form_response:
+          label: 'Contact Form Response'
         comment_response:
           label: 'Comment Response'
         dynamic_error:
@@ -262,6 +276,8 @@ template_sets:
         profile_edit_form:
           label: 'Profile Edit Form'
       module:
+        contact_form:
+          label: 'Contact Form'
         related_entries:
           label: 'Related Entries'
         messaging:

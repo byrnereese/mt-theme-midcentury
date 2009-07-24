@@ -1,0 +1,106 @@
+<mt:IfContactFormOpen>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+	$("#contactform-submit").click(function(){
+        $("#contact-form .field").attr("disabled","disabled");
+        if (mtGetUser()) {
+            var authorVal = mtGetUser().name;
+            var emailVal = mtGetUser().email;
+        } else {
+            var authorVal = $("#name").val();
+            var emailVal = $("#email").val();
+        }
+        if($("#captcha_code")) {
+            var capthchaVal = $("#captcha_code").val();
+            var tokenVal = $("input[name='token']").val();
+        }
+        var postData = { 
+            name: authorVal, 
+            email: emailVal, 
+            blog_id: <mt:BlogID>,
+            post: "Submit",
+            form_id: <mt:ContactFormID>,
+<mt:ContactFormFields>
+            <mt:ContactFormFieldLabel dirify="1">: $("#<mt:ContactFormFieldLabel dirify="1">").val(),
+</mt:ContactFormFields>
+            captcha_code: capthchaVal 
+	    };
+	    $.post("<$MTCGIPath$><$mt:ContactFormScript$>", 
+	            postData,
+           	    function(data){
+                        var h = $("#contactform").height();
+                        $("#contactform").css({'height': h + 'px' });
+                        $("#contactform").fadeOut(800, function(){
+                          $("#contactform").html(data);
+                          $("#contactform").fadeIn(800);
+                        });
+        		}
+        );
+        return false;
+    });
+});
+    
+</script>
+
+<div id="contactform">
+  <div id="comment-greeting"></div>
+  <form method="post" action="<mt:CGIPath><$mt:ContactFormScript$>" id="contact-form" name="contact_form">
+    <div id="contactform-inner">
+    <input type="hidden" name="__mode" value="cf.submit_reply" />
+    <input type="hidden" name="blog_id" value="<mt:BlogID>" />
+    <input type="hidden" name="form_id" value="<mt:ContactFormID>" />
+    <fieldset id="from">
+      <div id="field-from-name">  
+        <label for="name">Name</label>  
+        <input id="name" class="field" name="name" size="30" value="" />  
+      </div> 
+      <div id="field-from-email">  
+        <label for="email">Email</label>  
+        <input id="email" class="field" name="email" size="30" value="" />  
+      </div> 
+    </fieldset>
+    <fieldset id="fields">
+<mt:ContactFormFields>
+<mt:if tag="ContactFormFieldType" eq="text">
+    <div id="field-<mt:ContactFormFieldLabel dirify="1">" class="<mt:ContactFormFieldType>">
+      <label for="<mt:ContactFormFieldLabel dirify="1">"><mt:ContactFormFieldLabel></label>
+      <input id="<mt:ContactFormFieldLabel dirify="1">" class="field" name="<mt:ContactFormFieldLabel dirify="1">" size="30" value="" />
+    </div>
+<mt:else tag="ContactFormFieldType" eq="textarea">
+    <div id="field-<mt:ContactFormFieldLabel dirify="1">" class="<mt:ContactFormFieldType>">
+      <label for="<mt:ContactFormFieldLabel dirify="1">"><mt:ContactFormFieldLabel></label>
+      <textarea id="<mt:ContactFormFieldLabel dirify="1">" class="field" name="<mt:ContactFormFieldLabel dirify="1">" rows="15" cols="50"></textarea>
+    </div>
+<mt:else tag="ContactFormFieldType" eq="checkbox">
+    <div id="field-<mt:ContactFormFieldLabel dirify="1">" class="<mt:ContactFormFieldType>">
+      <input type="checkbox" id="<mt:ContactFormFieldLabel dirify="1">" class="field" name="<mt:ContactFormFieldLabel dirify="1">" value="1" />
+      <label for="<mt:ContactFormFieldLabel dirify="1">"><mt:ContactFormFieldLabel></label>
+    </div>
+<mt:else tag="ContactFormFieldType" eq="select">
+    <div id="field-<mt:ContactFormFieldLabel dirify="1">" class="<mt:ContactFormFieldType>">
+      <label for="<mt:ContactFormFieldLabel dirify="1">"><mt:ContactFormFieldLabel></label>
+      <select id="<mt:ContactFormFieldLabel dirify="1">" name="<mt:ContactFormFieldLabel dirify="1">">
+<mt:ContactFormFieldValueLoop>
+        <option><mt:ContactFormFieldValue></option>
+</mt:ContactFormFieldValueLoop>
+      </select>
+    </div>
+<mt:else tag="ContactFormFieldType" eq="radio">
+    <div id="field-<mt:ContactFormFieldLabel dirify="1">" class="<mt:ContactFormFieldType>">
+      <label><mt:ContactFormFieldLabel></label>
+<mt:ContactFormFieldValueLoop>
+      <label><input type="radio" class="field" name="<mt:ContactFormFieldValue dirify="1">" value="<mt:ContactFormFieldValue dirify="1">" /> <mt:ContactFormFieldValue></label>
+</mt:ContactFormFieldValueLoop>
+</mt:if>
+    </fieldset>
+</mt:ContactFormFields>
+    <div id="comments-open-captcha"></div>
+    <div id="contactform-footer">
+      <input type="submit" accesskey="s" name="post" class="field" id="contactform-submit" value="Submit" />
+    </div>
+  </div>
+  </form>
+</div>
+<mt:else>
+Our apologies, but this contact form is no longer active or available.
+</mt:IfContactFormOpen>
