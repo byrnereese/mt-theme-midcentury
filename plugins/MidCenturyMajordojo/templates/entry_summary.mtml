@@ -36,7 +36,7 @@ If you are seeing this, something is wrong.
     <div class="asset-footer"><div class="asset-footer-inner">
         <mt:IfCommentsActive><div class="entry-commentcount"><a href="<$mt:EntryPermalink$>#comments"><$mt:EntryCommentCount$> <span>Comments</span></a></div></mt:IfCommentsActive>
         <div class="asset-footer-meta">
-        <p>Posted by <$mt:EntryAuthorLink show_hcard="1"$> on <$mt:EntryDate format="%A, %x at %X"$><mt:IfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$mt:EntryPermalink$>#trackback" class="trackback-count"><$mt:EntryTrackbackCount$> <span>TrackBacks</span></a></span></mt:IfPingsActive></p>
+        <p>Posted by <a href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&amp;id=<$mt:EntryAuthorID$>&amp;blog_id=<$mt:BlogID$>" class="fn url"><$mt:EntryAuthorDisplayName show_hcard="1"$></a> on <$mt:EntryDate format="%A, %x at %X"$><mt:IfPingsActive><span class="entry-meta-trackbackcount"> | <a href="<$mt:EntryPermalink$>#trackback" class="trackback-count"><$mt:EntryTrackbackCount$> <span>TrackBacks</span></a></span></mt:IfPingsActive></p>
         <p><mt:IfNonEmpty tag="EntryCategory">Filed in <mt:EntryCategories glue=', '><a href="<$mt:CategoryArchiveLink$>" rel="tag"><$mt:CategoryLabel$></a></mt:EntryCategories></mt:IfNonEmpty>
         <mt:EntryIfTagged><mt:IfNonEmpty tag="EntryCategory">and tagged <mt:Else>Tagged </mt:IfNonEmpty>
                 <mt:EntryTags glue=', '><a href="<$mt:TagSearchLink$>" rel="tag"><$mt:TagName$></a></mt:EntryTags>
