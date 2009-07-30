@@ -9,10 +9,17 @@
     </div>
     <div class="asset-content entry-content pkg">
 <mt:IfNonEmpty tag="EntryBody">
-        <div class="asset-body pkg">
 <mt:if tag="MidCenturyEntryLayout" eq="Full Summary">
+        <div class="asset-body pkg">
             <$mt:EntryBody$>
+        </div>
+<mt:IfNonEmpty tag="EntryMore" convert_breaks="0">
+        <div class="asset-more-link">
+            Continue reading <a href="<$mt:EntryPermalink$>#more" rel="bookmark"><$mt:EntryTitle$></a>.
+        </div>
+</mt:IfNonEmpty>
 <mt:else tag="MidCenturyEntryLayout" eq="Excerpt w/Image">
+        <div class="asset-body pkg">
             <mt:EntryAssets lastn="1" trim="1">
             <mt:CroppedAsset label="Entry Summary">
               <mt:setvarblock name="thumbnail"><img class="featured-thumbnail custom-crop" src="<$mt:AssetURL$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
@@ -22,15 +29,13 @@
             </mt:EntryAssets>
             <mt:if name="thumbnail" ne=""><a rel="bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>"><$mt:var name="thumbnail"$></a></mt:if>
             <$mt:EntryExcerpt$>
-<mt:else>
-If you are seeing this, something is wrong.
-</mt:if>
         </div>
-</mt:IfNonEmpty>
-<mt:IfNonEmpty tag="EntryMore" convert_breaks="0">
         <div class="asset-more-link">
             Continue reading <a href="<$mt:EntryPermalink$>#more" rel="bookmark"><$mt:EntryTitle$></a>.
         </div>
+<mt:else>
+If you are seeing this, something is wrong.
+</mt:if>
 </mt:IfNonEmpty>
     </div>
     <div class="asset-footer"><div class="asset-footer-inner">

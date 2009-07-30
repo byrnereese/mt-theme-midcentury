@@ -1,7 +1,7 @@
 <mt:if name="userpic_type" eq="profile">
 <div class="user-pic">
     <mt:if tag="AuthorUserpicURL">
-    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTAuthorID$>"><img src="<$MTAuthorUserpicURL$>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
+    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTAuthorID$>"><img src="<MTAuthorUserpicAsset><$mt:AssetThumbnailURL width="$userpic_size" square"1"$></MTAuthorUserpicAsset>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
     <mt:else>
     <img src="<$MTStaticWebPath$>images/default-userpic-90.jpg" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="default userpic" />
     </mt:if>
@@ -9,7 +9,7 @@
 <mt:else name="userpic_type" eq="commenter">
 <div class="user-pic">
     <mt:if tag="CommenterUserpic">
-    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTCommenterID$>"><img src="<$MTCommenterUserpicURL$>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
+    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTCommenterID$>"><img src="<MTAuthorUserpicAsset><$mt:AssetThumbnailURL width="$userpic_size" square"1"$></MTAuthorUserpicAsset>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
     <mt:else>
         <mt:if tag="CommenterAuthIconURL">
     <a href="<$MTCommenterURL$>" class="auth-icon"><img src="<$MTCommenterAuthIconURL size="logo_small"$>" alt="<$mt:CommenterAuthType$>"/></a>
@@ -22,7 +22,7 @@
 <mt:else>
 <div class="user-pic">
     <mt:if tag="EntryAuthorUserpicURL">
-    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTEntryAuthorID$>"><img src="<$MTEntryAuthorUserpicURL$>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
+    <a href="<$MTCGIPath$><$MTCommunityScript$>?__mode=view&amp;id=<$MTEntryAuthorID$>"><img src="<MTAuthorUserpicAsset><$mt:AssetThumbnailURL width="$userpic_size" square"1"$></MTAuthorUserpicAsset>" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="user-pic" /></a>
     <mt:else>
     <img src="<$MTStaticWebPath$>images/default-userpic-90.jpg" width="<$mt:var name="userpic_size"$>" height="<$mt:var name="userpic_size"$>" alt="default userpic" />
     </mt:if>
