@@ -241,3 +241,24 @@ img.featured-thumbnail {
     text-decoration: underline;
     color: white;
 }
+
+.widget-pages {
+  clear: left;
+  margin: 0 0 20px 0;
+  border-top: 1px solid #DDDDDD;
+  padding-top: 10px;
+}
+.widget-pages ul {
+  margin: 0 auto 0 auto;
+  padding-left: 0;
+  width: auto;
+}
+.widget-pages li {
+  float: left;
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.widget-powered {
+  text-align: center;
+}

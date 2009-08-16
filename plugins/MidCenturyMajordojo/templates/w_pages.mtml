@@ -1,0 +1,13 @@
+<mt:Pages tag="@footer">
+<mt:if name="__first__">
+<div class="widget-pages widget-archive widget">
+    <div class="widget-content">
+        <ul class="widget-list pkg">
+</mt:if>
+            <li class="widget-list-item<mt:if name="__first__"> first</mt:if><mt:if name="__last__"> last</mt:if>"><a href="<$mt:PagePermalink$>"><$mt:PageTitle$></a></li>
+<mt:if name="__last__">
+        </ul>
+    </div>
+</div>
+</mt:if>
+</mt:Pages>

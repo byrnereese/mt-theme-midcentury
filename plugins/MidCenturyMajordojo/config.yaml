@@ -337,6 +337,8 @@ template_sets:
           label: 'Recent Photo'
         w_license:
           label: 'License'
+        w_pages:
+          label: 'Footer Links'
       widgetset:      
         system:
           label: 'System Page'
@@ -365,6 +367,7 @@ template_sets:
             - 'Categories'
             - 'Tags'
             - 'About Me'
+            - 'Footer Links'
             - 'Powered By'
             - 'License'
         homepage:
