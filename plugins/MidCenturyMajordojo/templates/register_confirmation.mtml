@@ -11,11 +11,11 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
 <head>
-    <title><$mt:Var name="page_title"$> - <$mt:BlogName encode_html="1"$></title>
+    <title>Registration Confirmation - <$mt:BlogName encode_html="1"$></title>
     <link rel="stylesheet" href="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/system.css" type="text/css" />
     <$mt:include module="HTML Head"$>
 </head>
-<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$MTVar name="page_layout"$>">
+<body id="<$mt:BlogTemplateSetID$>" class="mt-register-form <$mt:MidCenturyLayout$> system-template">
     <div id="container">
         <div id="container-inner">
             <$mt:include module="Banner Header"$>
@@ -24,7 +24,10 @@
                     <div id="alpha">
                         <div id="alpha-inner">
 
-          <h1 class="page-title"><$mt:Var name="page_title"$></h1>
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name">Create an Account</h1>
+                                </div>
+
           <p>To complete the registration process you must first confirm your account. An email has been sent to <$mt:Var name="email" escape="html"$>.</p>
           <p>To confirm and activate your account please check your inbox and click on the link found in the email we just sent you.</p>
           <mt:If name="return_to"><p><a href="<$mt:Var name="return_to"$>">Return to the original page.</a></p></mt:If>
@@ -33,12 +36,22 @@
                     </div><!-- end #alpha -->
                     <div id="beta">
                       <div id="beta-inner">
+<mt:if tag="MidCenturyLayout" eq="2 columns">
                         <$mt:widgetset name="System Page"$>
+<mt:else>
+                      <$mt:widgetset name="Generic 3 Column (Above)"$>
+                      <div id="beta-columns-left">
+                        <$mt:widgetset name="Generic 3 Column (Left)"$>
+                      </div><!-- end #beta-columns-left -->
+                      <div id="beta-columns-right">
+                        <$mt:widgetset name="Generic 3 Column (Right)"$>
+                      </div><!-- end #beta-columns-right -->
+</mt:if>
                       </div><!-- end #beta-inner -->
                     </div><!-- end #beta -->
                 </div>
             </div>
-            <$mt:include module="Banner Footer"$>
+            <$mt:include module="Banner Footer" system="1"$>
         </div>
     </div>
 </body>

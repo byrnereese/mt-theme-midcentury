@@ -58,13 +58,10 @@
     <div id="container">
         <div id="container-inner">
 
-
             <$mt:Include module="Banner Header"$>
-
 
             <div id="content">
                 <div id="content-inner">
-
 
                     <div id="alpha">
                         <div id="alpha-inner">
@@ -74,7 +71,7 @@
                                     <h1 id="page-title" class="fn n"><$mt:AuthorDisplayName encode_html="1"$></h1>
 
                                 <mt:If name="profile_self">
-                                    <p><a id="edit_profile_link" href="#">Edit Profile</a></p>
+                                    <p><a id="edit_profile_link" href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>">Edit Profile</a></p>
                                 <mt:Else>
                                     <p class="edit-relation">
                                         <span id="following-status"></span>

@@ -10,10 +10,10 @@ mt = {
         timeout: <$mt:UserSessionCookieTimeout$>
     },
     links: {
-        signUp: '<$mt:var name="SiteURL"$>register',
+        signUp: '<$mt:CGIPath$><$mt:CommunityScript$>?__mode=register&blog_id=<$mt:BlogID$>&return_to=<$mt:BlogURL$>',
         signIn: '<$mt:SignInLink$>',
         signOut: '<$mt:SignOutLink$>',
-        editProfile: '<$mt:var name="SiteURL"$>profiles/edit'
+        editProfile: '<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>&return_to=' + encodeURIComponent(document.URL)
     },
     blog: {
         id: <$mt:BlogID$>,
