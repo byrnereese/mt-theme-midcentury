@@ -1,7 +1,7 @@
 id: 'MidCenturyMajordojo'
-name: 'MidCentury Majordojo'
+name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 0.2
+version: 2.0.2.1
 
 tags:
   block:
@@ -18,18 +18,24 @@ template_sets:
         max_height: 100
     options:
       fieldsets:
-        seo:
-          label: 'Analytics & SEO'
         frontdoor:
           label: 'Homepage'
-        ads:
-          label: 'Advertising'
+          order: 1
         design:
           label: 'Design & Layout'
+          order: 2
         options:
           label: 'Options'
+          order: 3
         profiles:
           label: 'Profiles'
+          order: 4
+        ads:
+          label: 'Advertising'
+          order: 5
+        seo:
+          label: 'Analytics & SEO'
+          order: 6
       layout:
         type: select
         values: 2-column,3-column
@@ -128,12 +134,6 @@ template_sets:
         fieldset: options
         condition: >
           sub { return (MT->component('ContactForms') ? 1 : 0); }
-      enable_nav:
-        type: checkbox
-        label: 'Enable Horizontal Nav?'
-        hint: 'Would you like to have horizontal nav for the site?'
-        tag: 'IfHorizontalNav?'
-        fieldset: options
       enable_digg:
         type: checkbox
         label: 'Enable Digg Buttons?'

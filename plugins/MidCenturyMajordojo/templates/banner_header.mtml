@@ -15,26 +15,10 @@
             <div id="header-description"><$MTBlogDescription$></div>
 </MTIf>
         </div>
-        <div class="search-wrapper">
-            <form method="get" action="<$mt:CGIPath$><$mt:SearchScript$>" id="search-form">
-                <input type="text" id="search" class="ti" name="search" value="<$mt:SearchString$>" />
-    <mt:If name="search_results">
-                <input type="hidden" name="IncludeBlogs" value="<$mt:SearchIncludeBlogs$>" />
-                <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
-    <mt:else>
-                <input type="hidden" name="IncludeBlogs" value="<$mt:BlogID$>" />
-                <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
-    </mt:if>
-                <input type="submit" accesskey="4" value="Search" />
-            </form>
-        </div>
-        <div class="blog-feed">
-            <a href="<$mt:Link template="feed_recent"$>">Subscribe</a>
-        </div>
-    </div>
+        <div id="greeting"></div>
+     </div>
 </div>
 
-<mt:IfHorizontalNav>
 <div id="nav">
     <div id="nav-inner">
         <ul>
@@ -61,6 +45,22 @@
 </mt:IfPluginInstalled>
 
         </ul>
-    </div>
+        <div class="search-wrapper">
+            <form method="get" action="<$mt:CGIPath$><$mt:SearchScript$>" id="search-form">
+                <input type="text" id="search" class="ti" name="search" value="<$mt:SearchString$>" />
+    <mt:If name="search_results">
+                <input type="hidden" name="IncludeBlogs" value="<$mt:SearchIncludeBlogs$>" />
+                <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
+    <mt:else>
+                <input type="hidden" name="IncludeBlogs" value="<$mt:BlogID$>" />
+                <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
+    </mt:if>
+                <input type="submit" accesskey="4" value="Search" />
+            </form>
+        </div>
+        <div class="blog-feed">
+            <a href="<$mt:Link template="feed_recent"$>">Subscribe</a>
+        </div>
+
+   </div>
 </div>
-</mt:IfHorizontalNav>

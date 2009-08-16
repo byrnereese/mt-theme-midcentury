@@ -11,6 +11,9 @@ $(document).ready(function(){
         sourceForm: form
       });
     };
+    $('#greeting').greet({
+        mode: 'mtpro',
+    });
     if ($('#comments-form') || $('#contact-form')) {
       $('#comment-greeting').greet({
         loggedInMessage: 'Welcome back, %u! (%p | %o)',

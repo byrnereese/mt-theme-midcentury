@@ -209,3 +209,35 @@ img.featured-thumbnail {
 		  padding: 1px 4px 1.5px 4px !important;
 }
 
+.search-wrapper {
+    float: right;
+    padding-top: 6px;
+}
+.blog-feed a {
+    float: right;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 1px 15px 0px 0;
+    padding: 5px 10px 0px 22px;
+    border-right: 0;
+    background: url(feed-icon-16x16.gif) no-repeat 0 8px;
+}
+.search-wrapper #search {
+    padding: 2px;
+    background: #fff;
+    border: 1px solid #666;
+    border-bottom: 1px solid #888;
+    border-right: 1px solid #888;
+    color: #fff;
+}
+
+#greeting {
+    float: right;
+    margin-top: 20px;
+    margin-right: 15px;
+    color: #999;
+}
+#greeting a {
+    text-decoration: underline;
+    color: white;
+}
