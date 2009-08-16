@@ -88,6 +88,10 @@
 .user-profile .asset .userpic {
     display: none;
 }
+.user-profile .userpic {
+    width: 220px;
+    float: left;
+}
 
 /* Tabs */
 

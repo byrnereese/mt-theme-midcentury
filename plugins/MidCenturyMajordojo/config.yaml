@@ -307,6 +307,8 @@ template_sets:
         userpic:
           label: 'Userpic'
       widget:
+        w_following: 
+          label: 'Following'
         w_tags:
           label: 'Tags'
         w_elsewhere:
@@ -345,6 +347,7 @@ template_sets:
         profile:
           label: 'Profile'
           widgets:
+             - 'Following'
              - 'Elsewhere'
              - 'Ad (Med Rectangle)'
         3col-top:

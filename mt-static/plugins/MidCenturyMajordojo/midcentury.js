@@ -9,7 +9,6 @@ $(document).ready(function(){
       imageBtnClose:'lightbox-btn-close.gif',
       imageBlank:'lightbox-blank.gif'
     });
-
     if ($('#comments-form')) {
       var form = $('#comments-form').commentForm( { 
 	      insertMethod: 'append',
@@ -30,8 +29,8 @@ $(document).ready(function(){
         loginText: 'Sign in',
         mode: 'mtpro',
         editProfileText: 'edit profile',
-        logoutText: 'sign out',
-        returnToURL: returnto
+        logoutText: 'sign out'
+        //,returnToURL: returnto
       });
       $('#comments-open-data').onauthchange( function(e,u) {
 	      if (u.is_authenticated) { $(this).hide(); } else { $(this).show(); } 
@@ -106,7 +105,81 @@ $(document).ready(function(){
 	});
   };
 });
-              
+
+/***
+ * Functions to follow/leave feature
+ */
+
+function script_follow(id) {
+    // Get user
+    var u = mtGetUser();
+    // Die if not logged in
+    if (!u || !u.name) return;
+    
+    $.ajax({
+      type: "POST",
+      url: mt.blog.community.script,
+      data: '__mode=follow&id=' + id + '&magic_token=' + u.sid + '&jsonp=follow',
+      success: function(r){
+          eval(r);
+      }
+    });
+    $('#following_' + id + '_else').hide();
+    $('#following-status').html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Following..." />');
+}
+
+function script_leave(id) {
+    // Get user
+    var u = mtGetUser();
+    // Die if not logged in
+    if (!u || !u.name) return;
+
+    $.ajax({
+      type: "POST",
+      url: mt.blog.community.script,
+      data: '__mode=leave&id=' + id + '&magic_token=' + u.sid + '&jsonp=leave',
+      success: function(r){
+          eval(r);
+      }
+    });
+    $('#following_' + id).hide();
+    $('#following-status').html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Leaving..." />');
+}
+
+function follow(user_info) {
+    conditional_block(true, 'following_' + user_info['id']);
+    $('#following-status').html('');
+}
+
+function leave(user_info) {
+    conditional_block(false, 'following_' + user_info['id']);
+    $('#following-status').html('');
+}
+
+
+function conditional_block(cond, id) {
+    var true_block = $('#' + id);
+    var false_block = $('#' + id + '_else');
+    if (cond) {
+        $(false_block).hide();
+        if ($(true_block).size()) {
+            var display = $(true_block).attr('mt:display_style');
+            if (!display && $(false_block).size())
+                display = $(false_block).attr('mt:display_style');
+            if (!display) display = '';
+            $(true_block).show();
+        }
+    } else {
+        $(true_block).hide();
+        if ($(false_block).size()) {
+            var display = $(false_block).attr('mt:display_style');
+            if (!display && $(true_block).size())
+                display = $(false_block).attr('mt:display_style');
+            if (!display) display = '';
+            $(false_block).show();
+        }
+    }
+}
 
 function galleryNext() {
     var nextItemNumber = currentItem + 1;
