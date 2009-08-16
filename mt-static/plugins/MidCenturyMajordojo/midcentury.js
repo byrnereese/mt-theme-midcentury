@@ -2,7 +2,7 @@
  * This file is for scripts that are specific to the Mid-Century Theme
  */
 $(document).ready(function(){
-    $('a[@rel*=lightbox]').lightBox({
+    $('a[rel*=lightbox]').lightBox({
       imageLoading:'lightbox-ico-loading.gif',
       imageBtnPrev:'lightbox-btn-prev.gif',
       imageBtnNext:'lightbox-btn-next.gif',
