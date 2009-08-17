@@ -36,6 +36,9 @@ template_sets:
         seo:
           label: 'Analytics & SEO'
           order: 6
+        contact:
+          label: 'Contact Me'
+          order: 7
       layout:
         type: select
         values: 2-column,3-column
@@ -59,6 +62,14 @@ template_sets:
         tag: 'AboutMeText'
         fieldset: options
         default: 'Welcome to this web site powered by Mid-Century 2.0, a theme developed exclusively for Movable Type and Melody.'
+      contact_me:
+        type: textarea
+        label: 'Contact Information'
+        hint: 'Enter in your contact information. This will appear on your "Contact Me" page irrespective of whether you have a contact form selected.'
+        tag: 'ContactInfo'
+        fieldset: contact
+        rows: 7
+        default: 'You have not yet provided the system with your contact info. Edit your Theme Options to tell people how to contact you now.'
       google_var:
         type: text
         label: 'Google Verification Code'
@@ -131,7 +142,7 @@ template_sets:
         label: 'Contact Form?'
         hint: 'Select the contact form to display on your contact me page'
         tag: 'MidCenturyContactForm'
-        fieldset: options
+        fieldset: contact
         condition: >
           sub { return (MT->component('ContactForms') ? 1 : 0); }
       enable_digg:

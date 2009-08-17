@@ -15,12 +15,15 @@
                     <div id="alpha">
                         <div id="alpha-inner">
                           <h1 id="page-title">Contact</h1>
+                          <div class="asset-content">
 <mt:IfPluginInstalled plugin="ContactForms">
 <mt:setvarblock name="cfid"><$mt:MidCenturyContactForm$></mt:setvarblock>
+  <mt:if name="cfid">
                           <mt:ContactFormHTML id="$cfid">
-<mt:else>
-                          <p>You should consider putting in some contact information.</p>
+  </mt:if>
 </mt:IfPluginInstalled>
+                          <p><$mt:ContactInfo filters="__default__"$></p>
+                          </div>
                         </div>
                     </div>
                 </div>
