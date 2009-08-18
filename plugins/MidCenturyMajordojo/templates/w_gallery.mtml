@@ -15,7 +15,7 @@
 
 <div class="widget-gallery widget">
     <div class="inner">
-    <h3 class="widget-header">Reading and Watching</h3>
+    <h3 class="widget-header"><$mt:SlideshowType$></h3>
     <div class="gallery-item-nav">
         <a href="javascript:galleryPrev();" id="showcase-prev" class="inactive">Prev</a>
         <a href="javascript:galleryNext();" id="showcase-next" class="<mt:If name="asset_count" gt="1">active<mt:Else>inactive</mt:If>">Next</a>
@@ -30,11 +30,11 @@
         <div class="asset-description"><$mt:AssetDescription $></div>
     </div>
 </mt:Assets>
-<mt:else tag="SlideshowTYpe" eq="Featured Entries">
+<mt:else tag="SlideshowType" eq="Featured Entries">
 <mt:Entries tags="@featured" lastn="$scount"><mt:EntryAssets lastn="1">
     <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
         <a class="asset-image" href="<$mt:EntryPermalink$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
-        <h3><a href="<$mt:EntryPermalink$>"><$mt:EntryPermalink$></a></h3>
+        <h3><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></h3>
         <div class="asset-description"><$mt:EntryExcerpt words="50"$></div>
     </div>
 </mt:EntryAssets></mt:Entries>
