@@ -137,6 +137,22 @@ template_sets:
         fieldset: options
         condition: >
           sub { return (MT->component('PhotoGallery') ? 1 : 0); }
+      slideshow_type:
+        type: select
+        label: 'Slideshow Type'
+        hint: 'What would you like to appear in your slide show?'
+        tag: 'SlideshowType'
+        fieldset: options
+        values: "Reading and Watching,Featured Entries"
+        default: "Reading and Watching"
+      slideshow_count:
+        type: select
+        label: 'Slideshow Slide Count'
+        hint: 'How many items will appear in your slideshow?'
+        tag: 'SlideshowCount'
+        fieldset: options
+        values: "1,2,3,4,5,6,7,8,9,10,15,20"
+        default: 5
       contact_form:
         type: contact_form
         label: 'Contact Form?'
@@ -339,7 +355,7 @@ template_sets:
         w_ad_wide_skyscraper:
           label: 'Ad (Wide Skyscraper)'
         w_gallery:
-          label: 'Gallery'
+          label: 'Slideshow'
         w_recent_actions:
           label: 'Recent Actions'
         w_recent_comments:
@@ -364,7 +380,7 @@ template_sets:
         3col-top:
           label: 'Generic 3 Column (Above)'
           widgets:
-             - 'Gallery'
+             - 'Slideshow'
              - 'Ad (Med Rectangle)'
         3col-left:
           label: 'Generic 3 Column (Left)' 
@@ -387,7 +403,7 @@ template_sets:
         homepage:
           label: 'Homepage'
           widgets:
-             - 'Gallery'
+             - 'Slideshow'
              - 'Recent Photo'
              - 'Recent Actions'
              - 'Ad (Med Rectangle)'
@@ -395,7 +411,7 @@ template_sets:
         generic:
           label: 'Generic Sidebar'
           widgets:
-             - 'Gallery'
+             - 'Slideshow'
              - 'Ad (Med Rectangle)'
              - 'Recent Entries'
              - 'Recent Actions'
@@ -407,13 +423,13 @@ template_sets:
         elsewhere:
           label: 'Elsewhere'
           widgets:
-             - 'Gallery'
+             - 'Slideshow'
              - 'Ad (Med Rectangle)'
              - 'Recent Comments'
         entry:
           label: 'Entries'
           widgets:
-             - 'Gallery'
+             - 'Slideshow'
              - 'Ad (Med Rectangle)'
              - 'Recent Actions'
              - 'Recent Entries'

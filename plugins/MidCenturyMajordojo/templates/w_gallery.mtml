@@ -21,13 +21,24 @@
         <a href="javascript:galleryNext();" id="showcase-next" class="<mt:If name="asset_count" gt="1">active<mt:Else>inactive</mt:If>">Next</a>
     </div>
     <div class="widget-content"><div class="widget-content-inner">
-<mt:Assets lastn="10" type="amazon,youtube">
+<mt:setvarblock name="scount"><$mt:SlideshowCount$></mt:setvarblock>
+<mt:if tag="SlideshowType" eq="Reading and Watching">
+<mt:Assets lastn="$scount" type="amazon,youtube">
     <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
         <a class="asset-image" href="<$mt:AssetURL$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
         <h3><a href="<$mt:AssetURL$>"><$mt:AssetLabel$></a></h3>
         <div class="asset-description"><$mt:AssetDescription $></div>
     </div>
 </mt:Assets>
+<mt:else tag="SlideshowTYpe" eq="Featured Entries">
+<mt:Entries tags="@featured" lastn="$scount"><mt:EntryAssets lastn="1">
+    <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
+        <a class="asset-image" href="<$mt:EntryPermalink$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
+        <h3><a href="<$mt:EntryPermalink$>"><$mt:EntryPermalink$></a></h3>
+        <div class="asset-description"><$mt:EntryExcerpt words="50"$></div>
+    </div>
+</mt:EntryAssets></mt:Entries>
+</mt:if>
     </div></div>
     </div>
 </div> 
