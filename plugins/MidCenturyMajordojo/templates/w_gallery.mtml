@@ -38,6 +38,14 @@
         <div class="asset-description"><$mt:EntryExcerpt words="50"$></div>
     </div>
 </mt:EntryAssets></mt:Entries>
+<mt:else tag="SlideshowTYpe" eq="Recent Images">
+<mt:Assets lastn="$scount" type="image">
+    <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
+        <a class="asset-image" href="<$mt:AssetURL$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
+        <h3><a href="<$mt:AssetURL$>"><$mt:AssetLabel$></a></h3>
+        <div class="asset-description"><$mt:AssetDescription $></div>
+    </div>
+</mt:Assets>
 </mt:if>
     </div></div>
     </div>

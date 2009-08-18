@@ -143,8 +143,8 @@ template_sets:
         hint: 'What would you like to appear in your slide show?'
         tag: 'SlideshowType'
         fieldset: options
-        values: "Reading and Watching,Featured Entries"
-        default: "Reading and Watching"
+        values: "Reading and Watching,Featured Entries,Recent Images"
+        default: "Recent Images"
       slideshow_count:
         type: select
         label: 'Slideshow Slide Count'
