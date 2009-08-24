@@ -6,16 +6,26 @@
             <$mt:CommentBody$>
             </div>
         </div>
-        <div class="comment-header">
+        <div class="comment-header pkg">
+            <div class="asset-userpic">
+              <$mt:include module="Userpic" userpic_size="32"$>
+            </div>
             <div class="asset-meta">
                 <span class="byline">
                     <$mt:CommentAuthorIdentity$>
+<mt:IfThreadedComments>
+                    <span class="vcard author"><$mt:CommentAuthorLink$></span>
+<mt:Else>
 <mt:IfCommentParent>
                     <span class="vcard author"><$mt:CommentAuthorLink$></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent></a>
 <mt:else>
                     <span class="vcard author"><$mt:CommentAuthorLink$></span>
 </mt:IfCommentParent>
+</mt:IfThreadedComments>
                     | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$mt:CommentDate format_name="iso8601"$>"><$mt:CommentDate$></abbr></a>
+                </span>
+                <span class="actions">
+                    <a title="Follow" href="javascript:void(0);" class="follow">Follow</a>
 <mt:IfCommentsAccepted>
 <mt:IfThreadedComments>
                     | <a title="Reply" href="javascript:void(0);" class="reply">Reply</a>
