@@ -1,7 +1,7 @@
 id: 'MidCenturyMajordojo'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 2.0.4
+version: 2.0.5
 
 tags:
   block:
@@ -129,6 +129,13 @@ template_sets:
         fieldset: options
         condition: >
           sub { return (MT->component('ActionStreams') ? 1 : 0); }
+      show_follow_links:
+        type: checkbox
+        label: 'Show Follow Links'
+        hint: 'Display "follow" links on entry pages. This can have a performance impact on large scale sites.'
+        tag: 'ShowFollowLinks?'
+        fieldset: options
+        default: 1
       photo_gallery:
         type: blogs
         label: 'Photo Gallery?'

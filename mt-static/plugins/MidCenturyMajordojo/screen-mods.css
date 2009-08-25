@@ -13,7 +13,6 @@
 }
 .comment .byline, .comment .actions {
     display: block;
-    clear: left;
     margin: 0; padding: 0 !important;
 }
 .comment .byline a {

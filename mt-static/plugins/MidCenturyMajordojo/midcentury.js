@@ -124,8 +124,8 @@ function script_follow(id) {
           eval(r);
       }
     });
-    $('#following_' + id + '_else').hide();
-    $('#following-status').html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Following..." />');
+    $('.following_' + id + '_else').hide();
+    $('.following-status-' + id).html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Following..." />');
 }
 
 function script_leave(id) {
@@ -142,24 +142,24 @@ function script_leave(id) {
           eval(r);
       }
     });
-    $('#following_' + id).hide();
-    $('#following-status').html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Leaving..." />');
+    $('.following_' + id).hide();
+    $('.following-status-' + id).html('<img src="' + mt.blog.staticWebPath + 'images/indicator.white.gif" height="10" width="10" alt="Leaving..." />');
 }
 
 function follow(user_info) {
-    conditional_block(true, 'following_' + user_info['id']);
-    $('#following-status').html('');
+    conditional_block(true, '.following_' + user_info['id']);
+    $('.following-status-' + user_info['id']).html('');
 }
 
 function leave(user_info) {
-    conditional_block(false, 'following_' + user_info['id']);
-    $('#following-status').html('');
+    conditional_block(false, '.following_' + user_info['id']);
+    $('.following-status-' + user_info['id']).html('');
 }
 
 
-function conditional_block(cond, id) {
-    var true_block = $('#' + id);
-    var false_block = $('#' + id + '_else');
+function conditional_block(cond, selector) {
+    var true_block = $(selector);
+    var false_block = $(selector + '_else');
     if (cond) {
         $(false_block).hide();
         if ($(true_block).size()) {

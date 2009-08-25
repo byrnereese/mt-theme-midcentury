@@ -21,34 +21,33 @@
         var user = <$mt:UserSessionState$>;
 
         $(document).ready(function () {
-        $('ul#profile-tabs li a').click(function() {
+          $('ul#profile-tabs li a').click(function() {
             var clicked = $(this).attr('href');
-	        if ($(this).parent().hasClass('active')) return false;
-		    $(this).parent().parent().find('li a').each( function() {
-		    				       if ($(this).attr('href') == clicked) {
+            if ($(this).parent().hasClass('active')) return false;
+            $(this).parent().parent().find('li a').each( function() {
+               if ($(this).attr('href') == clicked) {
                   $(this).parent().addClass('active'); 
-		  				         $( $(this).attr('href') ).show();
+                  $( $(this).attr('href') ).show();
                 } else {
                   $(this).parent().removeClass('active');
-			  $( $(this).attr('href') ).hide();
+	          $( $(this).attr('href') ).hide();
                 }
             });
             return false;
-        });
+          });
         });
 
 <mt:If name="profile_self">
         $(document).ready(function () {
-            // var edit_profile_href = '<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>&return_to=' + encodeURIComponent(document.URL);
             $('#edit_profile_link').attr('href','<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>&return_to=' + encodeURIComponent(document.URL));
         });
 <mt:Else>
         function relations(following, followed, u) {
             mtSetUser(u);
             if ( u && u.name )
-                conditional_block(<mt:If name="profile_self">true<mt:Else>false</mt:If>, 'edit_profile');
-            conditional_block(followed, 'followed_<$mt:AuthorID$>');
-            conditional_block(following, 'following_<$mt:AuthorID$>');
+                conditional_block(<mt:If name="profile_self">true<mt:Else>false</mt:If>, '#edit_profile');
+            conditional_block(followed, '#followed_<$mt:AuthorID$>');
+            conditional_block(following, '#following_<$mt:AuthorID$>');
         }
 </mt:If>
     /* ]]> */
@@ -74,11 +73,13 @@
                                     <p><a id="edit_profile_link" href="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=edit&blog_id=<$mt:BlogID$>">Edit Profile</a></p>
                                 <mt:Else>
                                     <p class="edit-relation">
-                                        <span id="following-status"></span>
-                                        <mt:AuthorIfFollowing script="0">
-                                        You are following <$mt:AuthorDisplayName encode_html="1"$>. <$mt:AuthorUnfollowLink text="Unfollow"$>
+                                        <span class="following-status-<$mt:AuthorID$>"></span>
+<mt:setvarblock name="class">following_<$mt:AuthorID$></mt:setvarblock>
+<mt:setvarblock name="class_else">following_<$mt:AuthorID$>_else</mt:setvarblock>
+                                        <mt:AuthorIfFollowing script="0" class="$class" class_else="$class_else">
+                                        You are following <$mt:AuthorDisplayName encode_html="1"$>. <a id="unfollow-link" href="javascript:void(0)" onclick="script_leave('<$mt:AuthorID$>');">Unfollow</a>
                                         <mt:Else>
-                                        <$mt:AuthorFollowLink text="Follow"$>
+                                        <a id="follow-link" href="javascript:void(0)" onclick="script_follow('<$mt:AuthorID$>');">Follow</a>
                                         </mt:AuthorIfFollowing>
                                         &nbsp;
                                     </p>

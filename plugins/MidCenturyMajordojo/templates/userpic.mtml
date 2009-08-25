@@ -8,7 +8,7 @@
     <a href="<$mt:Var name="profile_view_url" encode_html="1"$><$mt:CommenterID$>" class="userpic-link"><img
         src="<mt:If tag="CommenterUserpic"><$mt:CommenterUserpicURL$><mt:Else><$mt:Var name="userpic_url_default"$></mt:If>"
         width="<$mt:Var name="userpic_size"$>" height="<$mt:Var name="userpic_size"$>" alt="<$mt:CommenterName escape="html"$>" class="photo" />
-        <mt:If tag="CommenterAuthIconURL"><span class="auth-icon"><img src="<$mt:CommenterAuthIconURL size="logo_small"$>" alt="<$mt:CommenterAuthType$>"/></span></mt:If></a>
+        <mt:unless name="hide_icon"><mt:If tag="CommenterAuthIconURL"><span class="auth-icon"><img src="<$mt:CommenterAuthIconURL size="logo_small"$>" alt="<$mt:CommenterAuthType$>"/></span></mt:If></mt:unless></a>
     <mt:Else><mt:Ignore><!-- Else anonymous commenter --></mt:Ignore>
     <mt:If tag="MTCommentURL"><a href="<$mt:CommentURL$>" class="userpic-link"></mt:If><img src="<mt:If tag="CommenterUserpic"><$mt:CommenterUserpicURL$><mt:Else><$mt:Var name="userpic_url_default"$></mt:If>" 
         width="<$mt:Var name="userpic_size"$>" height="<$mt:Var name="userpic_size"$>" alt="<$mt:CommenterName escape="html"$>" class="photo" /><mt:If tag="MTCommentURL"></a></mt:If>
