@@ -88,7 +88,7 @@
 .user-profile .asset .userpic {
     display: none;
 }
-.user-profile .userpic {
+.user-profile .profile-data .userpic {
     width: 220px;
     float: left;
 }
@@ -231,4 +231,3 @@ display: none;
 .action a {
     color: #069;
 }
-

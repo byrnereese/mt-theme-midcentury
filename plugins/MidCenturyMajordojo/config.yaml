@@ -343,6 +343,8 @@ template_sets:
       widget:
         w_following: 
           label: 'Following'
+        w_followed: 
+          label: 'Followed By'
         w_tags:
           label: 'Tags'
         w_elsewhere:
@@ -382,6 +384,7 @@ template_sets:
           label: 'Profile'
           widgets:
              - 'Following'
+             - 'Followed By'
              - 'Elsewhere'
              - 'Ad (Med Rectangle)'
         3col-top:

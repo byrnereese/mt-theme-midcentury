@@ -285,3 +285,57 @@ img.featured-thumbnail {
 .widget-powered {
   text-align: center;
 }
+
+/* Userpics */
+
+.userpic {
+    position: relative;
+}
+.userpic .userpic-link img.photo {
+    margin-bottom: 0;
+}
+.userpic .user-info {
+    display: none;
+}
+.members ul li {
+    position: relative;
+}
+.members ul li,
+.members ul li div,
+.followers ul li,
+.followers ul li div,
+.following ul li,
+.following ul li div {
+    float: left;
+    margin: 0 2px 2px 0;
+}
+.user-info {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 40px;
+    overflow: hidden;
+    padding: 15px 0 10px;
+    width: 160px;
+    height: 136px;
+    background: url(<$MTStaticWebPath$>plugins/Motion/images/userinfo-bg.png) no-repeat 0 0;
+    font-size: 11px;
+    line-height: 1.4;
+}
+.members .user-info,
+.followers .user-info,
+.following .user-info {
+    top: 24px;
+    left: 0;
+}
+.user-info h4 {
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 3px;
+}
+
+.user-info .name,
+.user-info .stats {
+    display: block;
+    margin: 0 10px;
+}
