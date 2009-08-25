@@ -19,7 +19,7 @@ $(document).ready(function(){
       });
     };
     $('#greeting').greet({
-        mode: 'mtpro',
+        mode: 'mtpro'
     });
     if ($('#comments-form') || $('#contact-form')) {
       $('#comment-greeting').greet({
@@ -28,6 +28,7 @@ $(document).ready(function(){
 '),
         loginText: 'Sign in',
         mode: 'mtpro',
+        entryId: $('#comments-form input[name=entry_id]').val(),
         editProfileText: 'edit profile',
         logoutText: 'sign out'
         //,returnToURL: returnto
