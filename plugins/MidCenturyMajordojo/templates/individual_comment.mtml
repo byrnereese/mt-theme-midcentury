@@ -1,4 +1,4 @@
-<mt:SetVarBlock name="profile_view_url"><$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&blog_id=<$mt:BlogID$>&id=<$mt:CommenterID$></mt:SetVarBlock>
+<mt:SetVarBlock name="profile_view_url"><$mt:CGIPath$><$mt:CommunityScript$>?__mode=view&blog_id=<$mt:BlogID$>&id=</mt:SetVarBlock>
 <mt:SetVarBlock name="current_comment"><mt:CommentID></mt:SetVarBlock>
 <div id="comment-<$mt:CommentID$>" class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
     <div class="inner">

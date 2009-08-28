@@ -42,7 +42,7 @@ var returnto = '<$mt:EntryPermalink encode_js="1"$>#comments';
               <mt:var name="otherauth" value="">
               <mt:IfTwitterAuth>
                 <mt:var name="otherauth" value="yes" append="1">
-                <form method="post" action="<$mt:AdminCGIPath$><$mt:AdminScript$>">
+                <form method="post" action="<$mt:AdminCGIPath$><$mt:CommentScript$>">
                   <input type="hidden" name="__mode" value="login_external" />
                   <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
                   <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />
@@ -58,7 +58,7 @@ var returnto = '<$mt:EntryPermalink encode_js="1"$>#comments';
                 <div class="auth-button">
                   <fb:login-button length="long" onlogin="signface_login();"></fb:login-button>
                 </div>
-                <form id="facebook-signin-form" method="post" action="<$mt:AdminCGIPath$><$mt:AdminScript$>">
+                <form id="facebook-signin-form" method="post" action="<$mt:AdminCGIPath$><$mt:CommentScript$>">
                   <input type="hidden" name="__mode"   value="login_external" />
                   <input type="hidden" name="blog_id"  value="<$mt:BlogID$>" />
                   <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />

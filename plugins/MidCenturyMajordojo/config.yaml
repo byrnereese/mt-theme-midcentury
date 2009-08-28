@@ -299,7 +299,7 @@ template_sets:
               file_template: %-c/%-f
               preferred: 1
       system:
-        contact_form_response:
+        inquiry_response:
           label: 'Contact Form Response'
         comment_response:
           label: 'Comment Response'

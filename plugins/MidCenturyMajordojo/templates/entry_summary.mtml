@@ -1,9 +1,16 @@
 <$mt:var name="thumbnail" value=""$>
 <$mt:EntryTrackbackData$>
 <div id="entry-<$mt:EntryID$>" class="entry-asset asset hentry">
+    <mt:setvarblock name="thisdate"><$mt:EntryDate format="%e"$></mt:setvarblock>
+    <mt:if name="thisdate" eq="$currentdate">
+      <$mt:var name="dateclass" value="hidden"$>
+    <mt:else>
+      <$mt:var name="dateclass" value=""$>
+    </mt:if>
+    <mt:setvarblock name="currentdate"><$mt:var name="thisdate"$></mt:setvarblock>
     <div class="asset-header">
         <h2 class="asset-name entry-title"><a href="<$mt:EntryPermalink$>" rel="bookmark"><$mt:EntryTitle$></a></h2>
-        <div class="asset-meta">
+        <div class="asset-meta <$mt:var name="dateclass"$>">
             <div class="entry-meta-date"><abbr class="published" title="<$mt:EntryDate format_name="iso8601"$>"><$mt:EntryDate format="<span class='day'>%e</span> %b %Y"$></abbr></div>
         </div>
     </div>
