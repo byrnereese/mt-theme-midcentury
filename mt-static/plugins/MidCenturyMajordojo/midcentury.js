@@ -36,6 +36,9 @@ $(document).ready(function(){
       $('#comments-open-data').onauthchange( function(e,u) {
 	      if (u.is_authenticated) { $(this).hide(); } else { $(this).show(); } 
 	  });
+      $('#auth-options').onauthchange( function(e,u) {
+	      if (u.is_authenticated) { $(this).hide(); } else { $(this).show(); } 
+	  });
     };
     // Sign-in auth tab switcher - auth_types is defined in the login page.
     $('#auth-options li').click(function(){

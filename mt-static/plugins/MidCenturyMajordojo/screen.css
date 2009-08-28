@@ -601,11 +601,11 @@ h2.archive-header {
 .comments-open-content {
     
 }
-.comments-open form {
+.comments-open form.comments-form {
     background: url(entry-footer-bg-bot.gif) no-repeat left bottom;
     padding-bottom: 5px;
 }
-.comments-open form #comments-form-inner {
+.comments-open form.comments-form #comments-form-inner {
     background: #eeeeea url(entry-footer-bg-top.gif) no-repeat left top;
     margin: 0;
     padding: 15px 10px 10px 10px;

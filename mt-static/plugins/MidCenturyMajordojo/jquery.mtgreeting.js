@@ -52,7 +52,11 @@
 	    } else {
 	      var doc_url = document.URL;
 	      doc_url = doc_url.replace(/#.+/, '');
-	      url += 'return_url=' + encodeURIComponent(doc_url);
+		if ( mt.entry && mt.entry.id ) {
+		    url += 'entry_id=' + mt.entry.id;
+		} else {
+                    url += 'return_url=' + encodeURIComponent(doc_url);
+                }
 	    }
 	    $.fn.movabletype.clearUser();
 	    location.href = url;

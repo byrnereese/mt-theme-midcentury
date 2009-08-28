@@ -38,6 +38,50 @@ var returnto = '<$mt:EntryPermalink encode_js="1"$>#comments';
         <mt:ignore>
         <!-- Display greeting for users if blog allows users to register locally -->
         </mt:ignore>
+            <div id="auth-options" class="pkg">
+              <mt:var name="otherauth" value="">
+              <mt:IfTwitterAuth>
+                <mt:var name="otherauth" value="yes" append="1">
+                <form method="post" action="<$mt:AdminCGIPath$><$mt:AdminScript$>">
+                  <input type="hidden" name="__mode" value="login_external" />
+                  <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                  <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />
+                  <input type="hidden" name="static" value="<$mt:StaticWebPath$>" />
+                  <input type="hidden" name="oauth" value="1" />
+                  <input type="hidden" name="key" value="Twitter" />
+                  <input src="<$mt:StaticWebPath$>plugins/TwitterCommenters/images/signin_with_twitter.png" type="image" name="submit" value="Sign In" />
+		</form>
+              </mt:IfTwitterAuth>
+
+              <mt:IfFacebookAuth>
+                <mt:var name="otherauth" value="yes" append="1">
+                <div class="auth-button">
+                  <fb:login-button length="long" onlogin="signface_login();"></fb:login-button>
+                </div>
+                <form id="facebook-signin-form" method="post" action="<$mt:AdminCGIPath$><$mt:AdminScript$>">
+                  <input type="hidden" name="__mode"   value="login_external" />
+                  <input type="hidden" name="blog_id"  value="<$mt:BlogID$>" />
+                  <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />
+                  <input type="hidden" name="static"   value="1" />
+                  <input type="hidden" name="key"      value="Facebook" />
+                  <input type="hidden" name="facebook_id"   id="facebook-signin-id-input" />
+                  <input type="hidden" name="facebook_nick" id="facebook-signin-nick-input" />
+                  <input type="hidden" name="facebook_url"  id="facebook-signin-url-input" />
+                </form>
+                <!-- put the script tags in the <body> element, after all XFBML -->
+                <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>  
+                <script type="text/javascript" src="<$mt:StaticWebPath$>plugins/FacebookCommenters/fbconnect.js"></script>                 
+                <script type="text/javascript">                                                                                            
+                  FB.init('<$mt:FacebookApplicationID$>','<mt:StaticWebPath>plugins/FacebookCommenters/xd_receiver.html');
+                </script>                                                                                                                  
+              </mt:IfFacebookAuth>
+              <mt:if name="otherauth" ne="">
+                <div class="auth-button">
+                  <a href="<$mt:SignInLink$>"><img src="<$mt:StaticWebPath$>plugins/MidCenturyMajordojo/signin_with_mt.png" /></a>
+                </div>
+              </mt:if>
+            </div>
+
             <div id="comment-greeting"></div>
 
             <div class="comment" id="comment-preview-comment">

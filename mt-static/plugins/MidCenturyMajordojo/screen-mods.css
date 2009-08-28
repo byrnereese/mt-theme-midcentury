@@ -1,6 +1,29 @@
 #header-ad { margin: 0 auto 0 auto; text-align: center; padding: 15px 0 0 0; }
 
+#auth-options { margin-bottom: 10px; float: left; }
+#auth-options .auth-button,
+#auth-options form { 
+  float: left; 
+  background-color: 0;
+  margin-right: 10px; 
+}
+
 .contactform .asset-content { margin-left: 55px; }
+
+.comments-form label { 
+  width: 80px; 
+  display: block; 
+  float: left; 
+  margin-bottom: 5px; 
+}
+.comments-form input { 
+  margin-bottom: 5px; 
+}
+.actions .comments-form #comment-form-remember-me {
+    padding-left: 80px;
+    display: none;
+}
+.comments-form #comment-form-url { display: none; }
 
 .comment .asset-meta {
     float: left;
@@ -121,7 +144,7 @@ img.featured-thumbnail {
 
 .comment-content blockquote { border-left: 2px solid #CCC; padding-left: 10px; margin: 0 0 5px 10px; }
 
-#comment-form-subscribe {
+#comments-form #comment-form-subscribe {
     padding-left: 100px;
 }
 #comment-form-subscribe label {

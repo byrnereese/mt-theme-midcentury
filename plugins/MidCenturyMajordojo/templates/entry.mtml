@@ -9,13 +9,17 @@
     <MTEntryPrevious><link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryPrevious>
     <MTEntryNext><link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryNext>
     <$MTEntryTrackbackData$>
-<mt:IfDiggEnabled>
     <script type="text/javascript">
+<mt:IfDiggEnabled>
       digg_url = '<mt:EntryPermalink encode_js="1">';
       digg_window = 'new';
       digg_title = '<mt:EntryTitle encode_js="1">';
-    </script>
 </mt:IfDiggEnabled>
+      mt.entry = { 
+        id: <$mt:EntryID$>,
+        permalink: '<$mt:EntryPermalink$>'
+      };
+    </script>
 </head>
 <body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive <$mt:MidCenturyLayout$>">
     <div id="container">

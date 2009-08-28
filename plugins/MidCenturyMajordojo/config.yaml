@@ -26,6 +26,9 @@ template_sets:
           order: 2
         options:
           label: 'Options'
+          order: 3.5
+        entries:
+          label: 'Entries'
           order: 3
         profiles:
           label: 'Profiles'
@@ -134,10 +137,11 @@ template_sets:
         label: 'Show Follow Links'
         hint: 'Display "follow" links on entry pages. This can have a performance impact on large scale sites.'
         tag: 'ShowFollowLinks?'
-        fieldset: options
+        fieldset: entries
         default: 1
       photo_gallery:
         type: blogs
+#        type: photogallery
         label: 'Photo Gallery?'
         hint: 'Select the photo gallery blog to link to in your navigation'
         tag: 'PhotoGalleryBlog'
@@ -174,14 +178,30 @@ template_sets:
         hint: 'Would you like to have a "Digg This" button placed at the bottom of each entry?'
         tag: 'IfDiggEnabled?'
         default: 1
-        fieldset: options
+        fieldset: entries
       enable_threaded:
         type: checkbox
         label: 'Enable Threaded Comments?'
         hint: 'Would you like to use threaded/nested comments?'
         tag: 'IfThreadedComments?'
         default: 1
-        fieldset: options
+        fieldset: entries
+      enable_twitter_auth:
+        type: checkbox
+        label: 'Enable Twitter Auth?'
+        hint: 'Would you like to surface a button so people can login using Twitter?'
+        tag: 'IfTwitterAuth?'
+        default: 1
+        fieldset: entries
+        condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_twitter
+      enable_facebook_auth:
+        type: checkbox
+        label: 'Enable Facebook Auth?'
+        hint: 'Would you like to surface a button so people can login using Facebook?'
+        tag: 'IfFacebookAuth?'
+        default: 1
+        fieldset: entries
+        condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_facebook
 
     templates:
       archive:
