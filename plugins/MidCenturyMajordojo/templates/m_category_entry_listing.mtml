@@ -1,0 +1,75 @@
+<mt:MobileEnabled>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head (Mobile)"$>
+    <title><$MTBlogName encode_html="1"$>: <$MTArchiveTitle$> Archives</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-listing mt-<MTVar name="archive_class">">
+
+<mt:Include module="Banner Header (Mobile)">
+
+<MTIf name="datebased_archive">
+<mt:ignore><!-- Title for category-monthly entry listings --></mt:ignore>
+<h2 id="pagehead" class="archive-title"><$MTArchiveTitle$> Archives</h2>
+<MTElse>
+<mt:ignore><!-- Title for category entry listings --></mt:ignore>
+<h2 id="pagehead" class="archive-title">Recent Entries in <em><$MTArchiveTitle$></em></h2>
+</MTIf>
+
+<mt:Entries>
+<mt:var name="photo" value="">
+<mt:if name="__first__"><ul class="list"></mt:if>
+
+          <mt:ifnonempty tag="EntryFeaturedImage">
+            <mt:setvarblock name="aid"><mt:EntryFeaturedImage></mt:setvarblock>
+            <mt:setvarblock name="photo"><mt:EntryFeaturedImageAsset id="$aid"><img src="<mt:CroppedAsset label="Entry Summary"><$mt:AssetURL$><mt:else><$mt:AssetThumbnailURL width="100"$></mt:CroppedAsset>" alt="<$mt:AssetLabel encode_html="1"$>" /></mt:EntryFeaturedImageAsset></mt:setvarblock>
+          <mt:else>
+            <mt:EntryAssets lastn="1" trim="1">
+            <mt:CroppedAsset label="Entry Summary">
+              <mt:setvarblock name="photo"><img src="<$mt:AssetURL$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+            <mt:else>
+              <mt:setvarblock name="photo"><img src="<$mt:AssetThumbnailURL width="100" square="1"$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+            </mt:CroppedAsset>
+            </mt:EntryAssets>
+          </mt:ifnonempty>
+
+<mt:if name="photo" ne="">
+  <li class="photo">
+    <a href="<$mt:EntryPermalink regex_replace="$rep","$rer"$>"><mt:var name="photo">
+    <h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+<mt:else>
+  <li>
+    <a href="<$mt:EntryPermalink regex_replace="$rep","$rer"$>"><h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+</mt:if>
+<mt:if name="__last__"></ul></mt:if>
+</mt:Entries>
+
+<mt:ignore>
+<mt:Entries>
+<mt:if name="__first__"><ul class="list"></mt:if>
+  <li>
+    <a href="<$mt:EntryPermalink regex_replace="$rep","$rer"$>"><h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+<mt:if name="__last__"></ul></mt:if>
+</mt:Entries>
+</mt:ignore>
+
+<div id="pageNav">
+<MTArchivePrevious><div id="older"><a href="<$MTArchiveLink regex_replace="$rep","$rer"$>">&laquo; <$MTArchiveTitle$></a></div></MTArchivePrevious>
+<MTArchiveNext><div id="newer"><a href="<$MTArchiveLink regex_replace="$rep","$rer"$>"><$MTArchiveTitle$> &raquo;</a></div></MTArchiveNext><div class="clearer"></div>
+</div>
+
+<mt:Include module="Banner Footer (Mobile)">
+
+</body>
+</html>
+<mt:else>
+Mobile is not enabled for this web site.
+</mt:MobileEnabled>

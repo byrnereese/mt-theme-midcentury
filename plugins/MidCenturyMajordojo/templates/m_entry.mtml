@@ -1,0 +1,37 @@
+<mt:MobileEnabled>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head (Mobile)"$>
+    <title><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive" onload="mtEntryOnLoad()">
+
+<$mt:include module="Banner Header (Mobile)"$>
+
+<div id="content">
+
+<h3><mt:EntryTitle></h3>
+<p class="byline">Posted by <$MTEntryAuthorLink show_hcard="0"$>, <$MTEntryDate format="<span class='day'>%e</span> %b %Y"$></p>          
+
+<div id="entry-<$MTEntryID$>" class="entry-asset">
+  <$MTEntryBody$>
+  <MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+  <$MTEntryMore$>
+  </MTIfNonEmpty>
+  <p><MTIfNonEmpty tag="EntryCategory">Filed in <MTEntryCategories glue=', '><a href="<$MTCategoryArchiveLink regex_replace="$rep","$rer"$>" rel="tag"><$MTCategoryLabel$></a></MTEntryCategories></MTIfNonEmpty>
+  <MTEntryIfTagged>and tagged <MTEntryTags glue=', '><a href="<$MTTagSearchLink$>" rel="tag"><$MTTagName$></a></MTEntryTags></MTEntryIfTagged></p>
+  <div class="clearer"></div>
+  <$MTInclude module="Comments (Mobile)"$>
+</div>
+
+</div>
+
+<mt:Include module="Banner Footer (Mobile)">
+
+</body>
+</html>
+<mt:else>
+Mobile is not enabled for this web site.
+</mt:MobileEnabled>

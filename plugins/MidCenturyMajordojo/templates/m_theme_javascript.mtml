@@ -1,0 +1,52 @@
+<mt:MobileEnabled>
+var WebKitDetect = {
+        isWebKit : function() {
+                return new RegExp(" AppleWebKit/").test(navigator.userAgent);
+        },
+        isMobile : function() {
+                return WebKitDetect.isWebKit() && new RegExp("Mobile/").test(navigator.userAgent);
+        },
+        mobileDevice : function() {
+                if (!WebKitDetect.isMobile()) {
+                        return null;
+                }
+                var fields = new RegExp("(Mozilla/5.0 \\()([^;]+)").exec(navigator.userAgent);
+                if (!fields || fields.length < 3) {
+                        return null;
+                }
+                return fields[2];
+        }
+
+};
+
+if (WebKitDetect.mobileDevice()) { 
+
+
+addEventListener("load", function()
+                        {
+                                setTimeout(updateLayout, 10);
+                        }, false);
+
+                        var currentWidth = 0;
+
+                        function updateLayout()
+                        {
+                                if (window.innerWidth != currentWidth)
+                                {
+                                        currentWidth = window.innerWidth;
+                                        //document.getElementById('count').innerHTML = "[width = " +  
+currentWidth + "px]";
+
+                                        var orient = currentWidth == 320 ? "profile" : "landscape";
+                                        document.body.setAttribute("orient", orient);
+                                        setTimeout(function()
+                                        {
+                                                window.scrollTo(0, 1);
+                                        }, 100);
+                                }
+                        }
+
+                        setInterval(updateLayout, 400); 
+
+}
+</mt:MobileEnabled>

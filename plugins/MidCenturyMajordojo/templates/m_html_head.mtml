@@ -1,0 +1,29 @@
+<mt:section trim="1">
+<meta http-equiv="Content-Type" content="text/html; charset=<$MTPublishCharset$>" />
+<meta name="viewport" content="initial-scale=1.0; user-scalable=no; maximum-scale=1.0; minimum-scale=1.0" /> 
+<meta name="generator" content="<$MTProductName version="1"$>" />
+<link rel="start" href="<$MTBlogURL$>/mobile/" title="Home (Mobile)" />
+<$MTCCLicenseRDF$>
+<link media="screen" href="<mt:Link template="m_styles">" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="<$mt:Link template="m_javascript"$>"></script>
+<script type="text/javascript" src="<$mt:Link template="m_theme_javascript"$>"></script>
+<script type="text/javascript">
+var applesearch_css = '<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/applesearch.css';
+<!--
+if (WebKitDetect.mobileDevice()) {
+  document.writeln('<link media="screen" href="<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/iphone.css" type="text/css" rel="stylesheet" />');
+}
+//-->
+</script>
+<link media="handheld" href="<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/handheld.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/dummy.css" id="dummy_css"  />
+<script type="text/javascript" src="<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/applesearch.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function () { applesearch.init(); }
+//]]>
+</script>
+
+<mt:setvarblock name="rep">/^<$mt:BlogURL$>/</mt:setvarblock>
+<mt:setvarblock name="rer"><$mt:BlogURL$>mobile/</mt:setvarblock>
+</mt:section>

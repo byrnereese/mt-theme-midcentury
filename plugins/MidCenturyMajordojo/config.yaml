@@ -16,6 +16,10 @@ template_sets:
         label: 'Entry Summary'
         max_width: 100
         max_height: 100
+      slideshow:
+        label: 'Slideshow'
+        max_width: 120
+        max_height: 120
     options:
       fieldsets:
         frontdoor:
@@ -42,6 +46,9 @@ template_sets:
         contact:
           label: 'Contact Me'
           order: 7
+        mobile:
+          label: 'Mobile'
+          order: 8
       layout:
         type: select
         values: 2-column,3-column
@@ -76,7 +83,7 @@ template_sets:
       google_var:
         type: text
         label: 'Google Verification Code'
-        hint: 'Enter in the verification code given to you by Google Web Master Tools.'
+        hint: 'Enter in the verification code given to you by Google Web Master Tools. For example, for the tag &lt;META name="verify-v1" content="YOUR_CODE"&gt; you would enter in "YOUR_CODE" here.'
         tag: 'GoogleWebVerify'
         fieldset: seo
       analytics_code:
@@ -202,6 +209,13 @@ template_sets:
         default: 1
         fieldset: entries
         condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_facebook
+      enable_mobile:
+        type: checkbox
+        label: 'Enable Mobile?'
+        hint: 'By enabling the mobile version of your site, Movable Type will begin publishing mobile versions of your content. EXPERIMENTAL'
+        tag: 'MobileEnabled?'
+        default: 0
+        fieldset: mobile
     fields:
       featured_image_asset:
         name: "Featured Image"

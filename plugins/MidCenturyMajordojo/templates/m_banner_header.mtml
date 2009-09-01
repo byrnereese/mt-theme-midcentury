@@ -1,0 +1,51 @@
+<div id="header">
+
+  <div id="header-content">
+    <a href="<mt:Link template="m_main_index">"><img src="<mt:StaticWebPath>plugins/MidCenturyMajordojo/mobile/logo.gif" width="20" height="20" alt="<mt:BlogName>" title="<mt:BlogName>" /></a>
+    <h1><a href="<mt:Link template="m_main_index">"><mt:BlogName></a></h1>
+  </div>	
+
+<script type="text/javascript">
+<!--
+if (WebKitDetect.mobileDevice()) {
+  document.writeln('<div id="home"><a href="<mt:Link template="m_main_index">">Home</a></div>');
+}
+//-->
+
+</script>
+
+
+<script type="text/javascript">
+<!--
+user = mtGetUser();
+if (WebKitDetect.mobileDevice()) {
+    user = mtGetUser();
+    if ( user && user.is_authenticated ) {
+        document.writeln('<div id="login-link"><a href="javascript:void(0);" onclick="return mtSignOutOnClick();">Sign Out</a></div>');
+    } else {
+        document.writeln('<div id="login-link"><a href="javascript:void(0)" onclick="return mtSignInOnClick(\'login-link\')">Sign in</a></div>');
+    }
+}
+//-->
+</script>
+
+<div class="clearer"></div>
+
+</div><!-- close masthead -->
+
+<div id="nav">
+	<ul>
+<script type="text/javascript">
+<!--
+if (WebKitDetect.mobileDevice()) {
+} else {
+	document.writeln('<li id="homeNav"><a href="<mt:Link template="m_main_index">">Home</a></li>');
+}
+//-->
+</script>
+		<li id="categories"><a href="<mt:Link template="m_category_archives">">Categories</a></li>
+<mt:Pages tags="@topnav">
+		<li id="<mt:PageBasename>"><a href="<$mt:PagePermalink regex_replace="$rep","$rer"$>"><mt:PageTitle></a></li>
+</mt:Pages>
+	</ul><div class="clearer"></div>
+</div><!-- close nav -->

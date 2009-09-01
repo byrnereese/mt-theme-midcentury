@@ -29,7 +29,7 @@
         <div class="asset-body pkg">
           <mt:ifnonempty tag="EntryFeaturedImage">
             <mt:setvarblock name="aid"><mt:EntryFeaturedImage></mt:setvarblock>
-            <mt:setvarblock name="thumbnail"><mt:EntryFeaturedImageAsset id="$aid"><img src="<mt:CroppedAsset label="$pref_c"><$mt:AssetURL$><mt:else><$mt:AssetThumbnailURL width="$pref_w"$></mt:CroppedAsset>" alt="<$mt:AssetLabel encode_html="1"$>" class="center" /></mt:EntryFeaturedImageAsset></mt:setvarblock>
+            <mt:setvarblock name="thumbnail"><mt:EntryFeaturedImageAsset id="$aid"><img src="<mt:CroppedAsset label="Entry Summary"><$mt:AssetURL$><mt:else><$mt:AssetThumbnailURL width="100"$></mt:CroppedAsset>" alt="<$mt:AssetLabel encode_html="1"$>" class="center" /></mt:EntryFeaturedImageAsset></mt:setvarblock>
           <mt:else>
             <mt:EntryAssets lastn="1" trim="1">
             <mt:CroppedAsset label="Entry Summary">

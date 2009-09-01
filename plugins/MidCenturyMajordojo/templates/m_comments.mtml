@@ -1,0 +1,50 @@
+<mt:ignore>
+<!-- Display comments for the entry/page or commenting form if entry/page is accepting comments -->
+</mt:ignore>
+<MTIfCommentsActive>
+    <div id="comments" class="comments">
+        <mt:ignore>
+        <!-- Display comments -->
+        </mt:ignore>
+        <h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
+        <MTComments>
+        <a name="comment-<$MTCommentID$>"></a>
+        <div class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
+        <$MTCommentBody$>
+        <p class="commenter postFooter"><$MTCommentAuthorLink$> at <$MTCommentDate format_name="iso8601"$></p>
+        </div>
+        </MTComments>
+    </div>
+
+    <mt:ignore>
+    <!-- Display commenting form if entry/page is accepting comments -->
+    </mt:ignore>
+    <MTIfCommentsAccepted>
+        <mt:ignore>
+        <!-- Display greeting for users if blog allows users to register locally -->
+        </mt:ignore>
+        <div id="comment-greeting"></div>
+        <noscript>
+        <style type="text/css">#post-comment {display:none}</style>
+        </noscript>
+		<div id="post-comment">
+			<div id="comments-form">
+                <form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" 
+                    id="comments_form" onsubmit="setCookie('commented', 'true'); ">
+                    <input type="hidden" id="static" name="static" value="1" />
+                    <input type="hidden" id="entry_id" name="entry_id" value="<$MTEntryID$>" />
+                    <input type="hidden" id="__lang" name="__lang" value="<$MTBlogLanguage$>" />
+                    <input type="hidden" id="armor" name="armor" value="1" />
+                    <input type="hidden" id="sid" name="sid" value="" />
+		    <textarea id="addComment" rows="5" cols="60" name="text" class="formText"></textarea>
+		    <div style="float:right" class="formCommentPreview">
+			<input type="submit" value="Submit" name="post" id="comment-post" class="formButton"  />
+		    </div><div class="clearer"></div>
+		</form>
+			</div>				
+		</div><!-- close post-comment -->
+        <script type="text/javascript">
+         if (user && user.name.length<=0) { document.getElementById("post-comment").style.display = 'none'; }
+        </script>
+    </MTIfCommentsAccepted>
+</MTIfCommentsActive>

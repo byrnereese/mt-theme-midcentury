@@ -1,0 +1,38 @@
+<mt:MobileEnabled>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <title><$MTBlogName encode_html="1"$>: Categories</title>
+    <$mt:include module="HTML Head (Mobile)"$>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index">
+
+<mt:Include module="Banner Header (Mobile)">
+
+<h2 id="pagehead">Categories:</h2>
+
+<mt:IfArchiveTypeEnabled archive_type="Category">
+<ul class="list">
+    <mt:TopLevelCategories>
+        <mt:SubCatIsFirst>
+        <mt:setvar name="depth" op="add" value="1">
+        </mt:SubCatIsFirst>
+  <li class="depth-<$mt:var name="depth"$>">
+    <h3 class="entryTitle"><a href="<$mt:CategoryArchiveLink regex_replace="$rep","$rer"$>"><$mt:CategoryLabel$></a></h3>
+        <$mt:SubCatsRecurse$>
+  </li>
+        <mt:SubCatIsLast>
+        <mt:setvar name="depth" op="sub" value="1">
+        </mt:SubCatIsLast>
+    </mt:TopLevelCategories>
+</ul>
+</mt:IfArchiveTypeEnabled>
+
+<mt:Include module="Banner Footer (Mobile)">
+
+</body>
+</html>
+<mt:else>
+Mobile is not enabled for this web site.
+</mt:MobileEnabled>

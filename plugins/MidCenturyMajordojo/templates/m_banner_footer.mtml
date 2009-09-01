@@ -1,0 +1,40 @@
+<div id="footer">
+	<ul>
+		<li><a href="<$mt:BlogURL$>">Home</a></li>
+<mt:Pages tags="@footer">
+		<li><a href="<$mt:PagePermalink regex_replace="$rep","$rer"$>"><mt:PageTitle></a></li>
+</mt:Pages>
+
+<mt:ignore>
+<script type="text/javascript">
+<!--
+var user = getCommenterName();
+if (user.length>0) {
+	document.writeln('<li id="editProfile"><a href="/user/profile.html">Edit Profile</a></li>');
+	document.writeln('<li id="footerLogin"><a href="/user/logout.html?return_to=<mt:BlogURL encode_url="1">">Log out</a></li>');
+
+} else {
+	document.writeln('<li id="editProfile"><a href="/user/register">Sign Up</a></li>');
+	document.writeln('<li id="footerLogin"><a href="/user/login">Login</a></li>');
+} //-->
+</script>
+</mt:ignore>
+<div class="clearer"></div>
+	</ul>
+
+<div id="search">
+  <form method="get" action="<$mt:CGIPath$><$mt:SearchScript$>" id="search-form">
+    <span class="sbox_l"></span><span class="sbox"><input type="search" id="srch_fld" placeholder="Search..." autosave="applestyle_srch" results="5" onkeyup="applesearch.onChange('search','srch_clear')" name="search" /></span><span class="sbox_r" id="srch_clear"></span>
+    <input type="hidden" name="IncludeBlogs" value="<$mt:BlogID$>" />
+    <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
+  </form>
+</div><!-- close search -->
+
+<div class="clearer"></div>
+
+<div class="footerCopy">
+Powered by <a href="http://www.movabletype.com/" rel="generator"><$MTProductName$></a>
+</div>
+
+</div><!-- close footer -->
+
