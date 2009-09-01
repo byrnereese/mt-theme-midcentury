@@ -1,0 +1,84 @@
+body {
+    font-family: Helvetica;
+    overflow: hidden;
+    -webkit-text-size-adjust: none
+}
+
+body[orient="landscape"] {
+	top: 40px;
+	width: 100%
+}
+
+p, li, blockquote, label, input { font-family: Helvetica }
+
+#header {
+	padding-left: 60px;  /* must match #home total width */
+	padding-right: 70px; /* must match #tools total width  */
+	padding-top: 0;
+	padding-bottom: 0;
+	min-width: 170px;
+	width: auto
+}
+
+#header-content { 
+	position: relative;
+	width: 100%;
+	float: left;
+	padding: 15px 0 5px 0 !important;
+	text-align: center;
+	margin: 0; 
+	height: 30px
+}
+
+#header-content img { padding-left: 0px } 
+
+#login-link, #home {
+	font-size: 12px;
+	line-height: 12px;
+	padding: 17px 0 0 0;
+	position: relative;
+	float: left
+}
+
+#login-link a, #home a {
+	font-weight: bold;
+	color: #fff
+}
+
+#home {
+	margin-left: -100%;
+	width: 50px;
+	right: 60px;
+	padding-left: 10px
+}
+
+#login-link { 
+	width: 60px;
+	margin-right: -70px;
+	padding-right: 10px;
+	text-align: right
+}
+
+
+
+
+#nav { margin-left: auto; margin-right: auto; width: 100% }
+
+#nav ul, #footer ul { padding-left: 0; padding-right: 0 }
+
+/*
+#nav li, #footer li {
+	padding: 0 1px 0 0; 
+	margin-right: 1px
+}
+*/
+
+#footer li { width: 18%;  }
+
+#footer #editProfile { width: 21%; padding-right: 3px; padding-left: 3px  }
+
+#search { 
+	margin: 0 auto;
+	text-align: center;
+	padding-left: 0
+}

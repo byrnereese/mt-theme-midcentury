@@ -1,0 +1,292 @@
+/* reset browser default style http://meyerweb.com/eric/thoughts/2007/04/18/reset-reasoning/ */
+body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, p, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    background: #fff;
+    color: #000;
+    width:100%
+}
+a, a:link, a:visited { color: #004d80; text-decoration: none }
+a img { border:0 }
+strong { font-weight: bold }
+ul { margin: 0; padding:0 }
+h1, h2, h3, h4, h5 { font-weight: bold }
+p, li, label {
+	font-family: 'Arial', 'Helvetica', 'Verdana', 'sans', 'sans serif';
+	font-size: 15px;
+	line-height: 20px;
+}
+
+#header {
+	background-color: #000;
+	width: 100%;
+	min-height:29px;
+	padding: 0
+}
+#header a { color: white; }
+#header { min-height: 35px; }
+#header img { float: left; margin: 0 5px 0 5px; }
+#header h1 { float: left; }
+#header-content { padding: 8px 0 2px 6px }
+#nav, #footer {
+	background-color: #EEEEEA;
+	min-height: 22px;
+	margin: 0
+}
+
+#nav ul { padding: 8px 0 2px 10px }
+
+#nav li, #footer li {
+	list-style: none;
+	display: inline
+}
+
+#nav a, #footer a {
+	font-size: 11px;
+	font-weight: bold;
+	color: #004d80;
+}
+
+#nav li, #footer li {
+	float: left;
+	text-align: center; 
+	margin-bottom: 4px;
+	border-right: 1px solid #DDDDD9;
+	padding: 0 8px 0 0; 
+	margin-right: 8px;
+}
+
+#footer ul { padding: 10px 0 10px 10px }
+#footer #footerLogin { padding-right: 0;  border: none  }
+
+/* #footer #footerLogin, #footer #footerContact { padding-right: 0;  border: none  } */
+
+#search {
+	padding: 0 0 12px 10px;
+	border-bottom: 1px solid #E0E0E0
+}
+
+.footerCopy {
+	font-weight: normal;
+	font-size: 10px;
+	padding: 6px 0 8px 10px;
+}
+
+h2#pagehead {
+	color: #666;
+	font-size: 15px; 
+	font-weight: bold;
+	padding: 7px 0 6px 11px;
+	margin:0;
+	background-color: #fff;
+	border-bottom: 1px solid #E0E0E0
+}
+
+h2#pagehead a { color: #666; }
+
+.list li {
+	background: url(iphone-arrow.png) no-repeat right center;
+	border-bottom: 1px solid #E0E0E0;
+	list-style: none;
+	display: block;
+	padding: 11px 32px 8px 10px;
+	min-height: 20px
+}
+
+.list li.depth-1 { padding-left: 10px; }
+.list li.depth-2 { padding-left: 20px; }
+.list li.depth-3 { padding-left: 30px; }
+.list li.depth-4 { padding-left: 40px; }
+.list li.depth-5 { padding-left: 50px; }
+.list li.depth-6 { padding-left: 60px; }
+
+.list li .entryTitle {
+	display: block;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold
+}
+
+.list li .entryTitle a, .list li .entryTitle a:link, .list li .entryTitle a:visited { color: #000 }
+
+.list li .blogName, .list li .entryDesc {
+	font-size: 11px;
+	line-height: 11px;
+	color: #999;
+	padding: 0 0 5px 0;
+	display:block
+}
+
+.list li .entryDesc {
+	font-size: 12px;
+	line-height: 14px;
+	color: #666;
+	font-weight: normal;
+	padding: 3px 0 0 0;
+	display:block
+}
+
+.list li .entryDesc a, .list li .entryDesc a:link, .list li .entryDesc a:visited { color: #666 }
+
+.list li.photo img { float: left; margin-right: 10px; }
+.list li.photo { min-height: 105px; }
+.list li { clear: both; }
+
+#loadHere { padding: 0; margin: 0 }
+
+#loadHere a {  }
+
+#pageNav { padding: 10px 15px 7px 10px }
+
+#older, #newer { font-weight: bold }
+
+#older {
+	padding-right: 10px;
+	float:left 
+}
+
+#newer { float:right }
+
+.photo-right {
+	padding-left: 10px;
+	padding-bottom: 10px;
+	float: right
+}
+
+.photo-left {
+	padding-right: 10px;
+	float: left;
+	padding-bottom: 10px
+}
+
+.photo-center {
+	margin: 5px auto 5px auto;
+	text-align: center;
+	display: block
+}
+
+#content { padding: 10px }
+
+#content h3 { 
+	padding: 0 0 2px 0;
+	font-size: 19px; 
+	font-weight: bold
+}
+
+#content ul { margin-left: 10px; padding: 0 0 10px 10px }
+
+#content .list { margin: 0 -10px }
+
+#content img { max-width: 300px; height:auto;
+width:expression(this.width > 300 ? "300px" : this.width);
+}
+
+#content p img { margin: 0 0 10px 0; float: right }
+
+#content p { margin: 0 0 10px 0 }
+
+#content p.byline {font-size: 12px; margin-bottom: 3px }
+
+h2.comments-header {
+	border-bottom: 1px solid #E0E0E0;
+	padding: 0 10px  5px 10px ;
+	margin: 30px -10px 0 -10px
+}
+
+.comment {
+	border-bottom: 1px solid #E0E0E0;
+	margin: 0 -10px 0 -10px;
+	padding: 10px 10px 5px 10px
+}
+
+#content .comment p { margin-bottom: 7px }
+
+#content p.commenter { 
+	color: #666;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	color: #666
+}
+
+#post-comment { width: 290px }
+
+.addAComment { margin: 20px 0 10px 0 }
+
+#addComment {
+	width: 290px;
+	height: 140px
+}
+
+#commented {
+	background: #FCFADC;
+	margin: 30px -10px ;
+	padding: 16px 0;
+	border-top: 1px dotted #C6D18E;
+	border-bottom: 1px dotted #C6D18E
+}
+
+#commented p { 
+	font-size: 16px;
+	line-height: 21px;
+	font-family: Georgia, Times, Times New Roman, serif;
+	color: #3B3B3B;
+	text-align: center;
+	margin: 0; 
+	padding: 0
+}
+
+
+/* Form elements
+------------------------------------ */
+
+label { font-weight: normal; font-size: 14px }
+.formField { margin-bottom: 10px;  }
+.formText { width: 98% }
+.formSection { margin-bottom: 15px; }
+.danger, a.danger:hover { color: #b23524; }
+
+p.danger {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+form p.danger {
+	display: inline;
+	margin-bottom: 0;
+}
+
+.required {
+	font-weight: normal;
+	color: #b23524;
+}
+
+p.requirements {
+	margin: 0 0 -10px 0;
+	font-size: 12px;
+	color: #929292;
+}
+
+span.requirements { font-size: 11px; color: #929292; }
+
+.entry-asset:after { clear: both; }
+
+/* Clearer
+------------------------------------ */
+.clearer {
+	clear: both;
+	height: 1px;
+	overflow: hidden;
+	margin-top: -1px
+}

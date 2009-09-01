@@ -1,7 +1,7 @@
 id: 'MidCenturyMajordojo'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 2.0.7
+version: 2.0.8
 
 tags:
   block:
@@ -202,18 +202,57 @@ template_sets:
         default: 1
         fieldset: entries
         condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_facebook
-
+    fields:
+      featured_image_asset:
+        name: "Featured Image"
+        description: "Specifies an image that will override the asset automatically selected by Movable Type when creating thumbmails for excerpts or features."
+        type: asset.image
+        obj_type: entry
+        tag: EntryFeaturedImage
+      html_title_tag:
+        name: "HTML Title Tag"
+        description: "An optional title for your blog post that will only appear in the HTML title tag (this helps improve SEO)."
+        type: text
+        obj_type: entry
+        tag: EntryHTMLTitle
+#      redirect_url:
+#        name: "Redirect URL"
+#        description: "Enter a URL to redirect this entry to. Used when this article is republished somewhere else."
+#        type: url
+#        obj_type: entry
+#        tag: EntryRedirectURL
+#      page_redirect_url:
+#        name: "Redirect URL"
+#        description: "Enter a URL to redirect this page to. Used when this article is republished somewhere else."
+#        type: url
+#        obj_type: page
+#        tag: PageRedirectURL
+      google_news_cat:
+        name: "Google News Category"
+        description: "Choosing a Google News Category can greatly increase your post's chances of appearing on the Google News front page."
+        type: select
+        options: American Football,Arts,Athletics,Automotive,Badminton,Baseball,Basketball,Books,Boxing,Business,Celebrities,College Baseball,College Basketball,College Football,College Sports,Companies,Computing,Cricket,Culture,Cycling,Economy,Education,Entertainment,Environment,Field Hockey,Food and Beverage,Geography,Golf,Handball,Headlines,Health,High School Sports,Home and Garden,Humor,Ice Hockey,Industry,Internet,Legal,Lifestyle,Local,Markets,Movies,Music,Nation,Olympics,Op/Ed,Personal Technology,Politics,Racing,Religion,Rugby,Satire,Science,Soccer,Space,Sports,Table Tennis,Technology,Tennis,Theater,Travel,TV,Video Games,Weird News,World
+        obj_type: entry
+        tag: EntryGoogleNewsCategory
     templates:
+
       archive:
+        m_category_entry_listing:
+          label: 'Category (Mobile)'
+          mappings:
+            category:
+              archive_type: Category
+              file_template: mobile/%-c/%i
+              is_preferred: 0
         category_atom_feed:
-          label: 'Category Atom Feed'
+          label: 'Feed (Category)'
           mappings:
             category:
               archive_type: Category
               file_template: %-c/atom.xml
-              preferred: 0
+              is_preferred: 0
         category_entry_listing:
-          label: 'Category Entry Listing'
+          label: 'Category'
           mappings:
             category:
               archive_type: Category
@@ -224,13 +263,43 @@ template_sets:
               file_template: %-c/%y/%m/%i
               preferred: 1
         monthly_entry_listing:
-          label: 'Monthly Entry Listing'
+          label: 'Monthly'
           mappings:
             monthly:
               archive_type: Monthly
               file_template: %y/%m/%i
               preferred: 1
       index:
+        m_category_archives:
+          label: 'Category Listing (Mobile)'
+          outfile: mobile/categories.html
+          rebuild_me: 1
+        m_javascript:
+          label: 'JavaScript (Mobile)'
+          outfile: mobile/javascript.js
+          rebuild_me: 1
+        m_main_index:
+          label: 'Main Index (Mobile)'
+          outfile: mobile/index.html
+          rebuild_me: 1
+        m_styles:
+          label: 'Stylesheet (Mobile)'
+          outfile: mobile/styles.css
+          rebuild_me: 1
+        m_theme_javascript:
+          label: 'Javascript (Theme/Mobile)'
+          outfile: theme_javascript.js
+          rebuild_me: 1
+
+        sitemap_news:
+          label: 'Sitemap (News)'
+          outfile: 'sitemap_news.xml'
+          rebuild_me: 0
+          build_type: 4
+        sitemap:
+          label: 'Sitemap (Web)'
+          outfile: sitemap.xml
+          rebuild_me: 1
         archive_index:
           label: 'Archive Index'
           outfile: archives.php
@@ -259,10 +328,6 @@ template_sets:
           label: 'RSD'
           outfile: rsd.xml
           rebuild_me: 0
-        sitemap:
-          label: 'Google Sitemap'
-          outfile: sitemap.xml
-          rebuild_me: 1
         styles:
           label: 'Stylesheet'
           outfile: styles.css
@@ -277,6 +342,20 @@ template_sets:
           outfile: javascript_mt.js
           rebuild_me: 0
       individual:
+        m_entry:
+          label: 'Entry (Mobile)'
+          mappings:
+            individual:
+              archive_type: Individual
+              file_template: mobile/%y/%m/%-f
+              preferred: 0
+        m_page:
+          label: 'Page (Mobile)'
+          mappings:
+            page:
+              archive_type: Page
+              file_template: mobile/%-c/%-f
+              preferred: 0
         comment_atom_feed:
           label: 'Feed (Comments)'
           mappings:
@@ -330,6 +409,21 @@ template_sets:
         profile_edit_form:
           label: 'Profile Edit Form'
       module:
+        m_banner_footer:
+          label: 'Banner Footer (Mobile)'
+        m_banner_header:
+          label: 'Banner Header (Mobile)'
+        m_categories:
+          label: 'Categories (Mobile)'
+        m_comments:
+          label: 'Comments (Mobile)'
+        m_html_head:
+          label: 'HTML Head (Mobile)'
+        m_monthly:
+          label: 'Monthly (Mobile)'
+        m_userpic:
+          label: 'Userpic (Mobile)'
+
         contact_form:
           label: 'Contact Form'
         related_entries:

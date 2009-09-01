@@ -27,6 +27,10 @@
 </mt:IfNonEmpty>
 <mt:else tag="MidCenturyEntryLayout" eq="Excerpt w/Image">
         <div class="asset-body pkg">
+          <mt:ifnonempty tag="EntryFeaturedImage">
+            <mt:setvarblock name="aid"><mt:EntryFeaturedImage></mt:setvarblock>
+            <mt:setvarblock name="thumbnail"><mt:EntryFeaturedImageAsset id="$aid"><img src="<mt:CroppedAsset label="$pref_c"><$mt:AssetURL$><mt:else><$mt:AssetThumbnailURL width="$pref_w"$></mt:CroppedAsset>" alt="<$mt:AssetLabel encode_html="1"$>" class="center" /></mt:EntryFeaturedImageAsset></mt:setvarblock>
+          <mt:else>
             <mt:EntryAssets lastn="1" trim="1">
             <mt:CroppedAsset label="Entry Summary">
               <mt:setvarblock name="thumbnail"><img class="featured-thumbnail custom-crop" src="<$mt:AssetURL$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
@@ -34,8 +38,9 @@
               <mt:setvarblock name="thumbnail"><img class="featured-thumbnail" src="<$mt:AssetThumbnailURL width="100" square="1"$>" width="100" height="100" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
             </mt:CroppedAsset>
             </mt:EntryAssets>
-            <mt:if name="thumbnail" ne=""><a rel="bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>"><$mt:var name="thumbnail"$></a></mt:if>
-            <$mt:EntryExcerpt$>
+          </mt:ifnonempty>
+          <mt:if name="thumbnail" ne=""><a rel="bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>"><$mt:var name="thumbnail"$></a></mt:if>
+          <$mt:EntryExcerpt$>
         </div>
         <div class="asset-more-link">
             <a href="<$mt:EntryPermalink$>#more" rel="bookmark">Continue reading</a>

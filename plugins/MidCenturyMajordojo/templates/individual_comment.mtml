@@ -46,7 +46,7 @@ function relations_<$mt:CommenterID$>(following, followed, u) {
   conditional_block(following, '.following_<$mt:CommenterID$>');
 }
 </script>
-<script type="text/javascript" src="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=relations_js&author_id=<$mt:AuthorID$><mt:If name="blog_id">&blog_id=<$mt:Var name="blog_id"$></mt:If>&jsonp=relations_<$mt:CommenterID$>"></script>
+<script type="text/javascript" src="<$mt:CGIPath$><$mt:CommunityScript$>?__mode=relations_js&author_id=<$mt:CommenterID$><mt:If name="blog_id">&blog_id=<$mt:Var name="blog_id"$></mt:If>&jsonp=relations_<$mt:CommenterID$>"></script>
 <$mt:var name="$js" value="1"$>
 </mt:SetVarBlock>
 </mt:unless>

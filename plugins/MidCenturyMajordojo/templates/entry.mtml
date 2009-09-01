@@ -2,9 +2,14 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
 <head>
+<mt:if tag="EntryHTMLTitle" ne="">
+    <title><$MTEntryHTMLTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
+<mt:else>
     <title><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></title>
+</mt:if>
+    <link rel="canonical"  href="<$mt:EntryPermalink$>" />
     <$mt:include module="HTML Head"$>
-    <script src="<mt:StaticWebPath>plugins/mid-century/jquery.phpdate.js" type="text/javascript"></script>    
+    <script src="<mt:StaticWebPath>plugins/MidCenturyMajordojo/jquery.phpdate.js" type="text/javascript"></script>    
     <link rel="alternate" type="application/atom+xml" title="Recent Comments on <$MTEntryTitle encode_html="1"$>" href="<$MTEntryPermalink$>.xml">
     <MTEntryPrevious><link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryPrevious>
     <MTEntryNext><link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryNext>

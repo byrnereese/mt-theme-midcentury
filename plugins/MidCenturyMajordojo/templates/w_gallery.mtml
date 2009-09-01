@@ -1,12 +1,3 @@
-<mt:IfImageSupport>
-<mt:Ignore>
-    Determine the actual number of image assets without including 
-    thumbnails and do not display the gallery widget unless there 
-    are image assets.
-</mt:Ignore>
-<mt:Assets type="image"><mt:SetVarBlock name="asset_count"><mt:var name="__counter__"></mt:SetVarBlock></mt:Assets>
-<mt:If name="asset_count" gt="0">
-
 <script type="text/javascript" charset="utf-8">
     // set starting point and ending point -- will show max of 10 images
     var currentItem = 1;
@@ -32,8 +23,22 @@
 </mt:Assets>
 <mt:else tag="SlideshowType" eq="Featured Entries">
 <mt:Entries tags="@featured" lastn="$scount"><mt:EntryAssets lastn="1">
+
+    <mt:ifnonempty tag="EntryFeaturedImage">
+      <mt:setvarblock name="aid"><mt:EntryFeaturedImage></mt:setvarblock>
+      <mt:setvarblock name="thumbnail"><mt:EntryFeaturedImageAsset id="$aid"><img src="<mt:CroppedAsset label="Entry Summary"><$mt:AssetURL$><mt:else><$mt:AssetThumbnailURL width="120"$></mt:CroppedAsset>" alt="<$mt:AssetLabel encode_html="1"$>" /></mt:EntryFeaturedImageAsset></mt:setvarblock>
+    <mt:else>
+      <mt:EntryAssets lastn="1" trim="1">
+      <mt:CroppedAsset label="Entry Summary">
+        <mt:setvarblock name="thumbnail"><img class="featured-thumbnail custom-crop" src="<$mt:AssetURL$>" width="120" height="120" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+      <mt:else>
+        <mt:setvarblock name="thumbnail"><img class="featured-thumbnail" src="<$mt:AssetThumbnailURL width="120" square="1"$>" width="120" height="120" alt="<$mt:AssetLabel$>" /></mt:setvarblock>
+      </mt:CroppedAsset>
+      </mt:EntryAssets>
+   </mt:ifnonempty>
+
     <div id="gallery-item-<mt:var name="__counter__">" class="gallery-item" <mt:if name="__first__">style="display: block;"</mt:if>>
-        <a class="asset-image" href="<$mt:EntryPermalink$>"><img src="<$mt:AssetThumbnailURL square="1" width="120"$>" class="asset-img-thumb" alt="<$mt:AssetLabel$>" title="<$mt:AssetLabel$>" /></a>
+        <mt:if name="thumbnail" ne=""><a class="asset-image" rel="bookmark" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>"><$mt:var name="thumbnail"$></a></mt:if>
         <h3><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></h3>
         <div class="asset-description"><$mt:EntryExcerpt words="50"$></div>
     </div>
@@ -50,5 +55,3 @@
     </div></div>
     </div>
 </div> 
-</mt:If>
-</mt:IfImageSupport>
