@@ -229,18 +229,6 @@ template_sets:
         type: text
         obj_type: entry
         tag: EntryHTMLTitle
-#      redirect_url:
-#        name: "Redirect URL"
-#        description: "Enter a URL to redirect this entry to. Used when this article is republished somewhere else."
-#        type: url
-#        obj_type: entry
-#        tag: EntryRedirectURL
-#      page_redirect_url:
-#        name: "Redirect URL"
-#        description: "Enter a URL to redirect this page to. Used when this article is republished somewhere else."
-#        type: url
-#        obj_type: page
-#        tag: PageRedirectURL
       google_news_cat:
         name: "Google News Category"
         description: "Choosing a Google News Category can greatly increase your post's chances of appearing on the Google News front page."
