@@ -438,7 +438,7 @@ template_sets:
         m_userpic:
           label: 'Userpic (Mobile)'
 
-        contact_form:
+        contact_form_inc:
           label: 'Contact Form'
         related_entries:
           label: 'Related Entries'
@@ -476,7 +476,7 @@ template_sets:
         w_tags:
           label: 'Tags'
         w_elsewhere:
-          label: 'Elsewhere'
+          label: 'Profiles Elsewhere'
         w_page_side_navigation:
           label: 'Page Side Navigation'
         w_powered_by:
@@ -513,7 +513,7 @@ template_sets:
           widgets:
              - 'Following'
              - 'Followed By'
-             - 'Elsewhere'
+             - 'Profiles Elsewhere'
              - 'Ad (Med Rectangle)'
         3col-top:
           label: 'Generic 3 Column (Above)'
@@ -558,7 +558,7 @@ template_sets:
           widgets:
              - 'Page Side Navigation'
              - 'Ad (Med Rectangle)'
-        elsewhere:
+        elsewhere_ws:
           label: 'Elsewhere'
           widgets:
              - 'Slideshow'
