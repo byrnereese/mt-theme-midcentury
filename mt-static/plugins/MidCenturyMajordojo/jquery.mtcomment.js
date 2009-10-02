@@ -24,7 +24,9 @@
         // initialize the overlay
         f.append('<div class="spinner"></div><div class="spinner-status"></div>');
         // clear focus event, and initialize the 'Leave a comment...' message
-        f.find('textarea').unbind('focus').val(settings.leaveCommentMsg).focus( function() { $(this).val(''); } );
+        f.find('textarea').unbind('focus').val(settings.leaveCommentMsg).focus( function() { 
+		if ($(this).val() == settings.leaveCommentMsg) $(this).val(''); 
+        });
         // for now, let's kill the preview button
         // in the future this will only happen when live previews are activated
         f.find('input.comment-preview').hide();

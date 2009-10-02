@@ -19,7 +19,8 @@ $(document).ready(function(){
       });
     };
     $('#greeting').greet({
-        mode: 'mtpro'
+        mode: 'mtpro',
+        indicator: mt.blog.staticWebPath+'plugins/MidCenturyMajordojo/indicator.black.gif'
     });
     if ($('#comments-form') || $('#contact-form')) {
       $('#comment-greeting').greet({
@@ -27,6 +28,7 @@ $(document).ready(function(){
         loggedOutMessage: (mt.blog.registration.required ? '%i to leave a comment.' : '%i to create a custom profile for yourself.\
 '),
         loginText: 'Sign in',
+        indicator: mt.blog.staticWebPath+'images/indicator.white.gif',
         mode: 'mtpro',
         entryId: $('#comments-form input[name=entry_id]').val(),
         editProfileText: 'edit profile',

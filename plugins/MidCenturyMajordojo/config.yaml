@@ -266,6 +266,7 @@ template_sets:
               preferred: 1
         monthly_entry_listing:
           label: 'Monthly'
+          filename: *
           mappings:
             monthly:
               archive_type: Monthly
