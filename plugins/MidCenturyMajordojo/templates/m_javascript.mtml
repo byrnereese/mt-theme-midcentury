@@ -247,7 +247,6 @@ function mtCommentOnSubmit(f) {
             mtFetchUser('mtCommentSessionVerify');
             return false;
         }
-
         return true;
     }
     return false;
@@ -286,11 +285,14 @@ function mtUserOnLoad() {
         // field is visible
         // populate anonymous comment fields if user is cookied as anonymous
         var cf = document['comments_form'];
-        if (cf                cf.sid.value = u.sid;
-            if (cf.armor)
+        if (cf) {
+            cf.sid.value = u.sid;
+            if (cf.armor) {
                 cf.armor.value = '<$mt:BlogSitePath encode_sha1="1"$>';
-            if (cf.post.disabled)
+            }
+            if (cf.post.disabled) {
                 cf.post.disabled = false;
+            }
             mtRequestSubmitted = false;
         }
     }

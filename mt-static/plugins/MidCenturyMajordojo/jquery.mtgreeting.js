@@ -11,6 +11,7 @@
 	    editProfileText:     '%u',
             linkClass: 'button',
             mode: 'mtos',
+            indicator:           mt.blog.staticWebPath+'images/indicator.white.gif',
             isPreview: false,
 	    returnToURL: null, 
 	    /* Events and Callbacks */
@@ -106,7 +107,7 @@
 	    return false;
 	};
 	function _onSignInClick(e) {
-	  var phrase = 'Signing in... <img src="'+mt.blog.staticWebPath+'images/indicator.white.gif" height="16" width="16" alt="" />';
+	  var phrase = 'Signing in... <img src="'+settings.indicator+'" height="16" width="16" alt="" />';
 	  var target = e.parent().parent();
 	  target.html(phrase);
 	  $.fn.movabletype.clearUser(); // clear any 'anonymous' user cookie to allow sign in

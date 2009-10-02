@@ -1,5 +1,10 @@
 #header-ad { margin: 0 auto 0 auto; text-align: center; padding: 15px 0 0 0; }
 
+.fb_popupContainer {
+  z-index: 9000;  /* ITS Z-INDEX IS OVER NINE-THOUSAND?!?! */
+}
+a.fbconnect_login_button { text-decoration: none; }
+
 #auth-options { margin-bottom: 10px; float: left; }
 #auth-options .auth-button,
 #auth-options form { 
@@ -274,7 +279,7 @@ img.featured-thumbnail {
     border: 1px solid #666;
     border-bottom: 1px solid #888;
     border-right: 1px solid #888;
-    color: #fff;
+    color: #000;
 }
 
 #greeting {
