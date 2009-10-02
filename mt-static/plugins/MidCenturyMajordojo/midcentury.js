@@ -35,6 +35,15 @@ $(document).ready(function(){
         logoutText: 'sign out'
         //,returnToURL: returnto
       });
+      if (mt.blog.registration.required) {
+	  $('#comments-form').onauthchange( function(e,u) {
+		  if (!u.is_authenticated) {
+		      $(this).hide();
+		  } else {
+		      $(this).show();
+		  }
+	      });
+      }
       $('#comments-open-data').onauthchange( function(e,u) {
 	      if (u.is_authenticated) { $(this).hide(); } else { $(this).show(); } 
 	  });
