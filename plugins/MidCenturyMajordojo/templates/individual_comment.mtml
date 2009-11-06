@@ -15,18 +15,18 @@
                 <span class="byline">
                     <$mt:CommentAuthorIdentity$>
 <mt:IfThreadedComments>
-                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$>"><$mt:CommentAuthor$></a></span>
+                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$><$mt:CommenterID$>"><$mt:CommentAuthor$></a></span>
 <mt:Else>
   <mt:IfCommentParent>
-                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$>"><$mt:CommentAuthor$></a></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent></a>
+                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$><$mt:CommenterID$>"><$mt:CommentAuthor$></a></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent></a>
   <mt:Else>
-                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$>"><$mt:CommentAuthor$></a></span>
+                    <span class="vcard author"><a href="<$mt:var name="profile_view_url"$><$mt:CommenterID$>"><$mt:CommentAuthor$></a></span>
   </mt:IfCommentParent>
 </mt:IfThreadedComments>
                     | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$mt:CommentDate format_name="iso8601"$>"><$mt:CommentDate$></abbr></a>
                 </span>
                 <span class="actions">
-                    <a title="View Profile" href="<$mt:var name="profile_view_url"$>" class="view-profile">View Profile</a>
+                    <a title="View Profile" href="<$mt:var name="profile_view_url"$><$mt:CommenterID$>" class="view-profile">View Profile</a>
 
 
 <mt:ShowFollowLinks>
