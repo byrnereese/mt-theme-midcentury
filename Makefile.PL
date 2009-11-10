@@ -5,7 +5,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME            => 'Mid-Century',
-    VERSION         => '2.0.12',
+    VERSION         => '2.0.13',
     DISTNAME        => 'MidCentury',
 );
 
