@@ -92,7 +92,15 @@ a.fbconnect_login_button { text-decoration: none; }
   margin-top: -35px;
 }
 .asset-footer iframe { float:left; margin: 0 10px 0 0; }
-pre { overflow: auto; }
+pre {
+   background: #F4F5F5 none repeat scroll 0 0;
+   border: 1px solid #CCC;
+   border-width: 1px 0;
+   margin-bottom: 15px;
+   overflow: auto;
+   padding: 10px;
+   width: auto;
+}
 .pullquote { float:right; font-size: 18px; font-family: serif; width: 250px; padding: 5px 0 5px 20px; }
 
 h1#page-title { font-size: 2em; }
