@@ -1,4 +1,4 @@
-package MidCenturyMajordojo::Plugin;
+package MidCentury::Plugin;
 
 use strict;
 use Carp qw( croak );

@@ -1,11 +1,12 @@
-id: 'MidCenturyMajordojo'
+id: 'MidCentury'
+key: 'MidCentury'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
 version: 2.0.13
 
 tags:
   block:
-    IfPluginInstalled?: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::_hdlr_plugin_installed
+    IfPluginInstalled?: $MidCentury::MidCentury::Plugin::_hdlr_plugin_installed
 
 template_sets:
   mid-century-majordojo:
@@ -208,7 +209,7 @@ template_sets:
         tag: 'IfTwitterAuth?'
         default: 1
         fieldset: entries
-        condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_twitter
+        condition: $MidCentury::MidCentury::Plugin::if_twitter
       enable_facebook_auth:
         type: checkbox
         label: 'Enable Facebook Auth?'
@@ -216,7 +217,7 @@ template_sets:
         tag: 'IfFacebookAuth?'
         default: 1
         fieldset: entries
-        condition: $MidCenturyMajordojo::MidCenturyMajordojo::Plugin::if_facebook
+        condition: $MidCentury::MidCentury::Plugin::if_facebook
       enable_mobile:
         type: checkbox
         label: 'Enable Mobile?'

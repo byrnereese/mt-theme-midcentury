@@ -20,7 +20,7 @@ $(document).ready(function(){
     };
     $('#greeting').greet({
         mode: 'mtpro',
-        indicator: mt.blog.staticWebPath+'plugins/MidCenturyMajordojo/indicator.black.gif'
+        indicator: mt.blog.staticWebPath+'plugins/MidCentury/indicator.black.gif'
     });
     if ($('#comments-form') || $('#contact-form')) {
       $('#comment-greeting').greet({
