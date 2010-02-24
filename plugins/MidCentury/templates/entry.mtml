@@ -35,6 +35,17 @@
     <mt:if tag="EntryGalleryAssetCount" gt="0">
     <script src="<mt:StaticWebPath>plugins/AssetGallery/blog/jquery.jcarousel.pack.js" type="text/javascript"></script>
     <script src="<mt:StaticWebPath>plugins/AssetGallery/blog/slideshow.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready( function() {
+      $('ul#more-in-this-gallery-inner').jcarousel({
+          scroll: 5,
+	  initCallback: slideshow_initCallback,
+		//	This tells jCarousel NOT to autobuild prev/next buttons
+		buttonNextHTML: null,
+		buttonPrevHTML: null
+      });
+    });
+    </script>
     </mt:if>
 </mt:IfPluginInstalled>
 </head>

@@ -3,6 +3,25 @@ key: 'MidCentury'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
 version: 2.1
+schema_version: 3
+
+upgrade_functions:
+  key_name_change:
+    version_limit: 4
+    priority: 1
+    updater:
+      type: plugindata
+      label: Updating Plugin Data keys...
+      condition: >
+          sub {
+             $_[0]->plugin eq 'MidCenturyMajordojo';
+          }
+      code: >
+          sub {
+             $_[0]->plugin('MidCentury');
+          }
+      sql: >
+          UPDATE mt_field SET plugindata_plugin = 'MidCentury' WHERE plugindata_plugin = 'MidCenturyMajordojo'
 
 tags:
   block:
@@ -60,7 +79,7 @@ template_sets:
           order: 8
       layout:
         type: select
-        values: 2-column,3-column
+        values: 2-columns,3-columns
         label: 'Page Layout'
         hint: 'Select the layout you want for this web site.'
         tag: 'MidCenturyLayout'
