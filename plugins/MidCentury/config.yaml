@@ -2,7 +2,7 @@ id: 'MidCentury'
 key: 'MidCentury'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 2.0.13
+version: 2.1
 
 tags:
   block:
