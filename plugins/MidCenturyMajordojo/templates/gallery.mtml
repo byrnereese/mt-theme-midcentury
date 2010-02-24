@@ -1,0 +1,62 @@
+<mt:setvartemplate name="slide_url"><mt:section trim="1">
+  <mt:CroppedAsset label="Slideshow Slide">
+    <$mt:AssetURL$>
+  <mt:Else>
+    <mt:setvarblock name="w"><$mt:AssetProperty property="image_width"$></mt:setvarblock>
+    <mt:setvarblock name="h"><$mt:AssetProperty property="image_height"$></mt:setvarblock>
+    <mt:if name="w" gt="$h">
+      <$mt:AssetThumbnailURL width="495"$>
+    <mt:else>
+      <$mt:AssetThumbnailURL height="328"$>
+    </mt:if>
+  </mt:CroppedAsset>
+</mt:section></mt:setvartemplate>
+<div class="gallery-item pkg" id="<$mt:EntryTitle dirify="1"$>">
+  <div class="gallery-item-inner">
+    <div class="gallery-nav">
+      <span id="photo-number"><span class="current">1</span> of <span class="total"><$mt:EntryGalleryAssetCount$></span></span>
+			<div id="gallery-share">
+					<ul>
+							<li class="fb_share">
+<a name="fb_share" type="icon_link" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+							</li>
+							<li class="digg_share">
+								<a name="digg_share" href="http://digg.com/submit?url=<$mt:EntryPermalink$>&title=<$mt:EntryTitle$>">Digg</a>
+							</li>
+							<mt:Ignore>
+							<li class="tweet_share">
+								<a name="tweet_share" href="http://www.twitter.com/home?status=RT+@byrnereese:<$mt:EntryTitle$>+<$mt:EntryPermalink$>">Tweet</a>
+							</li>
+							</mt:Ignore>
+					</ul>
+			</div>
+
+      <span id="next"><a title="Next image" href="javascript:void(0)"><span>Next image</span></a></span>
+      <span id="previous"><a title="Previous image" href="javascript:void(0)"><span>Previous image</span></a></span>
+    </div>
+<mt:EntryGalleryAssets lastn="1">
+    <div class="gallery-slide">
+      <img class="slide current" src="<$mt:var name="slide_url"$>" alt="<$mt:AssetLabel encode_html="1"$>" />
+    </div>
+ <div id="gallery-more" class="pkg">
+    <div id="gallery-more-inner" class="pkg">
+      <h4>In this gallery</h4>
+			<div id="carousel-previous"><a href="javascript:void(0)"><span>More images | left</span></a></div>
+			<div id="carousel-next"><a href="javascript:void(0)"><span>More images | right</span></a></div>
+		<div id="more-in-this-gallery" class="pkg">
+	      <ul id="more-in-this-gallery-inner" class="pkg">
+
+	<mt:EntryGalleryAssets>
+	        <li<mt:if name="__first__"> class="selected"</mt:if>><a rel="slide" href="<$mt:var name="slide_url"$>" alt="<$mt:AssetLabel encode_html="1"$>" title="<$mt:AssetDescription encode_html="1"$>"><img src="<mt:CroppedAsset label="Slideshow Thumbnail"><$mt:AssetURL$><mt:Else><$mt:AssetThumbnailURL width="80" square="1"$></mt:CroppedAsset>" width="80" height="80" alt="Thumbnail for <$mt:AssetLabel encode_html="1"$>" /></a></li>
+	</mt:EntryGalleryAssets>
+	      </ul>
+		</div>
+    </div>
+  </div>
+    <div class="image-description">
+      <h4 class="image-title"><$mt:AssetLabel encode_html="1"$></h4>
+      <span class="image-caption"><$mt:AssetDescription encode_html="1"$></span>
+    </div>
+</mt:EntryGalleryAssets>
+  </div>
+</div>

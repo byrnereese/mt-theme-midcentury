@@ -20,6 +20,14 @@ template_sets:
         label: 'Slideshow'
         max_width: 120
         max_height: 120
+      gallery_slide:
+        label: 'Gallery Slide'
+        max_width: 495
+        max_height: 328
+      gallery_slide:
+        label: 'Gallery Thumbnail'
+        max_width: 80
+        max_height: 80
     options:
       fieldsets:
         frontdoor:
@@ -229,6 +237,12 @@ template_sets:
         type: text
         obj_type: entry
         tag: EntryHTMLTitle
+      gallery:
+        name: "Gallery"
+        description: "A slideshow to embed in a post."
+        type: asset_gallery
+        obj_type: entry
+        tag: EntryGallery
       google_news_cat:
         name: "Google News Category"
         description: "Choosing a Google News Category can greatly increase your post's chances of appearing on the Google News front page."
@@ -236,8 +250,8 @@ template_sets:
         options: American Football,Arts,Athletics,Automotive,Badminton,Baseball,Basketball,Books,Boxing,Business,Celebrities,College Baseball,College Basketball,College Football,College Sports,Companies,Computing,Cricket,Culture,Cycling,Economy,Education,Entertainment,Environment,Field Hockey,Food and Beverage,Geography,Golf,Handball,Headlines,Health,High School Sports,Home and Garden,Humor,Ice Hockey,Industry,Internet,Legal,Lifestyle,Local,Markets,Movies,Music,Nation,Olympics,Op/Ed,Personal Technology,Politics,Racing,Religion,Rugby,Satire,Science,Soccer,Space,Sports,Table Tennis,Technology,Tennis,Theater,Travel,TV,Video Games,Weird News,World
         obj_type: entry
         tag: EntryGoogleNewsCategory
-    templates:
 
+    templates:
       archive:
         m_category_entry_listing:
           label: 'Category (Mobile)'
@@ -427,6 +441,8 @@ template_sets:
         m_userpic:
           label: 'Userpic (Mobile)'
 
+        gallery:
+          label: 'Gallery'
         contact_form_inc:
           label: 'Contact Form'
         related_entries:
