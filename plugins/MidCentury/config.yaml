@@ -287,7 +287,6 @@ template_sets:
               preferred: 1
         monthly_entry_listing:
           label: 'Monthly'
-          filename: *
           mappings:
             monthly:
               archive_type: Monthly
@@ -451,7 +450,7 @@ template_sets:
         gallery:
           label: 'Gallery'
         contact_form_inc:
-          label: 'Contact Form'
+          label: 'Contact Form Include'
         related_entries:
           label: 'Related Entries'
         messaging:
@@ -494,7 +493,7 @@ template_sets:
         w_powered_by:
           label: 'Powered By'
         w_monthly:
-          label: 'Monthly'
+          label: 'Monthly Archives'
         w_categories:
           label: 'Categories'
         w_about_me:
@@ -536,7 +535,7 @@ template_sets:
           label: 'Generic 3 Column (Left)' 
           widgets:
             - 'Categories'
-            - 'Monthly'
+            - 'Monthly Archives'
         3col-right:
           label: 'Generic 3 Column (Right)'
           widgets:
@@ -571,7 +570,7 @@ template_sets:
              - 'Page Side Navigation'
              - 'Ad (Med Rectangle)'
         elsewhere_ws:
-          label: 'Elsewhere'
+          label: 'Elsewhere Sidebar'
           widgets:
              - 'Slideshow'
              - 'Ad (Med Rectangle)'
@@ -584,6 +583,6 @@ template_sets:
              - 'Recent Actions'
              - 'Recent Entries'
         search:
-          label: 'Search Results'
+          label: 'Search Results Sidebar'
           widgets:
              - 'Ad (Med Rectangle)'
