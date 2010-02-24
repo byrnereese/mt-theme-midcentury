@@ -102,6 +102,12 @@ template_sets:
         hint: 'Enter in the javascript that will be placed at the bottom of every page.'
         tag: 'AnalyticsJavascript'
         fieldset: seo
+      home_title:
+        type: text
+        label: 'Home Title'
+        hint: 'The &lt;html&gt; title tag to use on the front door. Use keywords you want your site to score high in.'
+        tag: 'HomeTitle'
+        fieldset: seo
       ad_medium_rectangle:
         type: textarea
         rows: 5

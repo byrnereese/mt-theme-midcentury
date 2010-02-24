@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
-    <title><$MTBlogName encode_html="1"$></title>
+    <title><mt:if tag="HomeTitle" ne=""><$mt:HomeTitle$> : </mt:if><$MTBlogName encode_html="1"$></title>
     <$mt:include module="HTML Head"$>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$MTLink template="rsd"$>" />
 </head>
