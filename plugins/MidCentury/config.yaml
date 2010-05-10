@@ -2,7 +2,7 @@ id: 'MidCentury'
 key: 'MidCentury'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 2.1
+version: 2.2
 schema_version: 3
 static_version: 2
 
@@ -124,7 +124,7 @@ template_sets:
       about_me:
         type: textarea
         label: 'About Me'
-        hint: 'Enter in any HTML you want to appear in the "About Me" section of the site\'s footer.'
+        hint: "Enter in any HTML you want to appear in the 'About Me' section of the site's footer."
         tag: 'AboutMeText'
         fieldset: options
         default: 'Welcome to this web site powered by Mid-Century 2.0, a theme developed exclusively for Movable Type and Melody.'
@@ -319,25 +319,25 @@ template_sets:
           mappings:
             category:
               archive_type: Category
-              file_template: %-c/atom.xml
+              file_template: '%-c/atom.xml'
               is_preferred: 0
         category_entry_listing:
           label: 'Category'
           mappings:
             category:
               archive_type: Category
-              file_template: %-c/%i
+              file_template: '%-c/%i'
               preferred: 1
             category-monthly:
               archive_type: Category-Monthly
-              file_template: %-c/%y/%m/%i
+              file_template: '%-c/%y/%m/%i'
               preferred: 1
         monthly_entry_listing:
           label: 'Monthly'
           mappings:
             monthly:
               archive_type: Monthly
-              file_template: %y/%m/%i
+              file_template: '%y/%m/%i'
               preferred: 1
       index:
         m_category_archives:
@@ -417,35 +417,35 @@ template_sets:
           mappings:
             individual:
               archive_type: Individual
-              file_template: mobile/%y/%m/%-f
+              file_template: 'mobile/%y/%m/%-f'
               preferred: 0
         m_page:
           label: 'Page (Mobile)'
           mappings:
             page:
               archive_type: Page
-              file_template: mobile/%-c/%-f
+              file_template: 'mobile/%-c/%-f'
               preferred: 0
         comment_atom_feed:
           label: 'Feed (Comments)'
           mappings:
             individual:
               archive_type: 'Individual'
-              file_template: %y/%m/%-f.xml
+              file_template: '%y/%m/%-f.xml'
               preferred: 0
         entry:
           label: 'Entry'
           mappings:
             individual:
               archive_type: 'Individual'
-              file_template: %y/%m/%-f
+              file_template: '%y/%m/%-f'
               preferred: 1
         page:
           label: 'Page'
           mappings:
             page:
               archive_type: 'Page'
-              file_template: %-c/%-f
+              file_template: '%-c/%-f'
               preferred: 1
       system:
         inquiry_response:
