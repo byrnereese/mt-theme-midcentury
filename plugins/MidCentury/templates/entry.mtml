@@ -15,7 +15,7 @@
     </mt:if>
 </mt:IfPluginInstalled>
     <$mt:include module="HTML Head"$>
-    <script src="<mt:StaticWebPath>plugins/MidCentury/jquery.phpdate.js" type="text/javascript"></script>    
+    <script src="<$mt:PluginStaticWebPath component="MidCentury"$>jquery.phpdate.js" type="text/javascript"></script>    
     <link rel="alternate" type="application/atom+xml" title="Recent Comments on <$MTEntryTitle encode_html="1"$>" href="<$MTEntryPermalink$>.xml">
     <MTEntryPrevious><link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryPrevious>
     <MTEntryNext><link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>" rel="bookmark" /></MTEntryNext>

@@ -4,6 +4,26 @@ name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
 version: 2.1
 schema_version: 3
+static_version: 2
+
+blog_preferences:
+  midcentury_config:
+    label: "Mid-Century Recommended Config"
+    description: "This is the recommended configuration for the Mid-Century Theme."
+    order: 100
+    plugin_data:
+      MaxImageWidth:
+        max_image_width: 525
+    preferences:
+      include_cache: 1
+      include_system: php
+      words_in_excerpt: 40
+      basename_limit: 150
+      allow_pings_default: 0
+      allow_pings: 0
+      moderate_unreg_comments: 3
+      use_comment_confirmation: 1
+      commenter_authenticators: MovableType,Facebook,Twitter
 
 upgrade_functions:
   key_name_change:
@@ -29,8 +49,16 @@ tags:
 
 template_sets:
   mid-century-majordojo:
+    blog_preferences: midcentury_config
     base_path: templates
-    label: 'Mid-Century 2.0'
+    label: 'Mid-Century'
+    version: 2.0
+    author_name: Endevver
+    author_link: http://endevver.com/
+    thumbnail: midcentury-thumb.png
+    preview: midcentury-preview.png
+    description: A world-class theme designed for Movable Type by Jim Ramsey and enhanced for Movable Type Pro by Endevver. 
+    paypal_email: info@endevver.com
     thumbnail_prototypes:
       entry_summary:
         label: 'Entry Summary'

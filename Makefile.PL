@@ -3,9 +3,14 @@
 
 use ExtUtils::MakeMaker;
 
+use YAML::Any qw(LoadFile);
+my $file = "plugins/MidCentury/config.yaml";
+my $version = LoadFile($file)->{version} ||
+    die "No version found in $file";
+
 WriteMakefile(
     NAME            => 'Mid-Century',
-    VERSION         => '2.1',
+    VERSION         => $version,
     DISTNAME        => 'MidCentury',
 );
 
