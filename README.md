@@ -10,26 +10,26 @@ The Mid-Century theme for Movable Type Pro is a ground breaking theme for the Mo
 
 ## Prerequisites
 
-* Movable Type Pro 4.2 or greater
-* Config Assistant 1.8.3 or greater
-* Image Cropper
-* Auto Preferences
-* Custom CSS
-* Comment Subscribe
-* Order
-* Facebook Commenters
-* Twitter Commenters
+* [Movable Type Pro](http://www.movabletype.org/download.html) 4.2 or greater
+* [Config Assistant](http://github.com/byrnereese/mt-plugin-configassistant/downloads) 1.8.3 or greater
+* [Image Cropper](http://github.com/byrnereese/mt-plugin-imagecropper/downloads)
+* [Auto Preferences](http://github.com/byrnereese/mt-plugin-autoprefs/downloads)
+* [Custom CSS](http://github.com/byrnereese/mt-plugin-customcss/downloads)
+* [Comment Subscribe](http://github.com/byrnereese/mt-plugin-comment-subscribe/downloads)
+* [Order](http://markpasc.org/code/mt/order/)
+* [Facebook Commenters](http://github.com/byrnereese/mt-plugin-facebook-connect-commenters/downloads)
+* [Twitter Commenters](http://mt-hacks.com/twittercommenters.html)
 
 **Optional Plugins**
 
 Mid-Century provides enhanced capabilities to its users when one or more of the following plugins are installed:
 
-* Theme Manager (highly recommended)
-* Contact Forms
-* Asset Gallery
-* Assetylene
-* Media Manager
-* Max Image Width
+* [Theme Manager](http://github.com/endevver/mt-plugin-theme-manager/downloads) (highly recommended)
+* [Contact Forms](http://github.com/endevver/mt-plugin-contactforms/downloads)
+* [Asset Gallery](http://github.com/byrnereese/mt-plugin-assetgallery/downloads)
+* [Assetylene](http://plugins.movabletype.org/assetylene/)
+* [Media Manager](http://github.com/byrnereese/mt-plugin-mediamanager/downloads)
+* [Max Image Width](http://github.com/byrnereese/mt-plugin-maximagewidth/downloads)
 
 # Installation
 
