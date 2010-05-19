@@ -313,14 +313,14 @@ template_sets:
             category:
               archive_type: Category
               file_template: mobile/%-c/%i
-              is_preferred: 0
+              preferred: 0
         category_atom_feed:
           label: 'Feed (Category)'
           mappings:
             category:
               archive_type: Category
               file_template: '%-c/atom.xml'
-              is_preferred: 0
+              preferred: 0
         category_entry_listing:
           label: 'Category'
           mappings:
