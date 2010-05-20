@@ -19,6 +19,7 @@ The Mid-Century theme for Movable Type Pro is a ground breaking theme for the Mo
 * [Order](http://markpasc.org/code/mt/order/)
 * [Facebook Commenters](http://github.com/byrnereese/mt-plugin-facebook-connect-commenters/downloads)
 * [Twitter Commenters](http://mt-hacks.com/twittercommenters.html)
+* [Remote Commenters Schema](http://mt-hacks.com/remotecommentsschema.html)
 * [Asset Gallery](http://github.com/byrnereese/mt-plugin-assetgallery/downloads)
 
 **Optional Plugins**
