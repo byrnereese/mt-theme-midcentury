@@ -2,7 +2,7 @@ id: 'MidCentury'
 key: 'MidCentury'
 name: 'Mid-Century'
 description: 'A version of the Mid-Century Template Set.'
-version: 2.2
+version: 2.3
 schema_version: 3
 static_version: 2
 
