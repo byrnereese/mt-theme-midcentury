@@ -105,6 +105,27 @@ template_sets:
         mobile:
           label: 'Mobile'
           order: 8
+      page_width:
+        type: text
+        label: 'Page Width'
+        hint: 'The width of the entire page - usually the sum of the left and right column. The string should include the units as well, e.g. px, em, %.'
+        tag: PageWidth
+        fieldset: design
+        default: '940px'
+      left_col_width:
+        type: text
+        label: 'Main Column Width'
+        hint: 'The width of the main (left) column. The string should include the units as well, e.g. px, em, %.'
+        tag: MainColumnWidth
+        fieldset: design
+        default: '600px'
+      right_col_width:
+        type: text
+        label: 'Sidebar Width'
+        hint: 'The width of the sidebar (right) column. The string should include the units as well, e.g. px, em, %.'
+        tag: SidebarWidth
+        fieldset: design
+        default: '340px'
       layout:
         type: select
         values: 2-columns,3-columns
