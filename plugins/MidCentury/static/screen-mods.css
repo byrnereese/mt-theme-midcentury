@@ -108,6 +108,7 @@ h1#page-title { font-size: 2em; }
 .widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
 .widget-recent-actions li { margin: 7px 0 7px 0; font-family: Georgia; font-size: 13px; }
 
+.recent-comments-list li { width: 150px; }
 .2-column .widget-recent-comments ul li { background: url(sidebar-wide-bg-top.gif) no-repeat 0 0; }
 .2-column .widget-recent-comments ul li .comment-attribution { background: url(sidebar-wide-bg-bot.gif) no-repeat 0 0; }
 .3-column .widget-recent-comments ul li { background: url(sidebar-narrow-bg-top.gif) no-repeat 0 0; }
