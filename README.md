@@ -15,7 +15,7 @@ The Mid-Century theme for Movable Type Pro is a ground breaking theme for the Mo
 * [Image Cropper](http://github.com/endevver/mt-plugin-imagecropper/downloads)
 * [Auto Preferences](http://github.com/byrnereese/mt-plugin-autoprefs/downloads)
 * [Custom CSS](http://github.com/byrnereese/mt-plugin-customcss/downloads)
-* [Comment Subscribe](http://github.com/byrnereese/mt-plugin-comment-subscribe/downloads)
+* [Comment Subscribe](http://github.com/endevver/mt-plugin-comment-subscribe/downloads)
 * [Order](http://markpasc.org/code/mt/order/)
 * [Facebook Commenters](http://github.com/byrnereese/mt-plugin-facebook-connect-commenters/downloads)
 * [Twitter Commenters](http://mt-hacks.com/twittercommenters.html)
