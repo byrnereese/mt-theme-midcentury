@@ -47,6 +47,9 @@ tags:
   block:
     IfPluginInstalled?: $MidCentury::MidCentury::Plugin::_hdlr_plugin_installed
 
+callbacks:
+  blog_template_set_change: $MidCentury::MidCentury::Plugin::fix_archive_paths
+
 template_sets:
   mid-century-majordojo:
     blog_preferences: midcentury_config
