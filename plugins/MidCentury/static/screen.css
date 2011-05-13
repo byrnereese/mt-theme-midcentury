@@ -259,7 +259,7 @@ h2.archive-header {
 }
 #beta-columns-left,
 #beta-columns-right {
-    width: 150px;
+    width: 50%;
     float: left;
 }
 #beta-columns-left {
