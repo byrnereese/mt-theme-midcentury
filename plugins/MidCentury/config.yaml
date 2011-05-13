@@ -5,6 +5,7 @@ description: 'A version of the Mid-Century Template Set.'
 version: 2.3
 schema_version: 3
 static_version: 2
+l10n_class: MidCentury::L10N
 
 blog_preferences:
   midcentury_config:
